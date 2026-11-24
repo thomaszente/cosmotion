@@ -303,6 +303,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .sub-hero{padding:clamp(56px,8vw,110px) max(5vw,16px) 0}
 @media(max-width:700px){.work,.upc,.ev{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.marq{animation:none;flex-wrap:wrap;width:auto}}
+@media(max-width:600px){#cform .chips{justify-content:center}#cform .chips label{min-height:38px;padding:0 11px;font-size:13px;gap:6px}#cform .chips input{width:14px;height:14px}#cform legend{text-align:center;width:100%}#cform .tabs{justify-content:center}#cform .tabs button{min-height:38px;padding:0 13px;font-size:13px}}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -584,7 +585,7 @@ const F={
  artist:{l:'Artist or project name',t:'text'},links:{l:'Music links',t:'text',ph:'Spotify, SoundCloud, Instagram'},
  stage:{l:'Where you are now',t:'select',o:['Just starting out','Releasing music','Touring and booking','Established, ready to expand']},
  plan:{l:'Plan you\'re curious about',t:'radio',o:['Starter','Artist Growth Plan','Full Representation','Not sure yet']},
- needs:{l:'What you need',t:'check',o:['Artist development','Release strategy','Creative direction','EPK and digital presence','Promotion','Booking strategy','Career development','Creative consulting']},
+ needs:{l:'What you need',t:'check',o:['Artist development','Music programming & production support','Release strategy','Creative direction','EPK and digital presence','Promotion','Booking strategy','Career development','Creative consulting']},
  interest:{l:'I\'d like to',t:'radio',o:['Join the list','Attend gatherings','Perform or create','Volunteer or help','Host a gathering']},
  city:{l:'City',t:'text'},org:{l:'Organization or venue',t:'text'},
  kind:{l:'You are',t:'select',o:['Venue owner','Hospitality group','Brand','Festival organizer','Creative entrepreneur','Other']},
