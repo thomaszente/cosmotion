@@ -512,7 +512,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 /* ===== Content you can edit ===== */
 /* Add a release: copy a line, change the fields. Leave a link "" to show it as coming. */
 const RELEASES=[
-  {cat:'CM001',title:"Boomin' Now",artist:'ZENTI',date:'January 2026',status:'Out now',links:{Beatport:'https://www.beatport.com/release/boomin-now/5760495'}},
+  {cat:'CM001',title:"Boomin' Now",artist:'ZENTI',date:'January 2026',status:'Out now',art:'img/cm001.jpg',links:{Beatport:'https://www.beatport.com/release/boomin-now/5760495'}},
   {cat:'CM002',title:'',artist:'',date:'',status:'Coming soon',links:{}}
 ];
 
@@ -666,7 +666,7 @@ function cover(cat,i){
   return `<svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="${bg}"/>${rings}<path d="${d}" fill="none" stroke="#f1ece2" stroke-opacity=".75"/><circle cx="150" cy="150" r="10" fill="#f1ece2"/><text x="20" y="282" font-family="Oswald,sans-serif" font-size="22" fill="#f1ece2">${esc(cat)}</text><text x="280" y="282" text-anchor="end" font-family="Manrope,sans-serif" font-size="11" fill="#c9a86a">COSMOTION MUSIC</text></svg>`;
 }
 const disc=`<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#0c0c0c"/>${[92,84,76,68,60,52].map(r=>`<circle cx="100" cy="100" r="${r}" fill="none" stroke="#222"/>`).join('')}<circle cx="100" cy="100" r="34" fill="#c9a86a"/><circle cx="100" cy="100" r="3" fill="#0c0c0c"/><path d="M100 70 A30 30 0 0 1 128 90" stroke="#f1ece2" stroke-opacity=".5" fill="none"/></svg>`;
-document.getElementById('rels').innerHTML=RELEASES.map((r,i)=>`<article class="rel"><div class="sleeve"><div class="disc">${disc}</div><div class="cover">${cover(r.cat,i)}</div></div>
+document.getElementById('rels').innerHTML=RELEASES.map((r,i)=>`<article class="rel"><div class="sleeve"><div class="disc">${disc}</div><div class="cover">${r.art?`<img src="${esc(r.art)}" alt="${esc(r.cat)} cover art" style="width:100%;height:100%;object-fit:cover">`:cover(r.cat,i)}</div></div>
   <div class="meta"><div class="cat">${esc(r.cat)} · ${esc(r.status)}${r.date?' · '+esc(r.date):''}</div><h3>${r.title?esc(r.title):'<span class="ph">Title to come</span>'}</h3>
   <div class="who">${r.artist?esc(r.artist):'<span class="ph">Artist credit to add</span>'}</div>
   <div class="links">${Object.entries(r.links).map(([k,u])=>u?`<a href="${esc(u)}">${esc(k)}</a>`:`<span>${esc(k)} link to add</span>`).join('')||'<span>Listening links on release</span>'}</div></div></article>`).join('');
