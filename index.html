@@ -257,6 +257,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .soc svg{width:20px;height:20px}
 .fmail{margin:0;color:var(--dim);font-size:14px}
 @media(max-width:600px){.chatin{grid-template-columns:minmax(0,1fr);justify-items:start}}
+#merch,#give,#chat{padding-block:clamp(36px,5vw,64px)}
+#merch h2,#give h2,#chat h2{font-size:clamp(28px,3.4vw,40px)}
+#merch .mgrid{margin-top:22px;max-width:820px}
+#merch .mcard{padding:20px}
+#merch .mart{width:min(130px,50%);margin-bottom:12px}
+#merch .mcard h3{font-size:clamp(22px,2.2vw,28px)}
+#chat .chatmark{width:clamp(80px,9vw,104px)}
+#chat .chatin{max-width:760px}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
