@@ -236,6 +236,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .names li:not(:last-child)::after{content:"";display:inline-block;width:6px;height:6px;border:1px solid var(--gold);transform:rotate(45deg);margin:0 18px 6px}
 .names li:hover{color:var(--gold)}
 .names.collab li{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;text-transform:none;font-size:clamp(22px,2.4vw,32px);color:var(--silver)}
+.mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
+.mcard{border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,36px);background:var(--panel);display:flex;flex-direction:column;align-items:center;text-align:center;transition:border-color .3s}
+.mcard:hover{border-color:var(--gold)}
+.mart{width:min(220px,60%);aspect-ratio:1;margin-bottom:18px}
+.mart svg{width:100%;height:100%;display:block}
+.msoon{display:inline-block;border:1px dashed rgba(201,168,106,.6);color:var(--gold);border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;margin:0 0 12px}
+.mcard h3{font-size:clamp(28px,3vw,38px);font-weight:300}
+@media(max-width:600px){.mgrid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -394,6 +402,24 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     </div>
   </div>
 </section>
+<section class="band merch" id="merch">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kick">Merch</p>
+        <h2>Coming soon</h2>
+      </div>
+      <div>
+        <p class="mute">Two new objects from the COSMOTION orbit are on their way. The list hears first.</p>
+        <a class="btn" href="#connect" data-type="event">Join the list</a>
+      </div>
+    </div>
+    <div class="mgrid">
+      <article class="mcard"><div class="mart"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#c9a86a" stroke-width="1.2"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="80" stroke-opacity=".5"/><circle cx="100" cy="100" r="46"/><path d="M100 12V40M100 160V188M12 100H40M160 100H188" stroke-opacity=".6"/><path d="M100 54 L140 123 L60 123Z" stroke-opacity=".7"/><path d="M100 146 L60 77 L140 77Z" stroke-opacity=".7"/></g><circle cx="100" cy="100" r="7" fill="#f1ece2"/></svg></div><p class="msoon">Coming soon</p><h3>COSMONOS</h3></article>
+      <article class="mcard"><div class="mart"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#c9a86a" stroke-width="1.2"><path d="M86 30H114M90 30V70L58 128A26 26 0 0 0 81 168H119A26 26 0 0 0 142 128L110 70V30"/><path d="M70 124H130" stroke-opacity=".6"/><circle cx="100" cy="100" r="88" stroke-opacity=".35"/></g><g fill="#f1ece2"><circle cx="92" cy="146" r="3"/><circle cx="108" cy="138" r="2"/><circle cx="102" cy="154" r="2.4"/></g><circle cx="100" cy="18" r="3" fill="#c9a86a"/></svg></div><p class="msoon">Coming soon</p><h3>COSMOTION Potions</h3></article>
+    </div>
+  </div>
+</section>
 
 <section class="band" id="artists">
   <div class="wrap">
@@ -535,7 +561,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <footer><div class="wrap">
   <div><img src="img/wordmark.svg" alt="COSMOTION"><p style="margin:0 0 6px;color:var(--gold)" class="serif">Mystical Music Movement</p><p style="margin:0">A creative ecosystem of music, art, culture and community.</p></div>
   <div><b>Pillars</b><a href="#experiences">Experiences</a><a href="#music">Music</a><a href="#artists">Artists</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
-  <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#legacy">A decade</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
+  <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#legacy">A decade</a><a href="#merch">Merch</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
   <div><b>Contact</b><span>cosmotionevents@gmail.com</span><a href="https://instagram.com/cosmotion.space">Instagram @cosmotion.space</a><a href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a href="https://linktr.ee/cosmotion.space">All links</a></div>
 </div></footer>
 
