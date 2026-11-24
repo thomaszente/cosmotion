@@ -4,102 +4,194 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>COSMOTION</title>
+<meta name="description" content="COSMOTION is a creative ecosystem founded in Austin in 2015: immersive experiences, an independent electronic label, artist development, creative direction and community.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE occasion: sacred, nocturnal, quietly powerful; a conscious agency, not a nightclub flyer
-   IDEA an engraved celestial chart: gold line-work wheels, a sun, orbits; the brand's halo logo set inside its own sky
-   PICTURE a live rotating astrolabe with stardust that bends to the cursor; services and release cycle as working instruments
-   COLOUR black #050505 ground, bone #f1ece2 ink (the logo's colour), antique gold #c9a86a line-work only, event photos for warmth
-   TYPE Anton (matches the condensed logo) + Cormorant Garamond italic for the sacred voice + Manrope text
-   LAYOUT centred halo hero like the logo; then alternating text beside instruments; phone stacks title, picture, controls */
-:root{color-scheme:dark;--bg:#050505;--ink:#f1ece2;--dim:#a39d92;--gold:#c9a86a;--line:rgba(241,236,226,.14);--panel:#100f0d}
+/* VOICE occasion: premium international collective; grounded, underground, quietly mystical
+   IDEA an engraved celestial atlas: every part of COSMOTION is a body in one orbital system
+   PICTURE a live 3D astrolabe that tilts with the cursor; pillars orbit in depth; principles on a nine-point star; a living community constellation
+   COLOUR black ground, bone ink from the logo, antique gold linework, silver secondary, one deep-violet field for the label
+   TYPE Anton (matches the condensed wordmark) + Cormorant Garamond italic voice + Manrope text
+   LAYOUT halo hero then audience pathways; editorial alternating text and instruments; phone stacks title, picture, controls */
+:root{color-scheme:dark;--bg:#050505;--ink:#f1ece2;--dim:#a39d92;--gold:#c9a86a;--silver:#c5c8cf;--vfield:#110c22;--vio:#9d8fe0;--line:rgba(241,236,226,.13);--panel:#0e0d0c}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif;overflow-x:clip}
 a{color:inherit}
 img{max-width:100%;display:block}
 h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;line-height:1.05;letter-spacing:.01em;margin:0;text-transform:uppercase;text-wrap:balance}
-h2{font-size:clamp(34px,5vw,58px)}
+h2{font-size:clamp(36px,5.4vw,64px)}
 h3{font-size:24px}
-p{margin:0 0 14px;max-width:62ch}
+p{margin:0 0 14px;max-width:64ch}
 .serif{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500}
-.band{padding-block:clamp(56px,8vw,112px);padding-inline:max(5vw,16px)}
+.kick{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:22px;color:var(--gold);margin:0 0 10px}
+.band{padding-block:clamp(64px,9vw,128px);padding-inline:max(5vw,16px)}
 .wrap{max-width:1240px;margin:0 auto}
 .mute{color:var(--dim)}
-.lead{font-size:clamp(22px,2.6vw,30px);line-height:1.3;color:var(--ink)}
-.fig{position:relative;min-height:380px}
-.fig>canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-button,.btn{font:700 15px Manrope,sans-serif;color:var(--ink);background:transparent;border:1px solid rgba(241,236,226,.3);border-radius:999px;min-height:44px;padding:0 20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.lead{font-size:clamp(22px,2.6vw,30px);line-height:1.3}
+.note{font-size:13px;color:var(--dim)}
+.fig{position:relative;min-height:400px}
+.fig>canvas,.fig>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+button,.btn{font:700 15px Manrope,sans-serif;color:var(--ink);background:transparent;border:1px solid rgba(241,236,226,.3);border-radius:999px;min-height:44px;padding:0 20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:border-color .2s,background .2s}
 button:hover,.btn:hover{border-color:var(--ink)}
 .btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button[aria-pressed=true],button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:disabled{opacity:.45;cursor:not-allowed}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-nav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;padding:12px max(5vw,16px);background:rgba(5,5,5,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.top{align-items:start}
+
+nav{position:sticky;top:0;z-index:9;display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;padding:12px max(5vw,16px);background:rgba(5,5,5,.84);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .logo{margin-right:auto;display:flex;align-items:center}
 nav .logo img{height:22px;width:auto}
 nav a:not(.logo){text-decoration:none;font-size:15px;color:var(--dim);padding:8px 0}
-nav a:not(.logo):hover{color:var(--ink)}
-.hero{position:relative;padding:0 max(5vw,16px) clamp(40px,6vw,72px);text-align:center}
-.sky{position:relative;height:min(76svh,740px);min-height:420px;margin:0 calc(-1*max(5vw,16px))}
+nav a:not(.logo):hover,nav a.on{color:var(--ink)}
+
+.hero{position:relative;padding:0 max(5vw,16px) clamp(36px,5vw,64px);text-align:center}
+.sky{position:relative;height:min(74svh,740px);min-height:420px;margin:0 calc(-1*max(5vw,16px))}
 .sky canvas{position:absolute;inset:0;width:100%;height:100%}
-.sky img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(78vw,640px);pointer-events:none;filter:drop-shadow(0 0 24px rgba(0,0,0,.9))}
-.hero h1{font:700 clamp(15px,1.6vw,17px) Manrope,sans-serif;color:var(--gold);margin:0 0 10px}
-.hero .serif{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0 auto 26px;max-width:22ch}
-.ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center}
-.mission{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mission .lead{max-width:30ch}
-.word{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;font:400 clamp(30px,4vw,44px)/1.1 Anton,sans-serif;text-transform:uppercase;margin:4px 0 18px}
+.sky img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(78vw,640px);pointer-events:none;filter:drop-shadow(0 0 26px rgba(0,0,0,.95))}
+.hero .place{font:700 15px Manrope,sans-serif;color:var(--gold);margin:0 0 8px}
+.hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(34px,5vw,58px);line-height:1.05;margin:0 0 14px}
+.hero .intro{margin:0 auto 28px;max-width:58ch;color:var(--dim);font-size:17px}
+.paths{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:1240px;margin:0 auto;text-align:left}
+.path{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border:1px solid var(--line);border-radius:16px;text-decoration:none;background:var(--panel);transition:border-color .2s,transform .2s;min-height:96px}
+.path:hover{border-color:var(--gold);transform:translateY(-2px)}
+.path b{font:400 18px Anton,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.path span{font-size:14px;color:var(--dim)}
+
+.eco{border-top:1px solid var(--line)}
+.word{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;font:400 clamp(28px,3.6vw,40px)/1.1 Anton,sans-serif;text-transform:uppercase;margin:18px 0 16px}
 .word span{color:var(--dim)}
 .word em{font-style:normal;color:var(--gold)}
 .modes{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .cap{color:var(--dim);margin-top:14px;min-height:3.2em;font-size:15px}
+
+.phil{background:#0a0908}
+.star{aspect-ratio:1;width:100%;max-width:560px;margin:0 auto;position:relative}
+.star svg{width:100%;height:100%;display:block}
+.star .node{cursor:pointer}
+.star .node circle{transition:r .2s}
+.prin{border-top:1px solid var(--gold);padding-top:18px;min-height:190px}
+.prin .n{font:400 18px Anton,sans-serif;color:var(--gold)}
+.prin h3{font-size:clamp(28px,3vw,38px);margin:6px 0 10px}
+.phones{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;align-items:center;margin-top:26px;padding:18px;border:1px solid var(--line);border-radius:16px}
+.phones svg{width:56px;height:56px}
+.phones p{margin:0;font-size:15px;color:var(--dim)}
+
 .svc{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
 .panel{border-top:1px solid var(--gold);padding-top:18px}
-.panel .k{color:var(--gold);font-size:15px;font-weight:700}
-.panel h3{font-size:34px;margin:4px 0 12px}
-.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
-.panel li{padding-left:22px;position:relative}
-.panel li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border:1px solid var(--gold);border-radius:50%}
-.moonwrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.panel .k{color:var(--gold);font-family:"Cormorant Garamond",serif;font-style:italic;font-size:20px}
+.panel h3{font-size:36px;margin:2px 0 10px}
+
+.split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start}
+.formats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;margin:26px 0}
+.formats div{border-top:1px solid var(--line);padding-top:12px}
+.formats b{display:block;font:400 19px Anton,sans-serif;text-transform:uppercase;margin-bottom:4px}
+.formats span{font-size:15px;color:var(--dim)}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:34px 0}
+.nums b{display:block;font:400 clamp(42px,5.6vw,76px)/1 Anton,sans-serif;white-space:nowrap}
+.nums span{display:block;margin-top:8px;color:var(--dim);font-size:15px}
+.gal{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.gal figure{flex:none;margin:0;scroll-snap-align:start;height:clamp(260px,38vw,440px)}
+.gal img{height:100%;width:auto;border-radius:14px;object-fit:cover}
+.galctl{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+
+.label{background:var(--vfield)}
+.label .kick{color:var(--vio)}
+.sonic{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 6px}
+.sonic span{border:1px solid rgba(157,143,224,.45);border-radius:999px;padding:7px 14px;font-size:14px}
+.rels{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,300px));gap:22px;margin-top:38px}
+.rel{position:relative}
+.sleeve{position:relative;aspect-ratio:1;border-radius:6px;overflow:visible}
+.sleeve .disc{position:absolute;inset:4%;border-radius:50%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.sleeve .disc svg{width:100%;height:100%;display:block;animation:spin 6s linear infinite paused}
+.sleeve .cover{position:absolute;inset:0;border-radius:6px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.sleeve .cover svg{width:100%;height:100%;display:block}
+.rel:hover .disc,.rel:focus-within .disc{transform:translateX(30%)}
+.rel:hover .disc svg,.rel:focus-within .disc svg{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rel .meta{margin-top:16px}
+.rel .cat{color:var(--vio);font-weight:700;font-size:14px}
+.rel h3{font-size:28px;margin:2px 0 2px}
+.rel .who{font-size:15px;color:var(--dim)}
+.rel .ph{font-style:italic;color:#8a83a8}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.links a,.links span{font-size:13px;font-weight:700;border:1px solid rgba(241,236,226,.25);border-radius:999px;padding:6px 12px;text-decoration:none}
+.links span{color:#8a83a8;border-style:dashed}
+.lblrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:40px}
+.lblrow>div{border:1px solid rgba(157,143,224,.3);border-radius:18px;padding:24px}
+
+.svcs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 32px;margin-top:30px}
+.svcs div{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px}
+.svcs i{width:26px;height:26px;border:1px solid var(--gold);border-radius:50%;position:relative;margin-top:4px}
+.svcs i::after{content:"";position:absolute;width:6px;height:6px;background:var(--gold);border-radius:50%;top:-3px;left:9px}
+.svcs b{display:block;font-size:17px}
+.svcs span{font-size:15px;color:var(--dim)}
+.boutique{margin-top:30px;padding:20px 22px;border-left:2px solid var(--gold);background:var(--panel);border-radius:0 14px 14px 0;font-size:15px;color:var(--dim)}
+.moonwrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center;margin-top:clamp(56px,7vw,96px)}
 .moon{aspect-ratio:1;max-width:440px;width:100%;margin:0 auto}
 .moon svg{width:100%;height:100%;display:block}
 input[type=range]{width:100%;accent-color:var(--gold);height:44px}
 .phases{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px}
 .phases button{padding:0 2px;border-radius:10px;font-size:13px;font-weight:500}
-.stage .k{color:var(--gold);font-weight:700;margin-top:26px}
+.stage .k{color:var(--gold);font-weight:700;margin-top:24px}
 .stage h3{font-size:clamp(32px,3.6vw,44px);margin:4px 0 12px}
-.pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:36px}
+.pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:clamp(56px,7vw,96px)}
 .plan{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column}
 .plan.feat{border-color:var(--gold)}
-.plan svg{width:84px;height:84px;margin-bottom:18px}
+.plan svg{width:80px;height:80px;margin-bottom:18px}
 .plan .t{color:var(--gold);font-size:15px;font-weight:700;margin-bottom:4px}
 .plan h3{font-size:30px;margin-bottom:10px}
 .plan p{color:var(--dim);font-size:15px}
 .plan ul{margin:0 0 22px;padding:0 0 0 18px;flex:1}
 .plan li{margin-bottom:6px}
 .plan .btn{align-self:flex-start}
-.tools{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:15px}
-.tools b{color:var(--ink)}
-.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:30px 0 36px}
-.nums b{display:block;font:400 clamp(44px,6vw,80px)/1 Anton,sans-serif;white-space:nowrap}
-.nums span{display:block;margin-top:8px;color:var(--dim);font-size:15px}
-.gal{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
-.gal figure{flex:none;margin:0;scroll-snap-align:start;height:clamp(260px,40vw,440px)}
-.gal img{height:100%;width:auto;border-radius:14px;object-fit:cover}
-.galctl{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
-.steps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:22px}
-.steps li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;align-items:start}
-.steps .n{width:52px;height:52px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:400 22px Anton,sans-serif;color:var(--gold)}
-.steps h3{font-size:22px;margin:4px 0 4px}
+
+.creative{background:#0a0908}
+.aud{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.aud span{border:1px solid rgba(197,200,207,.35);color:var(--silver);border-radius:999px;padding:7px 14px;font-size:14px}
+.route{position:relative;margin-top:44px}
+.route ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;position:relative}
+.route ol::before{content:"";position:absolute;left:22px;right:22px;top:22px;border-top:1px dashed rgba(201,168,106,.5)}
+.route li{position:relative}
+.route .dot{width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:#0a0908;display:grid;place-items:center;font:400 17px Anton,sans-serif;color:var(--gold);position:relative}
+.route b{display:block;margin:12px 0 4px;font-size:16px}
+.route span{font-size:14px;color:var(--dim)}
+.cserv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:40px}
+.cserv div{background:#0a0908;padding:18px 20px;font-size:16px}
+.proof{margin-top:40px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center}
+.proof img{border-radius:16px;width:100%;aspect-ratio:16/10;object-fit:cover}
+
+.comm{position:relative}
+.commfig{min-height:480px;border-radius:22px;overflow:hidden;background:#030303;border:1px solid var(--line);cursor:crosshair}
+.commfig .tip{position:absolute;left:16px;bottom:14px;font-size:14px;color:var(--dim);pointer-events:none}
+.next{margin-top:24px;padding:20px;border:1px dashed rgba(201,168,106,.5);border-radius:16px}
+.next b{display:block;font:400 20px Anton,sans-serif;text-transform:uppercase;margin-bottom:4px}
+
+.story{background:#0a0908}
+.chap{display:grid;grid-template-columns:140px minmax(0,1fr) minmax(0,.9fr);gap:clamp(20px,4vw,56px);padding:clamp(28px,4vw,44px) 0;border-top:1px solid var(--line);align-items:start}
+.chap .yr{font:400 clamp(30px,3.4vw,44px)/1 Anton,sans-serif;color:var(--gold)}
+.chap .yr small{display:block;font:500 15px "Cormorant Garamond",serif;font-style:italic;color:var(--dim);margin-top:6px}
+.chap h3{font-size:clamp(26px,2.6vw,34px);margin-bottom:10px}
+.chap p{color:var(--dim)}
+.chap img{border-radius:14px;width:100%;aspect-ratio:3/2;object-fit:cover}
+.chap .orb{aspect-ratio:3/2;border-radius:14px;border:1px solid var(--line);display:grid;place-items:center}
+.chap .orb svg{width:60%;height:auto}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.steps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:20px}
+.steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;align-items:start}
+.steps .n{width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:400 20px Anton,sans-serif;color:var(--gold)}
+.steps h3{font-size:20px;margin:4px 0 2px}
 .steps p{color:var(--dim);font-size:15px;margin:0}
 form{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,32px);display:grid;gap:16px}
 form h3{font-size:28px}
 label{display:block;font-size:14px;color:var(--dim);margin-bottom:6px}
-input[type=text],input[type=email],select,textarea{width:100%;font:16px Manrope,sans-serif;color:var(--ink);background:#060606;border:1px solid rgba(241,236,226,.25);border-radius:12px;padding:11px 14px;min-height:46px}
-textarea{min-height:96px;resize:vertical}
-.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+input[type=text],input[type=email],input[type=url],select,textarea{width:100%;font:16px Manrope,sans-serif;color:var(--ink);background:#060606;border:1px solid rgba(241,236,226,.25);border-radius:12px;padding:11px 14px;min-height:46px}
+textarea{min-height:100px;resize:vertical}
+.frow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 fieldset{border:0;margin:0;padding:0}
 legend{font-size:14px;color:var(--dim);margin-bottom:8px;padding:0}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -107,46 +199,62 @@ legend{font-size:14px;color:var(--dim);margin-bottom:8px;padding:0}
 .chips input{accent-color:var(--gold);width:16px;height:16px;margin:0}
 .chips label:has(input:checked){border-color:var(--gold);background:rgba(201,168,106,.12)}
 #out{display:none;border-top:1px solid var(--gold);padding-top:16px}
-#out pre{white-space:pre-wrap;font:14px/1.5 Manrope,sans-serif;color:var(--dim);background:#060606;border-radius:12px;padding:14px;max-height:220px;overflow:auto}
+#out pre{white-space:pre-wrap;font:14px/1.5 Manrope,sans-serif;color:var(--dim);background:#060606;border-radius:12px;padding:14px;max-height:240px;overflow:auto}
 .outctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
 .bloom{text-align:center;border-top:1px solid var(--line)}
-.bloom p{font-size:clamp(30px,4.6vw,56px);line-height:1.1;max-width:20ch;margin:0 auto 20px}
+.bloom .big{font-size:clamp(34px,5.4vw,66px);line-height:1.05;max-width:18ch;margin:0 auto 22px}
 .bloom img{width:120px;margin:0 auto 26px;opacity:.9}
-footer{border-top:1px solid var(--line);padding:26px max(5vw,16px);font-size:14px;color:var(--dim)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
-@media(max-width:900px){.two,.moonwrap{grid-template-columns:minmax(0,1fr)}.pk{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.row{grid-template-columns:minmax(0,1fr)}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:62svh}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+footer{border-top:1px solid var(--line);padding:30px max(5vw,16px);font-size:14px;color:var(--dim)}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:24px}
+footer b{display:block;color:var(--ink);margin-bottom:8px;font-size:14px}
+footer a{display:block;text-decoration:none;padding:3px 0}
+footer a:hover{color:var(--ink)}
+footer img{height:20px;width:auto;margin-bottom:12px}
+
+@media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sleeve .disc,.path{transition:none}.sleeve .disc svg{animation:none}}
 </style>
 </head>
 <body>
 <nav aria-label="Sections">
   <a class="logo" href="#top" aria-label="COSMOTION home"><img src="img/wordmark.png" alt="COSMOTION"></a>
-  <a href="#meaning">Meaning</a>
-  <a href="#services">Services</a>
-  <a href="#cycle">Rollout</a>
-  <a href="#packages">Packages</a>
-  <a href="#work">Work</a>
-  <a href="#begin">Begin</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#universe">Universe</a>
+  <a href="#music">Music</a>
+  <a href="#artists">Artists</a>
+  <a href="#creative">Creative</a>
+  <a href="#story">Story</a>
+  <a href="#connect">Connect</a>
 </nav>
 
 <header class="hero" id="top">
   <div class="sky">
-    <canvas id="sky" aria-label="A rotating celestial wheel with stardust that bends toward your cursor"></canvas>
+    <canvas id="sky" aria-label="A three-dimensional celestial wheel that tilts with your cursor, with stardust drawn toward it"></canvas>
     <img src="img/wordmark.png" alt="COSMOTION">
   </div>
-  <h1>Conscious creative agency and artist management</h1>
-  <p class="serif">A sacred platform for visionary artists.</p>
-  <div class="ctas"><a class="btn solid" href="#begin">Book a discovery call</a><a class="btn" href="#services">Explore services</a></div>
+  <p class="place">Austin, Texas · since 2015</p>
+  <h1>The Frequency of Us</h1>
+  <p class="intro">A creative ecosystem at the intersection of music, art, culture and consciousness: immersive experiences, an independent electronic label, artist development and creative direction, held together by community.</p>
+  <div class="paths" aria-label="Find your way in">
+    <a class="path" href="#community" data-type="event"><b>Gather</b><span>Events and community</span></a>
+    <a class="path" href="#music" data-type="demo"><b>Listen</b><span>COSMOTION MUSIC</span></a>
+    <a class="path" href="#artists" data-type="artist"><b>Grow</b><span>Artist development</span></a>
+    <a class="path" href="#creative" data-type="partner"><b>Build</b><span>Venues and brands</span></a>
+    <a class="path" href="#connect" data-type="general"><b>Collaborate</b><span>Start a conversation</span></a>
+  </div>
 </header>
 
-<section class="band mission" id="meaning">
+<section class="band eco" id="ecosystem">
   <div class="wrap two">
     <div>
-      <p class="lead serif">Cosmotion supports visionary musicians, creators and healers through holistic guidance, strategic rollout and cosmic alignment.</p>
+      <p class="kick">What COSMOTION is</p>
+      <h2>Not an event company. Not only a label. A creative ecosystem.</h2>
+      <p style="margin-top:18px">What began in 2015 as a passion for bringing people together through music has grown into a platform for immersive events, electronic music, artist development, creative direction, venue development and community building.</p>
       <div class="word"><span>Cosmos</span>+<span>Motion</span>=<em>Cosmotion</em></div>
-      <p><b>Kosmos</b> is Greek for order, harmony and beauty. <b>Motio</b> is Latin for movement. Order alone is a frozen star chart; motion alone scatters. Together they make an orbit: a center that holds, and everything around it free to flow.</p>
-      <p class="mute">That is how we guide an artist. Your vision is the center. Strategy, sound and story move around it.</p>
+      <p class="mute"><b style="color:var(--ink)">Kosmos</b> is Greek for order and harmony. <b style="color:var(--ink)">Motio</b> is Latin for movement. Order alone is a frozen star chart; motion alone scatters. Together they make an orbit: a center that holds, and everything around it free to move.</p>
       <div class="modes" role="group" aria-label="Show the idea">
         <button data-m="cosmos" aria-pressed="false">Cosmos</button>
         <button data-m="motion" aria-pressed="false">Motion</button>
@@ -154,69 +262,58 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       </div>
       <p class="cap" id="mcap"></p>
     </div>
-    <div class="fig" style="min-height:460px"><canvas id="mean" aria-label="Particles showing order, motion, or both"></canvas></div>
+    <div class="fig" style="min-height:480px"><canvas id="mean" aria-label="Particles showing order, motion, or both"></canvas></div>
   </div>
 </section>
 
-<section class="band" id="services">
+<section class="band phil" id="philosophy">
   <div class="wrap two">
-    <div class="fig" style="min-height:500px"><canvas id="orr" aria-label="Five services orbiting the artist: click one to read it"></canvas></div>
+    <div class="star"><svg id="star" viewBox="0 0 500 500" role="group" aria-label="Nine principles on a nine-point star"></svg></div>
     <div>
-      <h2>Five orbits around your art</h2>
-      <p class="mute" style="margin-top:12px">Everything an artist needs, moving in one system. Tap an orbit.</p>
-      <div class="svc" id="slist" role="group" aria-label="Choose a service"></div>
-      <div class="panel" aria-live="polite"><div class="k" id="sk"></div><h3 id="sh"></h3><ul id="sl"></ul></div>
+      <p class="kick">What we believe</p>
+      <h2>Music is more than entertainment</h2>
+      <p class="mute" style="margin-top:16px">It's a universal language that connects people, sparks creativity and makes room for real change. Some of life's most meaningful moments happen when people are fully present, lose themselves in music and feel part of something larger. Nine principles guide everything we make.</p>
+      <div class="prin" aria-live="polite"><div class="n" id="pn"></div><h3 id="ph"></h3><p id="pp" class="mute"></p></div>
+      <div class="phones"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="18" y="8" width="20" height="38" rx="4" fill="none" stroke="#c9a86a" stroke-width="1.5"/><circle cx="28" cy="40" r="2" fill="#c9a86a"/><line x1="8" y1="48" x2="48" y2="8" stroke="#f1ece2" stroke-width="1.5"/></svg><p>Many of our dance floors have been no-photo spaces. Phones away, so the night is lived rather than filmed.</p></div>
     </div>
   </div>
 </section>
 
-<section class="band" id="cycle" style="background:#0b0a08">
-  <div class="wrap moonwrap">
-    <div class="moon"><svg viewBox="0 0 400 400" id="moon" role="img" aria-label="Moon phase"></svg></div>
-    <div class="stage">
-      <h2>A release follows the moon</h2>
-      <p class="mute" style="margin-top:12px">Strategic rollout in cosmic alignment: every campaign has a dark beginning, a full release and a time to integrate. Slide through it.</p>
-      <label for="ph-r">Phase</label>
-      <input type="range" id="ph-r" min="0" max="7" step="1" value="4">
-      <div class="phases" id="phs" role="group" aria-label="Moon phases"></div>
-      <div aria-live="polite"><div class="k" id="mk"></div><h3 id="mh"></h3><p id="mp"></p></div>
+<section class="band" id="universe">
+  <div class="wrap two">
+    <div class="fig" style="min-height:520px"><canvas id="orr" aria-label="Five pillars orbiting COSMOTION in three dimensions: click one to read about it"></canvas></div>
+    <div>
+      <p class="kick">What we create</p>
+      <h2>Five pillars, one orbit</h2>
+      <p class="mute" style="margin-top:14px">Each part feeds the others. The events find the artists, the artists shape the label, the label fills the rooms, and the community holds it all together. Tap a pillar.</p>
+      <div class="svc" id="plist" role="group" aria-label="Choose a pillar"></div>
+      <div class="panel" aria-live="polite"><div class="k" id="uk"></div><h3 id="uh"></h3><p id="up" class="mute"></p><a class="btn" id="ua" href="#">Explore</a></div>
     </div>
   </div>
 </section>
 
-<section class="band" id="packages">
+<section class="band" id="experiences" style="border-top:1px solid var(--line)">
   <div class="wrap">
-    <h2>Choose your orbit</h2>
-    <p class="mute" style="margin-top:12px">Three ways to work together, from one release to a whole career.</p>
-    <div class="pk">
-      <div class="plan"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="30" fill="none" stroke="#c9a86a" stroke-width="1"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="72" cy="42" r="4" fill="#c9a86a"/></svg>
-        <div class="t">Project-based</div><h3>Starter</h3><p>For a single or EP campaign.</p>
-        <ul><li>1-month engagement</li><li>Release strategy</li><li>EPK and press outreach</li><li>Digital asset kit</li></ul>
-        <a class="btn" href="#begin" data-plan="Starter">Ask about Starter</a></div>
-      <div class="plan feat"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="20" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="36" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="62" cy="42" r="3.5" fill="#c9a86a"/><circle cx="16" cy="16" r="4.5" fill="#c9a86a"/></svg>
-        <div class="t">Monthly retainer</div><h3>Artist Growth Plan</h3><p>Ongoing support and strategic guidance.</p>
-        <ul><li>Weekly touchpoints</li><li>Multi-channel promotion</li><li>Booking support</li><li>Sync support</li></ul>
-        <a class="btn solid" href="#begin" data-plan="Artist Growth Plan">Ask about Growth</a></div>
-      <div class="plan"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="14" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="26" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="38" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="56" cy="42" r="3" fill="#c9a86a"/><circle cx="24" cy="24" r="4" fill="#c9a86a"/><circle cx="42" cy="80" r="3.5" fill="#c9a86a"/></svg>
-        <div class="t">Full management</div><h3>Full Representation</h3><p>Cosmotion becomes your full management team.</p>
-        <ul><li>End-to-end brand, release and career direction</li><li>Booking, PR and brand deals</li><li>Holistic support for long-term evolution</li></ul>
-        <a class="btn" href="#begin" data-plan="Full Representation">Ask about Full</a></div>
+    <div class="split">
+      <div>
+        <p class="kick">I · COSMOTION Experiences</p>
+        <h2>Beyond the party</h2>
+        <p style="margin-top:16px">Immersive events, intentional gatherings and nightlife built to be felt. We pair carefully curated electronic music with immersive environments, visual art, light, performance and the people who make a room come alive.</p>
+      </div>
+      <div class="formats">
+        <div><b>Underground events</b><span>Where it started, and still the heartbeat.</span></div>
+        <div><b>Festival experiences</b><span>Stages, camps and moments inside larger worlds.</span></div>
+        <div><b>After-hours</b><span>The deeper end of the night, for those who stay.</span></div>
+        <div><b>Unconventional spaces</b><span>Rooms that were never meant to be dance floors, until they were.</span></div>
+      </div>
     </div>
-    <div class="tools"><b>How we work</b><span>Notion or Airtable dashboards for artist tracking</span><span>DISCO or Google Drive for assets</span><span>Content calendars and launch timelines</span></div>
-  </div>
-</section>
-
-<section class="band" id="work" style="background:#0b0a08">
-  <div class="wrap">
-    <h2>Ten years of moving people</h2>
-    <p class="mute" style="margin-top:12px;max-width:68ch">Before Cosmotion guided artists, it built the rooms they play in. Since 2015 it has powered immersive productions, two venue launches and a community that keeps coming back. The same team now builds careers.</p>
     <div class="nums">
-      <div><b>2015</b><span>first orbit</span></div>
-      <div><b>100+</b><span>productions</span></div>
-      <div><b>~15k</b><span>community list</span></div>
+      <div><b>2015</b><span>first gathering</span></div>
+      <div><b>100+</b><span>events produced</span></div>
+      <div><b>~15k</b><span>on the community list</span></div>
       <div><b>2</b><span>venue launches</span></div>
     </div>
-    <div class="gal" id="gal" tabindex="0" aria-label="Photos from Cosmotion productions">
+    <div class="gal" id="gal" tabindex="0" aria-label="Photos from COSMOTION experiences">
       <figure><img src="img/dj.jpg" alt="DJ facing a packed room under a lit wooden ceiling" loading="lazy"></figure>
       <figure><img src="img/aerial.jpg" alt="Aerialist performing on a hoop above the crowd" loading="lazy"></figure>
       <figure><img src="img/florals.jpg" alt="Hanging florals and a glowing geometric lamp in violet light" loading="lazy"></figure>
@@ -229,39 +326,166 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
   </div>
 </section>
 
-<section class="band" id="begin">
-  <div class="wrap two" style="align-items:start">
-    <div>
-      <h2>Begin the journey</h2>
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>Schedule a discovery call</h3><p>We listen to the music and the vision behind it.</p></div></li>
-        <li><span class="n">2</span><div><h3>Complete the artist intake</h3><p>The form here gives us where you are and what you need.</p></div></li>
-        <li><span class="n">3</span><div><h3>Align, strategize, elevate</h3><p>We map your orbit and set it in motion.</p></div></li>
-      </ol>
-      <p class="mute" style="margin-top:28px">Or write directly: thomaszente@gmail.com</p>
+<section class="band label" id="music">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kick">II · COSMOTION MUSIC</p>
+        <h2>Music that moves body and spirit</h2>
+      </div>
+      <div>
+        <p>Our independent label discovers, supports and releases forward-thinking electronic music. It is the philosophy in sound form.</p>
+        <div class="sonic"><span>Deep house</span><span>Melodic house</span><span>Organic house</span><span>Indie dance</span><span>Tribal rhythms</span><span>Global electronic</span></div>
+      </div>
     </div>
-    <form id="intake" novalidate>
-      <h3>Artist intake</h3>
-      <div class="row">
-        <div><label for="f-name">Your name</label><input type="text" id="f-name" autocomplete="name" required></div>
-        <div><label for="f-artist">Artist or project name</label><input type="text" id="f-artist"></div>
+    <div class="rels" id="rels"></div>
+    <p class="note" style="margin-top:18px">Dashed items are placeholders for details still to add.</p>
+    <div class="lblrow">
+      <div><h3>Featured artists</h3><p class="mute" style="margin-top:8px">The roster will be introduced alongside upcoming releases.</p></div>
+      <div><h3>Send a demo</h3><p class="mute" style="margin-top:8px">Making music in this world? We listen to everything that arrives with intention.</p><a class="btn" href="#connect" data-type="demo">Submit music</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="artists">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kick">III · COSMOTION Artists</p>
+        <h2>Guidance for visionary artists</h2>
       </div>
-      <div class="row">
-        <div><label for="f-email">Email</label><input type="email" id="f-email" autocomplete="email" required></div>
-        <div><label for="f-stage">Where you are now</label><select id="f-stage"><option>Just starting out</option><option>Releasing music</option><option>Touring and booking</option><option>Established, ready to expand</option></select></div>
+      <div>
+        <p>We help musicians and creators shape their identity and bring their work into the world, through development, creative guidance, management and strategic support.</p>
       </div>
-      <div><label for="f-links">Music links</label><input type="text" id="f-links" placeholder="Spotify, SoundCloud, Instagram"></div>
-      <fieldset><legend>Plan you're curious about</legend><div class="chips" id="plans">
-        <label><input type="radio" name="plan" value="Starter">Starter</label>
-        <label><input type="radio" name="plan" value="Artist Growth Plan">Growth Plan</label>
-        <label><input type="radio" name="plan" value="Full Representation">Full Representation</label>
-        <label><input type="radio" name="plan" value="Not sure yet" checked>Not sure yet</label></div></fieldset>
-      <fieldset><legend>What you need</legend><div class="chips" id="needs"></div></fieldset>
-      <div><label for="f-msg">Your vision, in a few lines</label><textarea id="f-msg"></textarea></div>
-      <div><button class="btn solid" type="submit">Prepare my intake</button></div>
+    </div>
+    <div class="svcs">
+      <div><i></i><p><b>Artist development and positioning</b><span>Find the clear, honest center of your project.</span></p></div>
+      <div><i></i><p><b>Creative direction and branding</b><span>Artwork, visuals and story that match the sound.</span></p></div>
+      <div><i></i><p><b>Music release strategy</b><span>Timing, sequencing and rollout for singles, EPs and albums.</span></p></div>
+      <div><i></i><p><b>Press kits and digital presence</b><span>EPKs, one-sheets, websites and smart links.</span></p></div>
+      <div><i></i><p><b>Promotional campaigns</b><span>Social, playlist and press outreach shaped around each release.</span></p></div>
+      <div><i></i><p><b>Booking strategy and relationships</b><span>Where to play, when, and who to meet.</span></p></div>
+      <div><i></i><p><b>Career development</b><span>Goals and next steps across seasons, not just weeks.</span></p></div>
+      <div><i></i><p><b>Creative consulting</b><span>A second set of ears and eyes when you need it.</span></p></div>
+    </div>
+    <p class="boutique">COSMOTION is a boutique, collaborative platform. We work closely with a small number of artists at a time, and bring in trusted collaborators when a project calls for them.</p>
+
+    <div class="moonwrap" id="rollout">
+      <div class="moon"><svg viewBox="0 0 400 400" id="moon" role="img" aria-label="Moon phase"></svg></div>
+      <div class="stage">
+        <h2>A release follows the moon</h2>
+        <p class="mute" style="margin-top:12px">Every campaign has a dark beginning, a full release and a time to integrate. Slide through the cycle.</p>
+        <label for="ph-r">Phase</label>
+        <input type="range" id="ph-r" min="0" max="7" step="1" value="4">
+        <div class="phases" id="phs" role="group" aria-label="Moon phases"></div>
+        <div aria-live="polite"><div class="k" id="mk"></div><h3 id="mh"></h3><p id="mp" class="mute"></p></div>
+      </div>
+    </div>
+
+    <div class="pk" id="packages">
+      <div class="plan"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="30" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="72" cy="42" r="4" fill="#c9a86a"/></svg>
+        <div class="t">Project-based</div><h3>Starter</h3><p>For a single or EP campaign.</p>
+        <ul><li>1-month engagement</li><li>Release strategy</li><li>EPK and press outreach</li><li>Digital asset kit</li></ul>
+        <a class="btn" href="#connect" data-type="artist" data-plan="Starter">Ask about Starter</a></div>
+      <div class="plan feat"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="20" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="36" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="62" cy="42" r="3.5" fill="#c9a86a"/><circle cx="16" cy="16" r="4.5" fill="#c9a86a"/></svg>
+        <div class="t">Monthly retainer</div><h3>Artist Growth Plan</h3><p>Ongoing support and strategic guidance.</p>
+        <ul><li>Weekly touchpoints</li><li>Multi-channel promotion</li><li>Booking strategy</li><li>Sync support</li></ul>
+        <a class="btn solid" href="#connect" data-type="artist" data-plan="Artist Growth Plan">Ask about Growth</a></div>
+      <div class="plan"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="14" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="26" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="38" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="56" cy="42" r="3" fill="#c9a86a"/><circle cx="24" cy="24" r="4" fill="#c9a86a"/><circle cx="42" cy="80" r="3.5" fill="#c9a86a"/></svg>
+        <div class="t">Long-term partnership</div><h3>Full Representation</h3><p>Hands-on, long-term management for a small roster.</p>
+        <ul><li>Brand, release and career direction</li><li>Booking, PR and brand opportunities</li><li>Support for long-term evolution</li></ul>
+        <a class="btn" href="#connect" data-type="artist" data-plan="Full Representation">Ask about Full</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band creative" id="creative">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kick">IV · COSMOTION Creative</p>
+        <h2>Ideas and unconventional spaces, turned into culture</h2>
+      </div>
+      <div>
+        <p>Creative direction, experiential production and venue development. We've developed nightlife concepts, launched venues, produced immersive environments, curated talent, built brands and grown creative communities. Now we bring that to partners.</p>
+        <div class="aud"><span>Venue owners</span><span>Hospitality groups</span><span>Brands</span><span>Festival organizers</span><span>Creative entrepreneurs</span></div>
+      </div>
+    </div>
+    <div class="route">
+      <ol>
+        <li><span class="dot">1</span><b>Vision</b><span>What should this place make people feel?</span></li>
+        <li><span class="dot">2</span><b>Concept</b><span>Story, spatial flow and the experience map.</span></li>
+        <li><span class="dot">3</span><b>Identity</b><span>Name, brand, visual language.</span></li>
+        <li><span class="dot">4</span><b>Programming</b><span>Talent, formats, rhythm of the week.</span></li>
+        <li><span class="dot">5</span><b>Production</b><span>Sound, light, design, opening night.</span></li>
+        <li><span class="dot">6</span><b>Community</b><span>The people who make it last.</span></li>
+      </ol>
+    </div>
+    <div class="cserv">
+      <div>Creative direction</div><div>Experiential design and production</div><div>Venue concept development</div>
+      <div>Event programming</div><div>Talent curation</div><div>Brand development</div>
+      <div>Cultural consulting</div><div>Community strategy</div><div>Creative partnerships</div>
+    </div>
+    <div class="proof">
+      <img src="img/florals.jpg" alt="Immersive floral installation with a geometric lamp" loading="lazy">
+      <div>
+        <h3 style="font-size:32px">Two venue launches in Austin</h3>
+        <p class="mute" style="margin-top:10px">From concept and business plan to brand and first night. Most recently NOWHERE in the St. Elmo Arts District, which has hosted 25 events and about 10,000 guests since opening in May 2026.</p>
+        <a class="btn solid" href="#connect" data-type="partner">Discuss a project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band comm" id="community">
+  <div class="wrap two">
+    <div>
+      <p class="kick">V · COSMOTION Community</p>
+      <h2>The center of everything</h2>
+      <p style="margin-top:16px">Over a decade, COSMOTION has grown into a network of artists, musicians, dancers, creators and cultural innovators. It reaches past the dance floor: people connected by curiosity, creativity, music and the wish for experiences that mean something.</p>
+      <div class="next"><b>Next gathering</b><p class="mute" style="margin:0">To be announced. The list always hears first.</p></div>
+      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a></div>
+    </div>
+    <div class="fig commfig" id="cfwrap"><canvas id="comm" aria-label="A constellation of the community: tap to add your light"></canvas><span class="tip" id="ctip">Tap to add your light</span></div>
+  </div>
+</section>
+
+<section class="band story" id="story">
+  <div class="wrap">
+    <p class="kick">Our story</p>
+    <h2>From underground gatherings to an ecosystem</h2>
+    <div style="margin-top:36px">
+      <div class="chap"><div class="yr">2015<small>The first gatherings</small></div><div><h3>A room, a sound system, the right people</h3><p>Thomas Zente, who performs as ZENTI, founds COSMOTION in Austin out of a simple love of bringing people together through music.</p></div><img src="img/dj.jpg" alt="DJ facing a packed room" loading="lazy"></div>
+      <div class="chap"><div class="yr">Underground<small>The formative years</small></div><div><h3>Learning what a night can be</h3><p>Underground events, after-hours, festival experiences and unconventional venues. More than 100 events taught us how environment, music and intention work together.</p></div><img src="img/aerial.jpg" alt="Aerialist above the crowd" loading="lazy"></div>
+      <div class="chap"><div class="yr">Wider orbits<small>Beyond Austin</small></div><div><h3>Sharing the floor with the world</h3><p>Collaborations with international artists, and ZENTI's sets carrying the sound to festivals from Burning Man to Envision.</p></div><img src="img/crowd.jpg" alt="Crowd facing a mirrored visual screen" loading="lazy"></div>
+      <div class="chap"><div class="yr">Spaces<small>Building rooms</small></div><div><h3>Two venue launches</h3><p>Taking everything learned on dance floors into building places of our own, most recently NOWHERE in the St. Elmo Arts District in 2026.</p></div><img src="img/lantern.jpg" alt="Lantern in blue and orange light" loading="lazy"></div>
+      <div class="chap"><div class="yr">2026<small>January</small></div><div><h3>COSMOTION MUSIC begins</h3><p>The label's first official release, CM001 "Boomin' Now", marks the start of a catalog for music that moves body and spirit.</p></div><div class="orb" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="#9d8fe0" stroke-opacity=".6"/><circle cx="60" cy="60" r="40" fill="none" stroke="#9d8fe0" stroke-opacity=".35"/><circle cx="60" cy="60" r="26" fill="none" stroke="#9d8fe0" stroke-opacity=".35"/><circle cx="60" cy="60" r="8" fill="#f1ece2"/><circle cx="114" cy="60" r="4" fill="#c9a86a"/></svg></div></div>
+      <div class="chap"><div class="yr">Now<small>The ecosystem</small></div><div><h3>Experiences, music, artists, creative, community</h3><p>Five pillars in one orbit, still guided by the same idea that started it: the frequency of us.</p></div><img src="img/hoop.jpg" alt="Performer in a blue-lit geometric frame" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="connect">
+  <div class="wrap two top">
+    <div>
+      <p class="kick">How to get involved</p>
+      <h2>Connect with COSMOTION</h2>
+      <p class="mute" style="margin-top:14px">Tell us who you are and what you have in mind. Every message is read by a person.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>Reach out</h3><p>Choose what brings you here and share a few details.</p></div></li>
+        <li><span class="n">2</span><div><h3>Discovery call</h3><p>We listen to the music, the space or the idea behind it.</p></div></li>
+        <li><span class="n">3</span><div><h3>Align, strategize, elevate</h3><p>We map the orbit together and set it in motion.</p></div></li>
+      </ol>
+      <p class="mute" style="margin-top:26px">Or write directly: thomaszente@gmail.com</p>
+    </div>
+    <form id="cform" novalidate>
+      <h3>What brings you here?</h3>
+      <div class="tabs" id="tabs" role="tablist" aria-label="Inquiry type"></div>
+      <div id="fields" style="display:grid;gap:16px"></div>
+      <div><button class="btn solid" type="submit">Prepare my message</button></div>
       <p id="err" class="mute" role="alert" style="margin:0"></p>
       <div id="out" aria-live="polite">
-        <p style="margin-bottom:10px">Your intake is ready. Send it to thomaszente@gmail.com from your email.</p>
+        <p style="margin-bottom:10px">Your message is ready. Send it to thomaszente@gmail.com from your email.</p>
         <pre id="txt"></pre>
         <div class="outctl"><a class="btn solid" id="mail" href="#">Open in email</a><button type="button" id="copy">Copy text</button><span class="mute" id="cmsg"></span></div>
       </div>
@@ -271,18 +495,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
 
 <section class="band bloom">
   <img src="img/cm.png" alt="CM monogram">
-  <p class="serif">Let Cosmotion guide your artistry into full bloom.</p>
-  <p class="mute" style="font-size:17px;max-width:40ch">A sacred path of sound, vision and conscious connection.</p>
-  <a class="btn solid" href="#begin">Book a discovery call</a>
+  <p class="serif big">Sound, movement, art and intention. Come find your orbit.</p>
+  <a class="btn solid" href="#connect">Start a conversation</a>
 </section>
 
-<footer><div class="wrap"><span>COSMOTION · Artist management and creative services · Austin, since 2015</span><span>thomaszente@gmail.com · Instagram @zentimusic</span></div></footer>
+<footer><div class="wrap">
+  <div><img src="img/wordmark.png" alt="COSMOTION"><p style="margin:0">A creative ecosystem founded in Austin, Texas, in 2015 by Thomas Zente (ZENTI).</p></div>
+  <div><b>Pillars</b><a href="#experiences">Experiences</a><a href="#music">Music</a><a href="#artists">Artists</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
+  <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#story">Story</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
+  <div><b>Contact</b><span>thomaszente@gmail.com</span><a href="https://instagram.com/zentimusic">Instagram @zentimusic</a></div>
+</div></footer>
 
 <script>
 {
+/* ===== Content you can edit ===== */
+/* Add a release: copy a line, change the fields. Leave a link "" to show it as coming. */
+const RELEASES=[
+  {cat:'CM001',title:"Boomin' Now",artist:'',date:'January 2026',status:'Out now',links:{Spotify:'',Beatport:'',SoundCloud:''}},
+  {cat:'CM002',title:'',artist:'',date:'',status:'Coming soon',links:{}}
+];
+
 const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let seed=11;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
-const TAU=Math.PI*2,GOLD='201,168,106',BONE='241,236,226';
+const TAU=Math.PI*2,GOLD='201,168,106',BONE='241,236,226',VIO='157,143,224';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const live=new Set();
 function stage(id,draw,init){
   const c=document.getElementById(id),o={c,draw,W:0,H:0,on:true};o.x=c.getContext('2d');
@@ -294,30 +530,31 @@ function stage(id,draw,init){
 let t=0;
 function loop(){t+=1/60;for(const o of live)if(o.on&&o.W)o.draw(o,t);requestAnimationFrame(loop)}
 
-/* hero astrolabe */
-const stars=Array.from({length:200},()=>({x:rnd(),y:rnd(),r:rnd()*1.1+.2,p:rnd()*TAU}));
-let dust=[],ptr=null;
-function geo(o){const W=o.W,H=o.H;return{cx:W/2,cy:H/2,R:Math.min(W*.48,H*.47)}}
-function spawn(d,g){const a=rnd()*TAU,r=g.R*(.3+rnd()*.75);d.x=g.cx+Math.cos(a)*r;d.y=g.cy+Math.sin(a)*r;const v=Math.sqrt(700/r);d.vx=-Math.sin(a)*v;d.vy=Math.cos(a)*v;d.c=rnd()<.35?`rgba(${GOLD},.9)`:`rgba(${BONE},.7)`}
+/* ===== Hero: 3D astrolabe ===== */
+const stars=Array.from({length:210},()=>({x:rnd(),y:rnd(),r:rnd()*1.1+.2,p:rnd()*TAU}));
+let dust=[],ptr=null,tiltX=.95,tiltY=0;
+function geo(o){return{cx:o.W/2,cy:o.H/2,R:Math.min(o.W*.48,o.H*.47)}}
+function spawn(d,g){const a=rnd()*TAU,r=g.R*(.3+rnd()*.75);d.x=g.cx+Math.cos(a)*r;d.y=g.cy+Math.sin(a)*r;const v=Math.sqrt(700/r);d.vx=-Math.sin(a)*v;d.vy=Math.cos(a)*v;d.c=rnd()<.3?`rgba(${GOLD},.9)`:rnd()<.15?`rgba(${VIO},.9)`:`rgba(${BONE},.7)`}
 const sky=stage('sky',(o,t)=>{
   const {x,W,H}=o,{cx,cy,R}=geo(o);
+  const tx=ptr?.55+.4*(ptr[1]/H):.62+.08*Math.sin(t*.3), ty=ptr?(ptr[0]/W-.5)*.5:.12*Math.sin(t*.2);
+  tiltX+=(tx-tiltX)*.04;tiltY+=(ty-tiltY)*.04;
+  const cX=Math.cos(tiltX),sY=Math.sin(tiltY),cYc=Math.cos(tiltY);
+  const P=(a,r,z=0)=>{const px=Math.cos(a)*r,py=Math.sin(a)*r;const X=px*cYc+z*sY;return[cx+X,cy+py*cX-z*Math.sin(tiltX)*.4]};
   x.fillStyle='#050505';x.fillRect(0,0,W,H);
-  for(const s of stars){x.globalAlpha=.25+.6*Math.abs(Math.sin(s.p+t*.7));x.fillStyle=`rgb(${BONE})`;x.beginPath();x.arc(s.x*W,s.y*H,s.r,0,TAU);x.fill()}
+  for(const s of stars){x.globalAlpha=.22+.6*Math.abs(Math.sin(s.p+t*.7));x.fillStyle=`rgb(${BONE})`;x.beginPath();x.arc(s.x*W,s.y*H,s.r,0,TAU);x.fill()}
   x.globalAlpha=1;x.lineWidth=1;
-  const rings=[.98,.86,.62,.42];
-  rings.forEach((k,i)=>{x.strokeStyle=`rgba(${GOLD},${i===1?.55:.3})`;x.beginPath();x.arc(cx,cy,R*k,0,TAU);x.stroke()});
-  x.save();x.translate(cx,cy);x.rotate(t*.03);
-  for(let i=0;i<120;i++){const a=i/120*TAU,l=i%10===0?.08:i%5===0?.05:.025;x.strokeStyle=`rgba(${GOLD},${i%10===0?.7:.35})`;x.beginPath();x.moveTo(Math.cos(a)*R*.98,Math.sin(a)*R*.98);x.lineTo(Math.cos(a)*R*(.98-l),Math.sin(a)*R*(.98-l));x.stroke()}
-  for(let i=0;i<12;i++){const a=i/12*TAU;x.strokeStyle=`rgba(${GOLD},.22)`;x.beginPath();x.moveTo(Math.cos(a)*R*.62,Math.sin(a)*R*.62);x.lineTo(Math.cos(a)*R*.86,Math.sin(a)*R*.86);x.stroke();x.fillStyle=`rgba(${GOLD},.8)`;x.beginPath();x.arc(Math.cos(a+TAU/24)*R*.74,Math.sin(a+TAU/24)*R*.74,2.2,0,TAU);x.fill()}
-  x.restore();
-  x.save();x.translate(cx,cy);x.rotate(-t*.05);x.strokeStyle=`rgba(${GOLD},.28)`;
-  for(let k=0;k<2;k++){x.beginPath();for(let i=0;i<3;i++){const a=i/3*TAU+k*Math.PI-Math.PI/2;x[i?'lineTo':'moveTo'](Math.cos(a)*R*.86,Math.sin(a)*R*.86)}x.closePath();x.stroke()}
-  x.restore();
-  x.save();x.translate(cx,cy);x.rotate(t*.08);
-  for(let i=0;i<72;i++){const a=i/72*TAU,l=i%2?.12:.2;x.strokeStyle=`rgba(${GOLD},${i%2?.25:.45})`;x.beginPath();x.moveTo(Math.cos(a)*R*.2,Math.sin(a)*R*.2);x.lineTo(Math.cos(a)*R*(.2+l),Math.sin(a)*R*(.2+l));x.stroke()}
-  x.restore();
-  [[.62,.25,4],[.86,.12,5],[.42,.4,3]].forEach(([k,s,r],i)=>{const a=t*s+i*2.1;x.fillStyle=`rgb(${BONE})`;x.beginPath();x.arc(cx+Math.cos(a)*R*k,cy+Math.sin(a)*R*k,r,0,TAU);x.fill()});
-  const hr=R*.5;x.strokeStyle=`rgba(${BONE},.12)`;x.lineWidth=10;x.beginPath();x.arc(cx,cy,hr,0,TAU);x.stroke();x.strokeStyle=`rgba(${BONE},.3)`;x.lineWidth=4;x.stroke();x.strokeStyle=`rgba(${BONE},.95)`;x.lineWidth=1.6;x.stroke();
+  const ring=(k,al)=>{x.strokeStyle=al;x.beginPath();for(let i=0;i<=96;i++){const [X,Y]=P(i/96*TAU,R*k);x[i?'lineTo':'moveTo'](X,Y)}x.stroke()};
+  ring(.98,`rgba(${GOLD},.32)`);ring(.86,`rgba(${GOLD},.55)`);ring(.62,`rgba(${GOLD},.3)`);ring(.42,`rgba(${GOLD},.28)`);
+  const rot=t*.03;
+  for(let i=0;i<120;i++){const a=i/120*TAU+rot,l=i%10===0?.08:i%5===0?.05:.025;const [a1,b1]=P(a,R*.98),[a2,b2]=P(a,R*(.98-l));x.strokeStyle=`rgba(${GOLD},${i%10===0?.7:.33})`;x.beginPath();x.moveTo(a1,b1);x.lineTo(a2,b2);x.stroke()}
+  for(let i=0;i<12;i++){const a=i/12*TAU+rot;const [a1,b1]=P(a,R*.62),[a2,b2]=P(a,R*.86);x.strokeStyle=`rgba(${GOLD},.2)`;x.beginPath();x.moveTo(a1,b1);x.lineTo(a2,b2);x.stroke();const [d1,d2]=P(a+TAU/24,R*.74);x.fillStyle=`rgba(${GOLD},.85)`;x.beginPath();x.arc(d1,d2,2.2,0,TAU);x.fill()}
+  x.strokeStyle=`rgba(${GOLD},.26)`;for(let k=0;k<2;k++){x.beginPath();for(let i=0;i<=3;i++){const [X,Y]=P(i/3*TAU+k*Math.PI-Math.PI/2-t*.05,R*.86);x[i?'lineTo':'moveTo'](X,Y)}x.stroke()}
+  for(let i=0;i<72;i++){const a=i/72*TAU+t*.08,l=i%2?.12:.2;const [a1,b1]=P(a,R*.2),[a2,b2]=P(a,R*(.2+l));x.strokeStyle=`rgba(${GOLD},${i%2?.22:.42})`;x.beginPath();x.moveTo(a1,b1);x.lineTo(a2,b2);x.stroke()}
+  /* vertical meridian ring for depth */
+  x.strokeStyle=`rgba(${BONE},.14)`;x.beginPath();for(let i=0;i<=96;i++){const a=i/96*TAU;const X=cx+Math.cos(a)*R*.86*Math.abs(Math.sin(tiltY+.6))*.5,Y=cy+Math.sin(a)*R*.86*.7;x[i?'lineTo':'moveTo'](X,Y)}x.stroke();
+  [[.62,.25,4],[.86,.12,5],[.42,.4,3]].forEach(([k,s,r],i)=>{const a=t*s+i*2.1,[X,Y]=P(a,R*k),z=Math.sin(a);x.fillStyle=`rgba(${BONE},${.6+.4*z})`;x.beginPath();x.arc(X,Y,r*(1+.25*z),0,TAU);x.fill()});
+  x.lineWidth=10;x.strokeStyle=`rgba(${BONE},.1)`;x.beginPath();x.arc(cx,cy,R*.5,0,TAU);x.stroke();x.lineWidth=4;x.strokeStyle=`rgba(${BONE},.28)`;x.stroke();x.lineWidth=1.6;x.strokeStyle=`rgba(${BONE},.95)`;x.stroke();x.lineWidth=1;
   for(const d of dust){
     const dx=cx-d.x,dy=cy-d.y,r=Math.hypot(dx,dy)+12,f=700/(r*r);d.vx+=dx/r*f;d.vy+=dy/r*f;
     if(ptr){const px=ptr[0]-d.x,py=ptr[1]-d.y,q=Math.hypot(px,py)+30,k=1100/(q*q);d.vx+=px/q*k;d.vy+=py/q*k}
@@ -329,7 +566,7 @@ const skyEl=document.querySelector('.sky');
 const setp=e=>{const r=sky.c.getBoundingClientRect();ptr=[e.clientX-r.left,e.clientY-r.top]};
 skyEl.addEventListener('pointermove',setp);skyEl.addEventListener('pointerdown',setp);skyEl.addEventListener('pointerleave',()=>ptr=null);skyEl.addEventListener('pointerup',e=>{if(e.pointerType!=='mouse')ptr=null});
 
-/* meaning */
+/* ===== Cosmos + Motion ===== */
 const caps={cosmos:'Cosmos: perfect order, a constellation fixed in place. Beautiful, but frozen.',motion:'Motion: raw energy with nothing to hold it. Exciting, but it scatters.',cosmotion:'Cosmotion: energy held by a center. Everything flows, nothing is lost.'};
 let mode='cosmotion';const pts=[];
 const mean=stage('mean',(o,t)=>{
@@ -346,40 +583,98 @@ const mean=stage('mean',(o,t)=>{
 const mcap=document.getElementById('mcap');mcap.textContent=caps.cosmotion;
 document.querySelectorAll('[data-m]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('[data-m]').forEach(z=>z.setAttribute('aria-pressed',z===b));mcap.textContent=caps[mode];if(still)mean.draw(mean,3)}));
 
-/* services orrery */
-const SV=[
- {n:'Artist Management',k:'The center of gravity',l:['Strategic music release planning','Career visioning and goal setting','Booking, tour and festival support','Artist branding and narrative development','Royalties, PRO and publishing coordination']},
- {n:'Marketing & Promotion',k:'Carrying the signal',l:['Social media strategy and scheduling','Playlist and blog submissions (SubmitHub, Groover, niche curators)','Press kit creation: EPK and one-sheets','Paid campaigns on Instagram, YouTube and Spotify','Sync licensing submissions']},
- {n:'Digital Presence',k:'Your home in the sky',l:['Website, one-pager or full site','Smart links (ToneDen, Koji, Linktree)','YouTube channel optimization','Music video campaign coordination']},
- {n:'Creative Direction',k:'Shaping the light',l:['Cover art and branding collaboration','Music video treatments and concept boards','Visual identity: moodboard, palette, fonts','Projection visuals and live show aesthetic']},
- {n:'Content Packages',k:'Keeping it in motion',l:['Short-form content from existing assets (Reels, TikToks)','Lyric videos and visualizers','Behind-the-scenes and story-based editing']}];
-let sel=0;const hits=[];const cm=new Image();cm.src='img/cm.png';
-const slist=document.getElementById('slist');
-slist.innerHTML=SV.map((s,i)=>`<button data-i="${i}" aria-pressed="${i===0}">${s.n}</button>`).join('');
-function pick(i){sel=i;const s=SV[i];document.getElementById('sk').textContent=s.k;document.getElementById('sh').textContent=s.n;document.getElementById('sl').innerHTML=s.l.map(v=>`<li>${v}</li>`).join('');slist.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));if(still)orr.draw(orr,3)}
-slist.addEventListener('click',e=>{const b=e.target.closest('button');if(b)pick(+b.dataset.i)});
-const orr=stage('orr',(o,t)=>{
-  const {x,W,H}=o,cx=W/2,cy=H/2,R=Math.min(W,H)/2-26;
-  x.clearRect(0,0,W,H);hits.length=0;
-  SV.forEach((s,i)=>{const rr=R*(.34+i*.165);x.strokeStyle=i===sel?`rgba(${GOLD},.85)`:`rgba(${GOLD},.25)`;x.lineWidth=i===sel?1.5:1;x.beginPath();x.arc(cx,cy,rr,0,TAU);x.stroke()});
-  const cw=R*.5,ch=cw*(cm.naturalHeight/cm.naturalWidth||.52);if(cm.complete&&cm.naturalWidth)x.drawImage(cm,cx-cw/2,cy-ch/2,cw,ch);
-  SV.forEach((s,i)=>{const rr=R*(.34+i*.165),a=t*(.32-i*.045)+i*1.3,X=cx+Math.cos(a)*rr,Y=cy+Math.sin(a)*rr,r=i===sel?9:6;
-    if(i===sel){x.fillStyle=`rgba(${GOLD},.18)`;x.beginPath();x.arc(X,Y,r+12,0,TAU);x.fill()}
-    x.fillStyle=i===sel?`rgb(${GOLD})`:`rgb(${BONE})`;x.beginPath();x.arc(X,Y,r,0,TAU);x.fill();hits.push([X,Y,i])});
-});
-orr.c.addEventListener('click',e=>{const r=orr.c.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;let b=null,bd=30;for(const [X,Y,i] of hits){const d=Math.hypot(mx-X,my-Y);if(d<bd){bd=d;b=i}}if(b!==null)pick(b)});
-pick(0);
+/* ===== Philosophy: nine-point star ===== */
+const PR=[
+ ['Music as a universal language','Sound reaches people where words can\'t. It is the thread through everything we do.'],
+ ['Presence over distraction','Phones away, eyes up. A night is something to live, not to film.'],
+ ['Connection over consumption','A night is measured by who you met and how you felt, not by what was sold.'],
+ ['Community over competition','Artists, promoters and venues grow further together. We build with the scene, not against it.'],
+ ['Creativity without boundaries','Any room can become a world when the music, light and people are right.'],
+ ['Authenticity and free expression','Come as you are. Dance, dress and create in your own language.'],
+ ['Conscious celebration','Joy with care: for the space, for the people in it, and for how everyone gets home.'],
+ ['Transformation through shared experience','Some of life\'s most meaningful moments happen when a room moves as one.'],
+ ['Sound, movement, art and intention','Every gathering is composed: music, light, performance and purpose working together.']];
+const starSvg=document.getElementById('star');let pSel=0,pAuto=true;
+function drawStar(){
+  const c=250,R=200,pt=i=>{const a=i/9*TAU-Math.PI/2;return[c+Math.cos(a)*R,c+Math.sin(a)*R]};
+  let s=`<circle cx="${c}" cy="${c}" r="${R}" fill="none" stroke="#c9a86a" stroke-opacity=".35"/><circle cx="${c}" cy="${c}" r="${R+22}" fill="none" stroke="#c9a86a" stroke-opacity=".18"/>`;
+  for(let i=0;i<72;i++){const a=i/72*TAU,l=i%8===0?10:5;s+=`<line x1="${(c+Math.cos(a)*(R+22)).toFixed(1)}" y1="${(c+Math.sin(a)*(R+22)).toFixed(1)}" x2="${(c+Math.cos(a)*(R+22-l)).toFixed(1)}" y2="${(c+Math.sin(a)*(R+22-l)).toFixed(1)}" stroke="#c9a86a" stroke-opacity=".4"/>`}
+  [[4],[2]].forEach(([k])=>{let d='';for(let i=0;i<=9;i++){const [X,Y]=pt((i*k)%9);d+=(i?'L':'M')+X.toFixed(1)+' '+Y.toFixed(1)}s+=`<path d="${d}" fill="none" stroke="#c9a86a" stroke-opacity="${k===4?.55:.25}"/>`});
+  const [sx,sy]=pt(pSel);s+=`<line x1="${c}" y1="${c}" x2="${sx.toFixed(1)}" y2="${sy.toFixed(1)}" stroke="#f1ece2" stroke-opacity=".5"/>`;
+  s+=`<circle cx="${c}" cy="${c}" r="34" fill="#0a0908" stroke="#f1ece2" stroke-opacity=".9"/><text x="${c}" y="${c+8}" text-anchor="middle" font-family="Anton,sans-serif" font-size="22" fill="#f1ece2">US</text>`;
+  PR.forEach((p,i)=>{const [X,Y]=pt(i),on=i===pSel;s+=`<g class="node" tabindex="0" role="button" aria-label="${esc(p[0])}" data-i="${i}"><circle cx="${X.toFixed(1)}" cy="${Y.toFixed(1)}" r="24" fill="transparent"/><circle cx="${X.toFixed(1)}" cy="${Y.toFixed(1)}" r="${on?13:7}" fill="${on?'#c9a86a':'#f1ece2'}"/>${on?`<circle cx="${X.toFixed(1)}" cy="${Y.toFixed(1)}" r="20" fill="none" stroke="#c9a86a" stroke-opacity=".6"/>`:''}</g>`});
+  starSvg.innerHTML=s;
+  document.getElementById('pn').textContent=(pSel+1)+' of 9';document.getElementById('ph').textContent=PR[pSel][0];document.getElementById('pp').textContent=PR[pSel][1];
+}
+starSvg.addEventListener('click',e=>{const g=e.target.closest('.node');if(g){pAuto=false;pSel=+g.dataset.i;drawStar()}});
+starSvg.addEventListener('keydown',e=>{const g=e.target.closest('.node');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pAuto=false;pSel=+g.dataset.i;drawStar();starSvg.querySelector(`[data-i="${pSel}"]`).focus()}});
+drawStar();
+if(!still)setInterval(()=>{if(pAuto&&document.visibilityState==='visible'){pSel=(pSel+1)%9;drawStar()}},4500);
 
-/* release cycle */
+/* ===== Universe: 3D pillar orrery ===== */
+const PL=[
+ {n:'Experiences',k:'I',h:'Immersive events and gatherings',p:'Curated electronic music inside immersive environments, with visual art, light, performance and community.',a:'#experiences'},
+ {n:'Music',k:'II',h:'Independent electronic label',p:'COSMOTION MUSIC releases forward-thinking deep, melodic and organic electronic music. CM001 arrived in January 2026.',a:'#music',c:VIO},
+ {n:'Artists',k:'III',h:'Boutique artist development',p:'Creative guidance, release strategy and management for a small number of visionary artists.',a:'#artists'},
+ {n:'Creative',k:'IV',h:'Creative direction and venues',p:'Experiential production and venue development for venues, hospitality groups, brands and festivals.',a:'#creative'},
+ {n:'Community',k:'V',h:'The center of gravity',p:'Artists, dancers, creators and listeners connected by music and curiosity, on and off the dance floor.',a:'#community'}];
+let uSel=0;const hits=[];const cmImg=new Image();cmImg.src='img/cm.png';
+const plist=document.getElementById('plist');
+plist.innerHTML=PL.map((s,i)=>`<button data-i="${i}" aria-pressed="${i===0}">${s.n}</button>`).join('');
+function pickU(i){uSel=i;const s=PL[i];document.getElementById('uk').textContent=s.k+' · COSMOTION '+s.n;document.getElementById('uh').textContent=s.h;document.getElementById('up').textContent=s.p;const a=document.getElementById('ua');a.href=s.a;a.textContent='Explore '+s.n;plist.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));if(still)orr.draw(orr,3)}
+plist.addEventListener('click',e=>{const b=e.target.closest('button');if(b)pickU(+b.dataset.i)});
+const orr=stage('orr',(o,t)=>{
+  const {x,W,H}=o,cx=W/2,cy=H/2,R=Math.min(W*.47,H*.78),tilt=.52;
+  x.clearRect(0,0,W,H);hits.length=0;
+  const radius=i=>R*(.46+i*.135);
+  PL.forEach((s,i)=>{x.strokeStyle=i===uSel?`rgba(${GOLD},.85)`:`rgba(${GOLD},.22)`;x.lineWidth=i===uSel?1.5:1;x.beginPath();x.ellipse(cx,cy,radius(i),radius(i)*tilt,0,0,TAU);x.stroke()});
+  const items=PL.map((s,i)=>{const a=t*(.3-i*.04)+i*1.3,r=radius(i);return{i,X:cx+Math.cos(a)*r,Y:cy+Math.sin(a)*r*tilt,z:Math.sin(a)}});
+  const body=q=>{const on=q.i===uSel,sc=1+.3*q.z,r=(on?10:6.5)*sc,col=PL[q.i].c||(on?GOLD:BONE);
+    if(on){x.fillStyle=`rgba(${GOLD},.16)`;x.beginPath();x.arc(q.X,q.Y,r+14,0,TAU);x.fill()}
+    const g=x.createRadialGradient(q.X-r*.35,q.Y-r*.35,r*.1,q.X,q.Y,r);g.addColorStop(0,`rgb(${on?GOLD:col})`);g.addColorStop(1,'rgba(20,18,15,1)');x.fillStyle=g;x.beginPath();x.arc(q.X,q.Y,r,0,TAU);x.fill();
+    if(W>420){x.font='600 13px Manrope,sans-serif';x.fillStyle=`rgba(${BONE},${on?1:.6})`;x.textAlign='center';x.fillText(PL[q.i].n,q.X,q.Y-r-9)}
+    hits.push([q.X,q.Y,q.i])};
+  items.filter(q=>q.z<0).sort((a,b)=>a.z-b.z).forEach(body);
+  const cw=R*.36,ch=cw*(cmImg.naturalHeight/cmImg.naturalWidth||.52);
+  x.fillStyle='rgba(5,5,5,.85)';x.beginPath();x.ellipse(cx,cy,cw*.62,ch*.8,0,0,TAU);x.fill();
+  if(cmImg.complete&&cmImg.naturalWidth)x.drawImage(cmImg,cx-cw/2,cy-ch/2,cw,ch);
+  items.filter(q=>q.z>=0).sort((a,b)=>a.z-b.z).forEach(body);
+});
+orr.c.addEventListener('click',e=>{const r=orr.c.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;let b=null,bd=32;for(const [X,Y,i] of hits){const d=Math.hypot(mx-X,my-Y);if(d<bd){bd=d;b=i}}if(b!==null)pickU(b)});
+pickU(0);
+
+/* ===== Gallery ===== */
+const gal=document.getElementById('gal');
+const step=d=>{const f=[...gal.children],x=gal.scrollLeft;const tgt=d>0?f.find(c=>c.offsetLeft-gal.offsetLeft>x+5):[...f].reverse().find(c=>c.offsetLeft-gal.offsetLeft<x-5);if(tgt)gal.scrollTo({left:tgt.offsetLeft-gal.offsetLeft,behavior:still?'auto':'smooth'})};
+document.getElementById('gp').addEventListener('click',()=>step(-1));document.getElementById('gn').addEventListener('click',()=>step(1));
+gal.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
+
+/* ===== Label releases ===== */
+function cover(cat,i){
+  let s0=0;for(const ch of cat)s0=(s0*31+ch.charCodeAt(0))%2147483647;let ss=s0||7;const r=()=>(ss=ss*16807%2147483647)/2147483647;
+  const n=5+Math.floor(r()*5),k=2+Math.floor(r()*(n/2-1));let d='';
+  for(let j=0;j<=n;j++){const a=((j*k)%n)/n*TAU-Math.PI/2;d+=(j?'L':'M')+(150+Math.cos(a)*92).toFixed(1)+' '+(150+Math.sin(a)*92).toFixed(1)}
+  let rings='';for(let j=0;j<5;j++)rings+=`<circle cx="150" cy="150" r="${30+j*22+Math.floor(r()*6)}" fill="none" stroke="#c9a86a" stroke-opacity="${(.2+r()*.4).toFixed(2)}"/>`;
+  const bg=i%2?'#0b0816':'#070707';
+  return `<svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="${bg}"/>${rings}<path d="${d}" fill="none" stroke="#f1ece2" stroke-opacity=".75"/><circle cx="150" cy="150" r="10" fill="#f1ece2"/><text x="20" y="282" font-family="Anton,sans-serif" font-size="22" fill="#f1ece2">${esc(cat)}</text><text x="280" y="282" text-anchor="end" font-family="Manrope,sans-serif" font-size="11" fill="#c9a86a">COSMOTION MUSIC</text></svg>`;
+}
+const disc=`<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#0c0c0c"/>${[92,84,76,68,60,52].map(r=>`<circle cx="100" cy="100" r="${r}" fill="none" stroke="#222"/>`).join('')}<circle cx="100" cy="100" r="34" fill="#c9a86a"/><circle cx="100" cy="100" r="3" fill="#0c0c0c"/><path d="M100 70 A30 30 0 0 1 128 90" stroke="#f1ece2" stroke-opacity=".5" fill="none"/></svg>`;
+document.getElementById('rels').innerHTML=RELEASES.map((r,i)=>`<article class="rel"><div class="sleeve"><div class="disc">${disc}</div><div class="cover">${cover(r.cat,i)}</div></div>
+  <div class="meta"><div class="cat">${esc(r.cat)} · ${esc(r.status)}${r.date?' · '+esc(r.date):''}</div><h3>${r.title?esc(r.title):'<span class="ph">Title to come</span>'}</h3>
+  <div class="who">${r.artist?esc(r.artist):'<span class="ph">Artist credit to add</span>'}</div>
+  <div class="links">${Object.entries(r.links).map(([k,u])=>u?`<a href="${esc(u)}">${esc(k)}</a>`:`<span>${esc(k)} link to add</span>`).join('')||'<span>Listening links on release</span>'}</div></div></article>`).join('');
+document.querySelectorAll('.rel').forEach(a=>a.tabIndex=0);
+
+/* ===== Release cycle ===== */
 const S=[
  ['New moon','Vision','Career visioning and goal setting. In the quiet dark we name what this release is for.'],
- ['Waxing crescent','Identity','Branding and narrative: the story, the moodboard, the palette that makes the music recognisable.'],
+ ['Waxing crescent','Identity','Branding and narrative: the story, the moodboard and the palette that make the music recognisable.'],
  ['First quarter','Assets','Cover art, EPK, one-sheets, visualizers and video treatments take shape.'],
- ['Waxing gibbous','Alignment','Smart links, playlist and blog pitching, the content calendar and launch timeline.'],
+ ['Waxing gibbous','Alignment','Smart links, playlist and press pitching, the content calendar and launch timeline.'],
  ['Full moon','Release','Launch day: the music meets the world, with campaigns and premieres in full light.'],
  ['Waning gibbous','Amplify','Short-form content, press follow-through and sync submissions keep it moving.'],
- ['Last quarter','Live','Booking, tours and festivals, with projection visuals and a live show to match.'],
- ['Waning crescent','Integrate','Royalties, PRO and publishing settled, results reviewed, rest before the next vision.']];
+ ['Last quarter','Live','Booking and shows, with visuals and a live aesthetic to match the record.'],
+ ['Waning crescent','Integrate','Royalties and publishing settled, results reviewed, rest before the next vision.']];
 const moon=document.getElementById('moon'),rng=document.getElementById('ph-r'),phs=document.getElementById('phs');
 phs.innerHTML=S.map((s,i)=>`<button data-i="${i}" data-s="${i+1}" aria-label="${s[0]}">${s[1]}</button>`).join('');
 let ticks='';for(let i=0;i<60;i++){const a=i/60*TAU,l=i%5?6:12;ticks+=`<line x1="${(200+Math.cos(a)*192).toFixed(1)}" y1="${(200+Math.sin(a)*192).toFixed(1)}" x2="${(200+Math.cos(a)*(192-l)).toFixed(1)}" y2="${(200+Math.sin(a)*(192-l)).toFixed(1)}" stroke="#c9a86a" stroke-opacity="${i%5?.35:.7}"/>`}
@@ -394,29 +689,74 @@ rng.addEventListener('input',()=>setPhase(+rng.value));
 phs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)setPhase(+b.dataset.i)});
 setPhase(4);
 
-/* gallery */
-const gal=document.getElementById('gal');
-const step=d=>{const f=[...gal.children],x=gal.scrollLeft;let tgt=d>0?f.find(c=>c.offsetLeft>x+5):[...f].reverse().find(c=>c.offsetLeft<x-5);if(tgt)gal.scrollTo({left:tgt.offsetLeft-gal.offsetLeft,behavior:still?'auto':'smooth'})};
-document.getElementById('gp').addEventListener('click',()=>step(-1));document.getElementById('gn').addEventListener('click',()=>step(1));
-gal.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
+/* ===== Community constellation ===== */
+let nodes=[],mine=0;
+const comm=stage('comm',(o,t)=>{
+  const {x,W,H}=o;x.fillStyle='#030303';x.fillRect(0,0,W,H);
+  for(const n of nodes){n.x+=Math.sin(t*.3+n.p)*.08;n.y+=Math.cos(t*.25+n.p)*.08}
+  x.lineWidth=1;
+  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const a=nodes[i],b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<110){x.strokeStyle=(a.me||b.me)?`rgba(${GOLD},${.55*(1-d/110)})`:`rgba(${BONE},${.18*(1-d/110)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+  for(const n of nodes){const tw=.6+.4*Math.sin(t*1.5+n.p);if(n.me){x.fillStyle=`rgba(${GOLD},.2)`;x.beginPath();x.arc(n.x,n.y,9+3*tw,0,TAU);x.fill()}x.fillStyle=n.me?`rgb(${GOLD})`:`rgba(${BONE},${.5+.5*tw})`;x.beginPath();x.arc(n.x,n.y,n.r,0,TAU);x.fill()}
+},o=>{if(nodes.length)return;for(let i=0;i<70;i++)nodes.push({x:rnd()*o.W,y:rnd()*o.H,r:rnd()*1.6+1,p:rnd()*TAU})});
+comm.c.addEventListener('pointerdown',e=>{const r=comm.c.getBoundingClientRect();nodes.push({x:e.clientX-r.left,y:e.clientY-r.top,r:3,p:rnd()*TAU,me:1});mine++;document.getElementById('ctip').textContent=mine===1?'Welcome. You\'re part of the constellation.':`${mine} lights added. Every one connects.`;if(still)comm.draw(comm,3)});
 
-/* intake */
-const needs=['Artist management','Release strategy','Marketing and promotion','Press kit / EPK','Website and smart links','Creative direction','Content and visualizers','Booking and touring','Sync licensing'];
-document.getElementById('needs').innerHTML=needs.map(n=>`<label><input type="checkbox" value="${n}">${n}</label>`).join('');
-document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',()=>{const r=document.querySelector(`input[name=plan][value="${a.dataset.plan}"]`);if(r)r.checked=true}));
-const v=id=>document.getElementById(id).value.trim();
+/* ===== Contact ===== */
+const F={
+ name:{l:'Your name',t:'text',ac:'name',req:1},email:{l:'Email',t:'email',ac:'email',req:1},
+ artist:{l:'Artist or project name',t:'text'},links:{l:'Music links',t:'text',ph:'Spotify, SoundCloud, Instagram'},
+ stage:{l:'Where you are now',t:'select',o:['Just starting out','Releasing music','Touring and booking','Established, ready to expand']},
+ plan:{l:'Plan you\'re curious about',t:'radio',o:['Starter','Artist Growth Plan','Full Representation','Not sure yet']},
+ needs:{l:'What you need',t:'check',o:['Artist development','Release strategy','Creative direction','EPK and digital presence','Promotion','Booking strategy','Career development','Creative consulting']},
+ interest:{l:'I\'d like to',t:'radio',o:['Join the list','Attend gatherings','Perform or create','Volunteer or help','Host a gathering']},
+ city:{l:'City',t:'text'},org:{l:'Organization or venue',t:'text'},
+ kind:{l:'You are',t:'select',o:['Venue owner','Hospitality group','Brand','Festival organizer','Creative entrepreneur','Other']},
+ csvc:{l:'Interested in',t:'check',o:['Creative direction','Experiential production','Venue concept','Programming','Talent curation','Brand development','Community strategy']},
+ timeline:{l:'Timeline',t:'select',o:['Exploring','Within 3 months','3 to 6 months','6 months or more']},
+ track:{l:'Private listening link',t:'text',ph:'SoundCloud private link, Dropbox, etc.'},genre:{l:'Style',t:'text',ph:'e.g. organic house, 118 BPM'},
+ msg:{l:'Your message',t:'textarea'}};
+const TYPES=[
+ {id:'artist',n:'Artist',s:'Artist intake',f:['name','artist','email','stage','links','plan','needs','msg'],m:'Your vision, in a few lines'},
+ {id:'event',n:'Events and community',s:'Community',f:['name','email','city','interest','msg']},
+ {id:'partner',n:'Venue or brand',s:'Partnership',f:['name','email','org','kind','city','csvc','timeline','msg'],m:'Tell us about the space or idea'},
+ {id:'consult',n:'Creative consulting',s:'Consulting',f:['name','email','org','timeline','msg'],m:'What would you like help with?'},
+ {id:'demo',n:'Demo submission',s:'Demo',f:['name','artist','email','track','genre','msg'],m:'A few words about the music'},
+ {id:'general',n:'Something else',s:'General',f:['name','email','msg']}];
+let cType='artist',plan0='';
+const tabs=document.getElementById('tabs'),fields=document.getElementById('fields');
+tabs.innerHTML=TYPES.map(t=>`<button type="button" role="tab" id="tab-${t.id}" data-t="${t.id}" aria-selected="false">${t.n}</button>`).join('');
+function fieldHtml(k,T){const f=F[k],id='f-'+k,lab=(k==='msg'&&T.m)?T.m:f.l;
+  if(f.t==='select')return `<div><label for="${id}">${lab}</label><select id="${id}">${f.o.map(o=>`<option>${o}</option>`).join('')}</select></div>`;
+  if(f.t==='textarea')return `<div><label for="${id}">${lab}</label><textarea id="${id}"></textarea></div>`;
+  if(f.t==='radio')return `<fieldset><legend>${lab}</legend><div class="chips">${f.o.map((o,i)=>`<label><input type="radio" name="${id}" value="${o}"${(k==='plan'?(plan0?o===plan0:o==='Not sure yet'):i===0)?' checked':''}>${o}</label>`).join('')}</div></fieldset>`;
+  if(f.t==='check')return `<fieldset><legend>${lab}</legend><div class="chips">${f.o.map(o=>`<label><input type="checkbox" name="${id}" value="${o}">${o}</label>`).join('')}</div></fieldset>`;
+  return `<div><label for="${id}">${lab}${f.req?' (required)':''}</label><input type="${f.t}" id="${id}"${f.ac?` autocomplete="${f.ac}"`:''}${f.ph?` placeholder="${f.ph}"`:''}></div>`}
+function setType(id){cType=id;const T=TYPES.find(x=>x.id===id);
+  const keep={};fields.querySelectorAll('input[type=text],input[type=email],textarea').forEach(i=>{if(i.value)keep[i.id]=i.value});
+  let h='',pair=[];T.f.forEach(k=>{const f=F[k];if(['text','email','select'].includes(f.t)){pair.push(fieldHtml(k,T));if(pair.length===2){h+=`<div class="frow">${pair.join('')}</div>`;pair=[]}}else{if(pair.length){h+=`<div class="frow">${pair.join('')}</div>`;pair=[]}h+=fieldHtml(k,T)}});
+  if(pair.length)h+=`<div class="frow">${pair.join('')}</div>`;
+  fields.innerHTML=h;for(const k in keep){const el=document.getElementById(k);if(el)el.value=keep[k]}
+  tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===id));
+  document.getElementById('out').style.display='none';document.getElementById('err').textContent='';plan0='';}
+tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)setType(b.dataset.t)});
+document.querySelectorAll('[data-type]').forEach(a=>a.addEventListener('click',()=>{if(a.dataset.plan)plan0=a.dataset.plan;setType(a.dataset.type)}));
+setType('artist');
+const val=k=>{const f=F[k],id='f-'+k;if(f.t==='radio'){const c=document.querySelector(`input[name="${id}"]:checked`);return c?c.value:''}if(f.t==='check')return [...document.querySelectorAll(`input[name="${id}"]:checked`)].map(i=>i.value).join(', ');const el=document.getElementById(id);return el?el.value.trim():''};
 let body='';
-document.getElementById('intake').addEventListener('submit',e=>{
-  e.preventDefault();const err=document.getElementById('err');
-  if(!v('f-name')||!/^\S+@\S+\.\S+$/.test(v('f-email'))){err.textContent='Add your name and a valid email so we can reply.';return}
+document.getElementById('cform').addEventListener('submit',e=>{
+  e.preventDefault();const err=document.getElementById('err'),T=TYPES.find(x=>x.id===cType);
+  if(!val('name')||!/^\S+@\S+\.\S+$/.test(val('email'))){err.textContent='Add your name and a valid email so we can reply.';return}
   err.textContent='';
-  const plan=document.querySelector('input[name=plan]:checked').value,nd=[...document.querySelectorAll('#needs input:checked')].map(i=>i.value);
-  body=`Name: ${v('f-name')}\nArtist / project: ${v('f-artist')||'-'}\nEmail: ${v('f-email')}\nStage: ${v('f-stage')}\nMusic links: ${v('f-links')||'-'}\nPlan: ${plan}\nNeeds: ${nd.join(', ')||'-'}\n\nVision:\n${v('f-msg')||'-'}`;
+  body=`Inquiry: ${T.s}\n`+T.f.map(k=>`${(k==='msg'&&T.m)?T.m:F[k].l}: ${val(k)||'-'}`).join('\n');
   document.getElementById('txt').textContent=body;
-  document.getElementById('mail').href='mailto:thomaszente@gmail.com?subject='+encodeURIComponent('Cosmotion artist intake: '+(v('f-artist')||v('f-name')))+'&body='+encodeURIComponent(body);
+  document.getElementById('mail').href='mailto:thomaszente@gmail.com?subject='+encodeURIComponent(`COSMOTION ${T.s}: `+(val('artist')||val('org')||val('name')))+'&body='+encodeURIComponent(body);
   const out=document.getElementById('out');out.style.display='block';out.scrollIntoView({block:'nearest',behavior:still?'auto':'smooth'});
 });
 document.getElementById('copy').addEventListener('click',async()=>{const m=document.getElementById('cmsg');try{await navigator.clipboard.writeText(body);m.textContent='Copied'}catch(_){m.textContent='Select the text above to copy it'}});
+
+/* ===== Nav highlight ===== */
+const navLinks=[...document.querySelectorAll('nav a:not(.logo)')];
+const secIO=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}},{rootMargin:'-45% 0px -50% 0px'});
+['philosophy','universe','music','artists','creative','story','connect'].forEach(id=>{const el=document.getElementById(id);if(el)secIO.observe(el)});
 
 if(!still)requestAnimationFrame(loop);
 }
