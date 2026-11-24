@@ -339,7 +339,8 @@ footer img{height:20px;width:auto;margin-bottom:12px}
       </div>
     </div>
     <div class="rels" id="rels"></div>
-    <p class="note" style="margin-top:18px">Dashed items are placeholders for details still to add.</p>
+    <p style="margin-top:22px"><a class="btn" href="https://linktr.ee/cosmotion.space">Listen and follow: all links</a></p>
+    <p class="note" style="margin-top:12px">Dashed items are placeholders for details still to add.</p>
     <div class="lblrow">
       <div><h3>Featured artists</h3><p class="mute" style="margin-top:8px">The roster will be introduced alongside upcoming releases.</p></div>
       <div><h3>Send a demo</h3><p class="mute" style="margin-top:8px">Making music in this world? We listen to everything that arrives with intention.</p><a class="btn" href="#connect" data-type="demo">Submit music</a></div>
@@ -444,7 +445,7 @@ footer img{height:20px;width:auto;margin-bottom:12px}
       <h2>The center of everything</h2>
       <p style="margin-top:16px">Over a decade, COSMOTION has grown into a network of artists, musicians, dancers, creators and cultural innovators. It reaches past the dance floor: people connected by curiosity, creativity, music and the wish for experiences that mean something.</p>
       <div class="next"><b>Next gathering</b><p class="mute" style="margin:0">To be announced. The list always hears first.</p></div>
-      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a></div>
+      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a><a class="btn" href="https://instagram.com/cosmotion.space">@cosmotion.space</a></div>
     </div>
     <div class="fig commfig" id="cfwrap"><canvas id="comm" aria-label="A constellation of the community: tap to add your light"></canvas><span class="tip" id="ctip">Tap to add your light</span></div>
   </div>
@@ -476,7 +477,7 @@ footer img{height:20px;width:auto;margin-bottom:12px}
         <li><span class="n">2</span><div><h3>Discovery call</h3><p>We listen to the music, the space or the idea behind it.</p></div></li>
         <li><span class="n">3</span><div><h3>Align, strategize, elevate</h3><p>We map the orbit together and set it in motion.</p></div></li>
       </ol>
-      <p class="mute" style="margin-top:26px">Or write directly: thomaszente@gmail.com</p>
+      <p class="mute" style="margin-top:26px">Or write directly: cosmotionevents@gmail.com<br>Instagram <a href="https://instagram.com/cosmotion.space">@cosmotion.space</a> · <a href="https://linktr.ee/cosmotion.space">linktr.ee/cosmotion.space</a></p>
     </div>
     <form id="cform" novalidate>
       <h3>What brings you here?</h3>
@@ -485,7 +486,7 @@ footer img{height:20px;width:auto;margin-bottom:12px}
       <div><button class="btn solid" type="submit">Prepare my message</button></div>
       <p id="err" class="mute" role="alert" style="margin:0"></p>
       <div id="out" aria-live="polite">
-        <p style="margin-bottom:10px">Your message is ready. Send it to thomaszente@gmail.com from your email.</p>
+        <p style="margin-bottom:10px">Your message is ready. Send it to cosmotionevents@gmail.com from your email.</p>
         <pre id="txt"></pre>
         <div class="outctl"><a class="btn solid" id="mail" href="#">Open in email</a><button type="button" id="copy">Copy text</button><span class="mute" id="cmsg"></span></div>
       </div>
@@ -503,7 +504,7 @@ footer img{height:20px;width:auto;margin-bottom:12px}
   <div><img src="img/wordmark.png" alt="COSMOTION"><p style="margin:0">A creative ecosystem founded in Austin, Texas, in 2015 by Thomas Zente (ZENTI).</p></div>
   <div><b>Pillars</b><a href="#experiences">Experiences</a><a href="#music">Music</a><a href="#artists">Artists</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
   <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#story">Story</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
-  <div><b>Contact</b><span>thomaszente@gmail.com</span><a href="https://instagram.com/zentimusic">Instagram @zentimusic</a></div>
+  <div><b>Contact</b><span>cosmotionevents@gmail.com</span><a href="https://instagram.com/cosmotion.space">Instagram @cosmotion.space</a><a href="https://linktr.ee/cosmotion.space">All links</a></div>
 </div></footer>
 
 <script>
@@ -748,7 +749,7 @@ document.getElementById('cform').addEventListener('submit',e=>{
   err.textContent='';
   body=`Inquiry: ${T.s}\n`+T.f.map(k=>`${(k==='msg'&&T.m)?T.m:F[k].l}: ${val(k)||'-'}`).join('\n');
   document.getElementById('txt').textContent=body;
-  document.getElementById('mail').href='mailto:thomaszente@gmail.com?subject='+encodeURIComponent(`COSMOTION ${T.s}: `+(val('artist')||val('org')||val('name')))+'&body='+encodeURIComponent(body);
+  document.getElementById('mail').href='mailto:cosmotionevents@gmail.com?subject='+encodeURIComponent(`COSMOTION ${T.s}: `+(val('artist')||val('org')||val('name')))+'&body='+encodeURIComponent(body);
   const out=document.getElementById('out');out.style.display='block';out.scrollIntoView({block:'nearest',behavior:still?'auto':'smooth'});
 });
 document.getElementById('copy').addEventListener('click',async()=>{const m=document.getElementById('cmsg');try{await navigator.clipboard.writeText(body);m.textContent='Copied'}catch(_){m.textContent='Select the text above to copy it'}});
