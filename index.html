@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>COSMOTION · Mystical Music Movement</title>
+<meta property="og:title" content="COSMOTION · Mystical Music Movement">
+<meta property="og:description" content="Immersive experiences, an independent electronic label, artist development and creative direction. Since 2015.">
+<meta property="og:image" content="https://cosmotion.vercel.app/img/og.png">
+<meta property="og:url" content="https://cosmotion.vercel.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <meta name="description" content="COSMOTION is a creative ecosystem: immersive experiences, an independent electronic label, artist development, creative direction and community.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -265,6 +272,37 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 #merch .mcard h3{font-size:clamp(22px,2.2vw,28px)}
 #chat .chatmark{width:clamp(80px,9vw,104px)}
 #chat .chatin{max-width:760px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:0 auto 22px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-size:15px;color:var(--dim)}
+.hero .meta b{color:var(--ink);font-weight:500}.hero .meta a{color:var(--gold);text-decoration:none}
+.proof{border-block:1px solid var(--line);padding:22px 0;overflow:hidden;position:relative;background:rgba(5,5,5,.92)}
+.proof p{margin:0 auto 12px;text-align:center;font-size:14px;color:var(--gold);font-weight:700}
+.marq{display:flex;width:max-content;animation:marq 70s linear infinite}
+.proof:hover .marq{animation-play-state:paused}
+.marq ul{display:flex;list-style:none;margin:0;padding:0}
+.marq li{font:300 clamp(20px,2.2vw,28px) Oswald,sans-serif;text-transform:uppercase;white-space:nowrap;padding:0 22px;position:relative}
+.marq li.c{font-family:"Cormorant Garamond",serif;font-style:italic;text-transform:none;color:var(--silver)}
+.marq li::after{content:"";position:absolute;right:-3px;top:50%;width:6px;height:6px;border:1px solid var(--gold);transform:translateY(-50%) rotate(45deg)}
+@keyframes marq{to{transform:translateX(-50%)}}
+.upc{margin:10px 0 40px;border:1px dashed rgba(201,168,106,.55);border-radius:18px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}
+.upc h3{font-size:24px;margin:0 0 4px}.upc p{margin:0}
+.ev{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.ev .d{font:300 22px Oswald,sans-serif;color:var(--gold)}
+.work{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:34px}
+.wcard{display:flex;flex-direction:column;gap:10px;padding:clamp(24px,3vw,40px);border:1px solid var(--line);border-radius:22px;background:var(--panel);text-decoration:none;transition:border-color .3s,transform .3s}
+.wcard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.wcard .k{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--gold)}
+.wcard h3{font-size:clamp(28px,3vw,40px);font-weight:300}
+.wcard p{color:var(--dim);margin:0}
+.wcard ul{margin:6px 0 10px;padding-left:18px;color:var(--ink);font-size:15px}
+.wcard .go{margin-top:auto;font-weight:700;color:var(--gold)}
+.joinrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+.lform{background:none!important;border:0!important;padding:0!important;border-radius:0!important;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;max-width:520px}
+.lform input{flex:1 1 200px}
+.lmsg{font-size:14px;color:var(--gold);min-height:1.2em;margin-top:8px}
+.sub-hero{padding:clamp(56px,8vw,110px) max(5vw,16px) 0}
+@media(max-width:700px){.work,.upc,.ev{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.marq{animation:none;flex-wrap:wrap;width:auto}}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -275,14 +313,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <div class="aether" aria-hidden="true"><svg viewBox="-300 -300 600 600" id="aether"></svg></div>
 <nav aria-label="Sections">
   <a class="logo" href="#top" aria-label="COSMOTION home"><img src="img/wordmark.svg" alt="COSMOTION"></a>
-  <a href="#philosophy">Philosophy</a>
-  <a href="#universe">Universe</a>
+  <a href="#experiences">Experiences</a>
   <a href="#music">Music</a>
-  <a href="#artists">Artists</a>
-  <a href="#creative">Creative</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#work">Work with us</a>
+  <a href="#community">Community</a>
   <a href="#connect">Connect</a>
 </nav>
-
 <header class="hero" id="top">
   <div class="sky">
     <canvas id="sky" aria-label="An engraved celestial wheel of rings and alchemical symbols, tilting gently with your cursor"></canvas>
@@ -290,66 +327,19 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   </div>
   <p class="place">Since 2015</p>
   <h1>Mystical Music Movement</h1>
-  <p class="intro">A creative ecosystem at the intersection of music, art, culture and consciousness: immersive experiences, an independent electronic label, artist development and creative direction, held together by community.</p>
-  <div class="paths" aria-label="Find your way in">
-    <a class="path" href="#community" data-type="event"><b>Gather</b><span>Events and community</span></a>
-    <a class="path" href="#music" data-type="demo"><b>Listen</b><span>COSMOTION MUSIC</span></a>
-    <a class="path" href="#artists" data-type="artist"><b>Grow</b><span>Artist development</span></a>
-    <a class="path" href="#creative" data-type="partner"><b>Build</b><span>Venues and brands</span></a>
-    <a class="path" href="#connect" data-type="general"><b>Collaborate</b><span>Start a conversation</span></a>
-  </div>
+  <p class="intro">Immersive experiences, an independent electronic label, artist development and creative direction, held together by community.</p>
+  <div class="cta"><a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat</a><a class="btn" href="#experiences">Explore COSMOTION</a></div>
+  <div class="meta"><span>Next gathering: <b id="nextev">announced in the chat first</b></span><span>Out now: <b>ZENTI · Boomin' Now</b> <a href="#music">CM001</a></span></div>
 </header>
-
-<section class="band eco" id="ecosystem">
-  <div class="wrap two">
-    <div>
-      <p class="kick">What COSMOTION is</p>
-      <h2>Not an event company. Not only a label. A creative ecosystem.</h2>
-      <p style="margin-top:18px">What began in 2015 as a passion for bringing people together through music has grown into a platform for immersive events, electronic music, artist development, creative direction, venue development and community building.</p>
-      <div class="word"><span>Cosmos</span>+<span>Motion</span>=<em>Cosmotion</em></div>
-      <p class="mute"><b style="color:var(--ink)">Kosmos</b> is Greek for order and harmony. <b style="color:var(--ink)">Motio</b> is Latin for movement. Order alone is a frozen star chart; motion alone scatters. Together they make an orbit: a center that holds, and everything around it free to move.</p>
-      <div class="modes" role="group" aria-label="Show the idea">
-        <button data-m="cosmos" aria-pressed="false">Cosmos</button>
-        <button data-m="motion" aria-pressed="false">Motion</button>
-        <button data-m="cosmotion" aria-pressed="true">Cosmotion</button>
-      </div>
-      <p class="cap" id="mcap"></p>
-    </div>
-    <div class="fig" style="min-height:480px"><canvas id="mean" aria-label="Particles showing order, motion, or both"></canvas></div>
-  </div>
+<section class="proof" aria-label="Artists hosted and collaborations">
+  <p>Headliners hosted and creative collaborations</p>
+  <div class="marq"><ul><li>Sarkis Mikael</li><li>Magician On Duty</li><li>Oceanvs Orientalis</li><li>Nico Stojan</li><li>KMLN</li><li>Fabian Krooss</li><li>Cioz</li><li>Sam Shure</li><li>Noema</li><li>Just Emma</li><li>Lemurian</li><li>Anstascia</li><li>Allen Hulsey</li><li>The Soul Brothers</li><li>Caleesi &amp; Sara Kreis</li><li>Orijins</li><li>Eli Light</li><li>Patrik Katch</li><li class="c">Stil Vor Talent</li><li class="c">Opulent Temple</li><li class="c">Art With Me</li><li class="c">Sonic Jungle</li><li class="c">JunXion</li><li class="c">The Concourse Project</li><li class="c">Indra’s Awarehouse</li><li class="c">Pershing House</li></ul><ul aria-hidden="true"><li>Sarkis Mikael</li><li>Magician On Duty</li><li>Oceanvs Orientalis</li><li>Nico Stojan</li><li>KMLN</li><li>Fabian Krooss</li><li>Cioz</li><li>Sam Shure</li><li>Noema</li><li>Just Emma</li><li>Lemurian</li><li>Anstascia</li><li>Allen Hulsey</li><li>The Soul Brothers</li><li>Caleesi &amp; Sara Kreis</li><li>Orijins</li><li>Eli Light</li><li>Patrik Katch</li><li class="c">Stil Vor Talent</li><li class="c">Opulent Temple</li><li class="c">Art With Me</li><li class="c">Sonic Jungle</li><li class="c">JunXion</li><li class="c">The Concourse Project</li><li class="c">Indra’s Awarehouse</li><li class="c">Pershing House</li></ul></div>
 </section>
-
-<section class="band phil" id="philosophy">
-  <div class="wrap two">
-    <div class="star"><svg id="star" viewBox="0 0 500 500" role="group" aria-label="Nine principles on a nine-point star"></svg></div>
-    <div>
-      <p class="kick">What we believe</p>
-      <h2>Music is more than entertainment</h2>
-      <p class="mute" style="margin-top:16px">It's a universal language that connects people, sparks creativity and makes room for real change. Some of life's most meaningful moments happen when people are fully present, lose themselves in music and feel part of something larger. Nine principles guide everything we make.</p>
-      <div class="prin" aria-live="polite"><div class="n" id="pn"></div><h3 id="ph"></h3><p id="pp" class="mute"></p></div>
-      <div class="phones"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="18" y="8" width="20" height="38" rx="4" fill="none" stroke="#c9a86a" stroke-width="1.5"/><circle cx="28" cy="40" r="2" fill="#c9a86a"/><line x1="8" y1="48" x2="48" y2="8" stroke="#f1ece2" stroke-width="1.5"/></svg><p>Many of our dance floors have been no-photo spaces. Phones away, so the night is lived rather than filmed.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="universe">
-  <div class="wrap two">
-    <div class="fig" style="min-height:520px"><canvas id="orr" aria-label="Five pillars orbiting COSMOTION in three dimensions: click one to read about it"></canvas></div>
-    <div>
-      <p class="kick">What we create</p>
-      <h2>Five pillars, one orbit</h2>
-      <p class="mute" style="margin-top:14px">Each part feeds the others. The events find the artists, the artists shape the label, the label fills the rooms, and the community holds it all together. Tap a pillar.</p>
-      <div class="svc" id="plist" role="group" aria-label="Choose a pillar"></div>
-      <div class="panel" aria-live="polite"><div class="k" id="uk"></div><h3 id="uh"></h3><p id="up" class="mute"></p><a class="btn" id="ua" href="#">Explore</a></div>
-    </div>
-  </div>
-</section>
-
 <section class="band" id="experiences" style="border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="split">
       <div>
-        <p class="kick">I · COSMOTION Experiences</p>
+        <p class="kick">Experiences</p>
         <h2>Beyond the party</h2>
         <p class="focus">Our focus is to produce magical experiences while showcasing unearthly arrangements of cosmic soundscapes and interactive art.</p>
         <p class="mute">Our events are held at high-vibrational spaces where our participants can express their inner truth while making valuable connections.</p>
@@ -367,6 +357,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       <div><b>~15k</b><span>on the community list</span></div>
       <div><b>2</b><span>venue launches</span></div>
     </div>
+    <div class="upc" id="upcoming"><div><h3>Upcoming gatherings</h3><p class="mute" id="upcnote">The next date is shared with the community first.</p><div id="evlist"></div></div><a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat</a></div>
     <div class="gal" id="gal" tabindex="0" aria-label="Photos from COSMOTION experiences">
       <figure><img src="img/dj.jpg" alt="DJ facing a packed room under a lit wooden ceiling" loading="lazy"></figure>
       <figure><img src="img/aerial.jpg" alt="Aerialist performing on a hoop above the crowd" loading="lazy"></figure>
@@ -405,12 +396,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     </div>
   </div>
 </section>
-
 <section class="band label" id="music">
   <div class="wrap">
     <div class="two top">
       <div>
-        <p class="kick">II · COSMOTION MUSIC</p>
+        <p class="kick">COSMOTION MUSIC</p>
         <h2>Music that moves body and spirit</h2>
       </div>
       <div>
@@ -419,7 +409,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       </div>
     </div>
     <div class="rels" id="rels"></div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px"><a class="btn" href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a class="btn" href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a class="btn" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a class="btn" href="https://linktr.ee/cosmotion.space">All links</a></div>
+    <div class="two top" style="margin-top:40px"><div><h3>Listen</h3><p class="mute" style="margin-top:8px">Releases, edits and mixes from the COSMOTION orbit.</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px"><a class="btn" href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a class="btn" href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a class="btn" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a class="btn" href="https://linktr.ee/cosmotion.space">All links</a></div></div><div style="border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0a0a0a"><iframe title="COSMOTION on SoundCloud" width="100%" height="360" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/cosmotion_music&amp;color=%23c9a86a&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=false&amp;visual=true" style="display:block"></iframe></div></div>
     <p class="note" style="margin-top:12px">Dashed items are placeholders for details still to add.</p>
     <div class="lblrow">
       <div><h3>Featured artists</h3><p class="mute" style="margin-top:8px">The roster will be introduced alongside upcoming releases.</p></div>
@@ -427,138 +417,43 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     </div>
   </div>
 </section>
-
-<section class="band" id="artists">
-  <div class="wrap">
-    <div class="two top">
-      <div>
-        <p class="kick">III · COSMOTION Artists</p>
-        <h2>Guidance for visionary artists</h2>
-      </div>
-      <div>
-        <p>We help musicians and creators shape their identity and bring their work into the world, through development, creative guidance, management and strategic support.</p>
-      </div>
-    </div>
-    <div class="svcs">
-      <div><i></i><p><b>Artist development and positioning</b><span>Find the clear, honest center of your project.</span></p></div>
-      <div><i></i><p><b>Creative direction and branding</b><span>Artwork, visuals and story that match the sound.</span></p></div>
-      <div><i></i><p><b>Music release strategy</b><span>Timing, sequencing and rollout for singles, EPs and albums.</span></p></div>
-      <div><i></i><p><b>Press kits and digital presence</b><span>EPKs, one-sheets, websites and smart links.</span></p></div>
-      <div><i></i><p><b>Promotional campaigns</b><span>Social, playlist and press outreach shaped around each release.</span></p></div>
-      <div><i></i><p><b>Booking strategy and relationships</b><span>Where to play, when, and who to meet.</span></p></div>
-      <div><i></i><p><b>Career development</b><span>Goals and next steps across seasons, not just weeks.</span></p></div>
-      <div><i></i><p><b>Creative consulting</b><span>A second set of ears and eyes when you need it.</span></p></div>
-    </div>
-    <p class="boutique">COSMOTION is a boutique, collaborative platform. We work closely with a small number of artists at a time, and bring in trusted collaborators when a project calls for them.</p>
-
-    <div class="moonwrap" id="rollout">
-      <div class="moon"><svg viewBox="0 0 400 400" id="moon" role="img" aria-label="Moon phase"></svg></div>
-      <div class="stage">
-        <h2>A release follows the moon</h2>
-        <p class="mute" style="margin-top:12px">Every campaign has a dark beginning, a full release and a time to integrate. Slide through the cycle.</p>
-        <label for="ph-r">Phase</label>
-        <input type="range" id="ph-r" min="0" max="7" step="1" value="4">
-        <div class="phases" id="phs" role="group" aria-label="Moon phases"></div>
-        <div aria-live="polite"><div class="k" id="mk"></div><h3 id="mh"></h3><p id="mp" class="mute"></p></div>
-      </div>
-    </div>
-
-    <div class="pk" id="packages">
-      <div class="plan"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="30" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="72" cy="42" r="4" fill="#c9a86a"/></svg>
-        <div class="t">Project-based</div><h3>Starter</h3><p>For a single or EP campaign.</p>
-        <ul><li>1-month engagement</li><li>Release strategy</li><li>EPK and press outreach</li><li>Digital asset kit</li></ul>
-        <a class="btn" href="#connect" data-type="artist" data-plan="Starter">Ask about Starter</a></div>
-      <div class="plan feat"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="20" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="36" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="62" cy="42" r="3.5" fill="#c9a86a"/><circle cx="16" cy="16" r="4.5" fill="#c9a86a"/></svg>
-        <div class="t">Monthly retainer</div><h3>Artist Growth Plan</h3><p>Ongoing support and strategic guidance.</p>
-        <ul><li>Weekly touchpoints</li><li>Multi-channel promotion</li><li>Booking strategy</li><li>Sync support</li></ul>
-        <a class="btn solid" href="#connect" data-type="artist" data-plan="Artist Growth Plan">Ask about Growth</a></div>
-      <div class="plan"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="14" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="26" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="38" fill="none" stroke="#c9a86a"/><circle cx="42" cy="42" r="7" fill="#f1ece2"/><circle cx="56" cy="42" r="3" fill="#c9a86a"/><circle cx="24" cy="24" r="4" fill="#c9a86a"/><circle cx="42" cy="80" r="3.5" fill="#c9a86a"/></svg>
-        <div class="t">Long-term partnership</div><h3>Full Representation</h3><p>Hands-on, long-term management for a small roster.</p>
-        <ul><li>Brand, release and career direction</li><li>Booking, PR and brand opportunities</li><li>Support for long-term evolution</li></ul>
-        <a class="btn" href="#connect" data-type="artist" data-plan="Full Representation">Ask about Full</a></div>
+<section class="band phil" id="philosophy">
+  <div class="wrap two">
+    <div class="star"><svg id="star" viewBox="0 0 500 500" role="group" aria-label="Nine principles on a nine-point star"></svg></div>
+    <div>
+      <p class="kick">Philosophy</p>
+      <h2>Music is more than entertainment</h2>
+      <p class="mute" style="margin-top:16px">It's a universal language that connects people, sparks creativity and makes room for real change. Some of life's most meaningful moments happen when people are fully present, lose themselves in music and feel part of something larger. Nine principles guide everything we make.</p>
+      <div class="word" style="margin:22px 0 10px"><span>Cosmos</span>+<span>Motion</span>=<em>Cosmotion</em></div>
+      <p class="mute" style="font-size:15px"><b style="color:var(--ink)">Kosmos</b> is Greek for order and harmony; <b style="color:var(--ink)">motio</b> is Latin for movement. Together they make an orbit: a center that holds, and everything around it free to move.</p>
+      <div class="prin" aria-live="polite"><div class="n" id="pn"></div><h3 id="ph"></h3><p id="pp" class="mute"></p></div>
+      <div class="phones"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="18" y="8" width="20" height="38" rx="4" fill="none" stroke="#c9a86a" stroke-width="1.5"/><circle cx="28" cy="40" r="2" fill="#c9a86a"/><line x1="8" y1="48" x2="48" y2="8" stroke="#f1ece2" stroke-width="1.5"/></svg><p>Many of our dance floors have been no-photo spaces. Phones away, so the night is lived rather than filmed.</p></div>
     </div>
   </div>
 </section>
-
-<section class="band creative" id="creative">
+<section class="band" id="work">
   <div class="wrap">
-    <div class="two top">
-      <div>
-        <p class="kick">IV · COSMOTION Creative</p>
-        <h2>Ideas and unconventional spaces, turned into culture</h2>
-      </div>
-      <div>
-        <p>Creative direction, experiential production and venue development. We've developed nightlife concepts, launched venues, produced immersive environments, curated talent, built brands and grown creative communities. Now we bring that to partners.</p>
-        <div class="aud"><span>Venue owners</span><span>Hospitality groups</span><span>Brands</span><span>Festival organizers</span><span>Creative entrepreneurs</span></div>
-      </div>
-    </div>
-    <div class="route">
-      <ol>
-        <li><span class="dot">1</span><b>Vision</b><span>What should this place make people feel?</span></li>
-        <li><span class="dot">2</span><b>Concept</b><span>Story, spatial flow and the experience map.</span></li>
-        <li><span class="dot">3</span><b>Identity</b><span>Name, brand, visual language.</span></li>
-        <li><span class="dot">4</span><b>Programming</b><span>Talent, formats, rhythm of the week.</span></li>
-        <li><span class="dot">5</span><b>Production</b><span>Sound, light, design, opening night.</span></li>
-        <li><span class="dot">6</span><b>Community</b><span>The people who make it last.</span></li>
-      </ol>
-    </div>
-    <div class="cserv">
-      <div>Creative direction</div><div>Experiential design and production</div><div>Venue concept development</div>
-      <div>Event programming</div><div>Talent curation</div><div>Brand development</div>
-      <div>Cultural consulting</div><div>Community strategy</div><div>Creative partnerships</div>
-    </div>
-    <div class="proof">
-      <img src="img/florals.jpg" alt="Immersive floral installation with a geometric lamp" loading="lazy">
-      <div>
-        <h3 style="font-size:32px">Two venue launches in Austin</h3>
-        <p class="mute" style="margin-top:10px">From concept and business plan to brand and first night. Most recently NOWHERE in the St. Elmo Arts District, which has hosted 25 events and about 10,000 guests since opening in May 2026.</p>
-        <a class="btn solid" href="#connect" data-type="partner">Discuss a project</a>
-      </div>
+    <p class="kick">Work with us</p>
+    <h2>Artists, venues and brands</h2>
+    <div class="work">
+      <a class="wcard" href="artists.html"><span class="k">For artists</span><h3>Artist development</h3><p>Boutique guidance for a small roster: identity, release strategy, digital presence and the long game.</p><ul><li>Release rollout in cosmic alignment</li><li>Creative direction and EPKs</li><li>Starter, Growth and Full Representation plans</li></ul><span class="go">Explore artist services →</span></a>
+      <a class="wcard" href="creative.html"><span class="k">For venues and brands</span><h3>Creative direction</h3><p>Experiential production and venue development, from vision to opening night. Two venue launches in Austin.</p><ul><li>Venue concepts and programming</li><li>Experiential design and production</li><li>Talent curation and community strategy</li></ul><span class="go">Explore creative services →</span></a>
     </div>
   </div>
 </section>
-
 <section class="band comm" id="community">
   <div class="wrap two">
     <div>
-      <p class="kick">V · COSMOTION Community</p>
+      <p class="kick">Community</p>
       <h2>The center of everything</h2>
       <p style="margin-top:16px">Over a decade, COSMOTION has grown into a network of artists, musicians, dancers, creators and cultural innovators. It reaches past the dance floor: people connected by curiosity, creativity, music and the wish for experiences that mean something.</p>
-      <div class="next"><b>Next gathering</b><p class="mute" style="margin:0">To be announced. The list always hears first.</p></div>
-      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a><a class="btn" href="https://instagram.com/cosmotion.space">@cosmotion.space</a></div>
+      <div class="joinrow"><a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat on WhatsApp</a></div>
+      <form class="lform" id="lform" novalidate><label for="l-email" style="position:absolute;left:-9999px">Email for the list</label><input type="email" id="l-email" placeholder="Your email for the list" autocomplete="email"><button class="btn" type="submit">Join the list</button></form>
+      <p class="lmsg" id="lmsg" role="status"></p>
     </div>
     <div class="fig commfig" id="cfwrap"><canvas id="comm" aria-label="A constellation of the community: tap to add your light"></canvas><span class="tip" id="ctip">Tap to add your light</span></div>
   </div>
 </section>
-
-<section class="band" id="connect">
-  <div class="wrap two top">
-    <div>
-      <p class="kick">How to get involved</p>
-      <h2>Connect with COSMOTION</h2>
-      <p class="mute" style="margin-top:14px">Tell us who you are and what you have in mind. Every message is read by a person.</p>
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>Reach out</h3><p>Choose what brings you here and share a few details.</p></div></li>
-        <li><span class="n">2</span><div><h3>Discovery call</h3><p>We listen to the music, the space or the idea behind it.</p></div></li>
-        <li><span class="n">3</span><div><h3>Align, strategize, elevate</h3><p>We map the orbit together and set it in motion.</p></div></li>
-      </ol>
-      <p class="mute" style="margin-top:26px">Or write directly: cosmotionevents@gmail.com<br>Instagram <a href="https://instagram.com/cosmotion.space">@cosmotion.space</a> · <a href="https://linktr.ee/cosmotion.space">linktr.ee/cosmotion.space</a></p>
-    </div>
-    <form id="cform" novalidate>
-      <h3>What brings you here?</h3>
-      <div class="tabs" id="tabs" role="tablist" aria-label="Inquiry type"></div>
-      <div id="fields" style="display:grid;gap:16px"></div>
-      <div><button class="btn solid" type="submit">Prepare my message</button></div>
-      <p id="err" class="mute" role="alert" style="margin:0"></p>
-      <div id="out" aria-live="polite">
-        <p style="margin-bottom:10px">Your message is ready. Send it to cosmotionevents@gmail.com from your email.</p>
-        <pre id="txt"></pre>
-        <div class="outctl"><a class="btn solid" id="mail" href="#">Open in email</a><button type="button" id="copy">Copy text</button><span class="mute" id="cmsg"></span></div>
-      </div>
-    </form>
-  </div>
-</section>
-
 <section class="band merch" id="merch">
   <div class="wrap">
     <div class="two top">
@@ -568,7 +463,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       </div>
       <div>
         <p class="mute">Two new objects from the COSMOTION orbit are on their way. The community hears first.</p>
-        <a class="btn" href="#connect" data-type="event">Join the list</a>
+        
       </div>
     </div>
     <div class="mgrid">
@@ -589,32 +484,45 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     </div>
   </div>
 </section>
-<section class="band chat" id="chat">
-  <div class="wrap chatin">
-    <a class="chatmark" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp" aria-label="Join the COSMOTION chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9.2 8.6c.3 2.6 2.6 4.9 5.2 5.2l1.2-1.2 1.9.9-.4 1.6c-3.7.3-8.3-4.3-8-8l1.6-.4.9 1.9Z"/></svg></a>
+<section class="band" id="connect">
+  <div class="wrap two top">
     <div>
-      <p class="kick">Community</p>
-      <h2>Join The Chat</h2>
-      <p class="mute">Gatherings, releases and the people behind them, first. Our community chat lives on WhatsApp.</p>
-      <a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join on WhatsApp</a>
+      <p class="kick">How to get involved</p>
+      <h2>Connect with COSMOTION</h2>
+      <p class="mute" style="margin-top:14px">Tell us who you are and what you have in mind. Every message is read by a person.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>Reach out</h3><p>Choose what brings you here and share a few details.</p></div></li>
+        <li><span class="n">2</span><div><h3>Discovery call</h3><p>We listen to the music, the space or the idea behind it.</p></div></li>
+        <li><span class="n">3</span><div><h3>Align, strategize, elevate</h3><p>We map the orbit together and set it in motion.</p></div></li>
+      </ol>
+      <p class="mute" style="margin-top:26px">Or write directly: cosmotionevents@gmail.com<br>Instagram <a href="https://instagram.com/cosmotion.space">@cosmotion.space</a> · <a href="https://linktr.ee/cosmotion.space">linktr.ee/cosmotion.space</a></p>
     </div>
+    <form id="cform" novalidate>
+      <h3>What brings you here?</h3>
+      <div class="tabs" id="tabs" role="tablist" aria-label="Inquiry type"></div>
+      <div id="fields" style="display:grid;gap:16px"></div>
+      <div><button class="btn solid" type="submit">Send message</button></div>
+      <p id="err" class="mute" role="alert" style="margin:0"></p>
+      <p id="sentok" role="status" style="display:none;margin:0;color:var(--gold);font-weight:700">Sent. Thank you, we’ll be in touch soon.</p>
+      <div id="out" aria-live="polite">
+        <p style="margin-bottom:10px">Send it to cosmotionevents@gmail.com from your email.</p>
+        <pre id="txt"></pre>
+        <div class="outctl"><a class="btn solid" id="mail" href="#">Open in email</a><button type="button" id="copy">Copy text</button><span class="mute" id="cmsg"></span></div>
+      </div>
+    </form>
   </div>
 </section>
-<section class="band bloom">
-  <img src="img/cm.svg" alt="CM monogram">
-  <p class="serif big">Sound, movement, art and intention. Come find your orbit.</p>
-  <a class="btn solid" href="#connect">Start a conversation</a>
-</section>
-
 <footer><div class="wrap fwrap">
   <div><img src="img/wordmark.svg" alt="COSMOTION"><p class="serif" style="margin:0;color:var(--gold)">Mystical Music Movement</p></div>
   <div class="socs" aria-label="COSMOTION elsewhere"><a class="soc" href="https://instagram.com/cosmotion.space" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a><a class="soc" href="https://soundcloud.com/cosmotion_music" aria-label="SoundCloud" title="SoundCloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v2M6 12v5M9 10v7M12 8v9"/><path d="M14.5 17H19a2.5 2.5 0 0 0 0-5 4.5 4.5 0 0 0-4.5-4.5V17Z"/></svg></a><a class="soc" href="https://www.beatport.com/label/cosmotion/127693" aria-label="Beatport" title="Beatport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r=".6" fill="currentColor"/><path d="M12 3.5v3"/></svg></a><a class="soc" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="4"/><path d="M10.5 9.5v5l4-2.5Z"/></svg></a><a class="soc" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp" aria-label="WhatsApp chat" title="WhatsApp chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9.2 8.6c.3 2.6 2.6 4.9 5.2 5.2l1.2-1.2 1.9.9-.4 1.6c-3.7.3-8.3-4.3-8-8l1.6-.4.9 1.9Z"/></svg></a><a class="soc" href="mailto:cosmotionevents@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg></a></div>
   <p class="fmail">cosmotionevents@gmail.com</p>
 </div></footer>
-
 <script>
 {
 /* ===== Content you can edit ===== */
+/* Add an upcoming gathering: {date:'Dec 20', name:'COSMOTION · Winter Solstice', place:'Austin', url:'https://posh.vip/...'} */
+const EVENTS=[];
+const SEND='https://formsubmit.co/ajax/cosmotionevents@gmail.com';
 /* Add a release: copy a line, change the fields. Leave a link "" to show it as coming. */
 const RELEASES=[
   {cat:'CM001',title:"Boomin' Now",artist:'ZENTI',date:'January 2026',status:'Out now',art:'img/cm001.jpg',links:{Beatport:'https://www.beatport.com/release/boomin-now/5760495'}},
@@ -636,6 +544,7 @@ function stage(id,draw,init){
 let t=0;
 function loop(){t+=1/60;for(const o of live)if(o.on&&o.W)o.draw(o,t);requestAnimationFrame(loop)}
 
+if(document.getElementById('sky')){
 /* ===== Hero: engraved celestial temple ===== */
 const stars=Array.from({length:180},()=>({x:rnd(),y:rnd(),r:rnd()*1+.2,p:rnd()*TAU}));
 const motes=Array.from({length:26},()=>({x:rnd(),y:rnd(),s:.00012+rnd()*.00025,p:rnd()*TAU}));
@@ -678,23 +587,9 @@ const skyEl=document.querySelector('.sky');
 const setp=e=>{const r=sky.c.getBoundingClientRect();ptr=[e.clientX-r.left,e.clientY-r.top]};
 skyEl.addEventListener('pointermove',setp);skyEl.addEventListener('pointerleave',()=>ptr=null);
 
-/* ===== Cosmos + Motion ===== */
-const caps={cosmos:'Cosmos: perfect order, a constellation fixed in place. Beautiful, but frozen.',motion:'Motion: raw energy with nothing to hold it. Exciting, but it scatters.',cosmotion:'Cosmotion: energy held by a center. Everything flows, nothing is lost.'};
-let mode='cosmotion';const pts=[];
-const mean=stage('mean',(o,t)=>{
-  const {x,W,H}=o,cx=W/2,cy=H/2,M=Math.min(W,H);
-  x.fillStyle='#050505';x.fillRect(0,0,W,H);
-  for(const p of pts){
-    if(mode==='motion'){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
-    else{let tx,ty;if(mode==='cosmos'){tx=p.hx*W;ty=p.hy*H}else{const a=p.a+t*p.w;tx=cx+Math.cos(a)*p.ring*M*.46;ty=cy+Math.sin(a)*p.ring*M*.46}p.x+=(tx-p.x)*.05;p.y+=(ty-p.y)*.05}
-  }
-  if(mode==='cosmos'){x.strokeStyle=`rgba(${GOLD},.3)`;x.lineWidth=1;for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j];if(Math.hypot(a.x-b.x,a.y-b.y)<M*.15){x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
-  if(mode==='cosmotion'){x.strokeStyle=`rgba(${GOLD},.22)`;[.25,.5,.75,1].forEach(k=>{x.beginPath();x.arc(cx,cy,k*M*.46,0,TAU);x.stroke()});x.fillStyle=`rgb(${BONE})`;x.beginPath();x.arc(cx,cy,M*.028,0,TAU);x.fill()}
-  for(const p of pts){x.fillStyle=p.hot?`rgb(${GOLD})`:`rgb(${BONE})`;x.beginPath();x.arc(p.x,p.y,p.r,0,TAU);x.fill()}
-},o=>{if(pts.length)return;for(let i=0;i<110;i++){const ring=.25+Math.floor(rnd()*4)*.25;pts.push({hx:.08+rnd()*.84,hy:.08+rnd()*.84,x:rnd()*o.W,y:rnd()*o.H,vx:(rnd()-.5)*.9,vy:(rnd()-.5)*.9,a:rnd()*TAU,ring,w:.45/ring,r:rnd()*1.7+1,hot:rnd()<.2})}});
-const mcap=document.getElementById('mcap');mcap.textContent=caps.cosmotion;
-document.querySelectorAll('[data-m]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('[data-m]').forEach(z=>z.setAttribute('aria-pressed',z===b));mcap.textContent=caps[mode];if(still)mean.draw(mean,3)}));
 
+}
+if(document.getElementById('star')){
 /* ===== Philosophy: nine-point star ===== */
 const PR=[
  ['Music as a universal language','Sound reaches people where words can\'t. It is the thread through everything we do.'],
@@ -723,44 +618,18 @@ starSvg.addEventListener('keydown',e=>{const g=e.target.closest('.node');if(g&&(
 drawStar();
 if(!still)setInterval(()=>{if(pAuto&&document.visibilityState==='visible'){pSel=(pSel+1)%9;drawStar()}},4500);
 
-/* ===== Universe: 3D pillar orrery ===== */
-const PL=[
- {n:'Experiences',k:'I',h:'Immersive events and gatherings',p:'Curated electronic music inside immersive environments, with visual art, light, performance and community.',a:'#experiences'},
- {n:'Music',k:'II',h:'Independent electronic label',p:'COSMOTION MUSIC releases forward-thinking deep, melodic and organic electronic music. CM001 arrived in January 2026.',a:'#music',c:VIO},
- {n:'Artists',k:'III',h:'Boutique artist development',p:'Creative guidance, release strategy and management for a small number of visionary artists.',a:'#artists'},
- {n:'Creative',k:'IV',h:'Creative direction and venues',p:'Experiential production and venue development for venues, hospitality groups, brands and festivals.',a:'#creative'},
- {n:'Community',k:'V',h:'The center of gravity',p:'Artists, dancers, creators and listeners connected by music and curiosity, on and off the dance floor.',a:'#community'}];
-let uSel=0;const hits=[];const cmImg=new Image();cmImg.src='img/cm.svg';
-const plist=document.getElementById('plist');
-plist.innerHTML=PL.map((s,i)=>`<button data-i="${i}" aria-pressed="${i===0}">${s.n}</button>`).join('');
-function pickU(i){uSel=i;const s=PL[i];document.getElementById('uk').textContent=s.k+' · COSMOTION '+s.n;document.getElementById('uh').textContent=s.h;document.getElementById('up').textContent=s.p;const a=document.getElementById('ua');a.href=s.a;a.textContent='Explore '+s.n;plist.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));if(still)orr.draw(orr,3)}
-plist.addEventListener('click',e=>{const b=e.target.closest('button');if(b)pickU(+b.dataset.i)});
-const orr=stage('orr',(o,t)=>{
-  const {x,W,H}=o,cx=W/2,cy=H/2,R=Math.min(W*.47,H*.78),tilt=.52;
-  x.clearRect(0,0,W,H);hits.length=0;
-  const radius=i=>R*(.46+i*.135);
-  PL.forEach((s,i)=>{x.strokeStyle=i===uSel?`rgba(${GOLD},.85)`:`rgba(${GOLD},.22)`;x.lineWidth=i===uSel?1.5:1;x.beginPath();x.ellipse(cx,cy,radius(i),radius(i)*tilt,0,0,TAU);x.stroke()});
-  const items=PL.map((s,i)=>{const a=t*(.3-i*.04)+i*1.3,r=radius(i);return{i,X:cx+Math.cos(a)*r,Y:cy+Math.sin(a)*r*tilt,z:Math.sin(a)}});
-  const body=q=>{const on=q.i===uSel,sc=1+.3*q.z,r=(on?10:6.5)*sc,col=PL[q.i].c||(on?GOLD:BONE);
-    if(on){x.fillStyle=`rgba(${GOLD},.16)`;x.beginPath();x.arc(q.X,q.Y,r+14,0,TAU);x.fill()}
-    const g=x.createRadialGradient(q.X-r*.35,q.Y-r*.35,r*.1,q.X,q.Y,r);g.addColorStop(0,`rgb(${on?GOLD:col})`);g.addColorStop(1,'rgba(20,18,15,1)');x.fillStyle=g;x.beginPath();x.arc(q.X,q.Y,r,0,TAU);x.fill();
-    if(W>420){x.font='600 13px Manrope,sans-serif';x.fillStyle=`rgba(${BONE},${on?1:.6})`;x.textAlign='center';x.fillText(PL[q.i].n,q.X,q.Y-r-9)}
-    hits.push([q.X,q.Y,q.i])};
-  items.filter(q=>q.z<0).sort((a,b)=>a.z-b.z).forEach(body);
-  const cw=R*.36,ch=cw*(cmImg.naturalHeight/cmImg.naturalWidth||.52);
-  x.fillStyle='rgba(5,5,5,.85)';x.beginPath();x.ellipse(cx,cy,cw*.62,ch*.8,0,0,TAU);x.fill();
-  if(cmImg.complete&&cmImg.naturalWidth)x.drawImage(cmImg,cx-cw/2,cy-ch/2,cw,ch);
-  items.filter(q=>q.z>=0).sort((a,b)=>a.z-b.z).forEach(body);
-});
-orr.c.addEventListener('click',e=>{const r=orr.c.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;let b=null,bd=32;for(const [X,Y,i] of hits){const d=Math.hypot(mx-X,my-Y);if(d<bd){bd=d;b=i}}if(b!==null)pickU(b)});
-pickU(0);
 
+}
+if(document.getElementById('gal')){
 /* ===== Gallery ===== */
 const gal=document.getElementById('gal');
 const step=d=>{const f=[...gal.children],x=gal.scrollLeft;const tgt=d>0?f.find(c=>c.offsetLeft-gal.offsetLeft>x+5):[...f].reverse().find(c=>c.offsetLeft-gal.offsetLeft<x-5);if(tgt)gal.scrollTo({left:tgt.offsetLeft-gal.offsetLeft,behavior:still?'auto':'smooth'})};
 document.getElementById('gp').addEventListener('click',()=>step(-1));document.getElementById('gn').addEventListener('click',()=>step(1));
 gal.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
 
+
+}
+if(document.getElementById('rels')){
 /* ===== Label releases ===== */
 function cover(cat,i){
   let s0=0;for(const ch of cat)s0=(s0*31+ch.charCodeAt(0))%2147483647;let ss=s0||7;const r=()=>(ss=ss*16807%2147483647)/2147483647;
@@ -777,6 +646,9 @@ document.getElementById('rels').innerHTML=RELEASES.map((r,i)=>`<article class="r
   <div class="links">${Object.entries(r.links).map(([k,u])=>u?`<a href="${esc(u)}">${esc(k)}</a>`:`<span>${esc(k)} link to add</span>`).join('')||'<span>Listening links on release</span>'}</div></div></article>`).join('');
 document.querySelectorAll('.rel').forEach(a=>a.tabIndex=0);
 
+
+}
+if(document.getElementById('moon')){
 /* ===== Release cycle ===== */
 const S=[
  ['New moon','Vision','Career visioning and goal setting. In the quiet dark we name what this release is for.'],
@@ -801,6 +673,9 @@ rng.addEventListener('input',()=>setPhase(+rng.value));
 phs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)setPhase(+b.dataset.i)});
 setPhase(4);
 
+
+}
+if(document.getElementById('comm')){
 /* ===== Community constellation ===== */
 let nodes=[],mine=0;
 const comm=stage('comm',(o,t)=>{
@@ -812,6 +687,9 @@ const comm=stage('comm',(o,t)=>{
 },o=>{if(nodes.length)return;for(let i=0;i<70;i++)nodes.push({x:rnd()*o.W,y:rnd()*o.H,r:rnd()*1.6+1,p:rnd()*TAU})});
 comm.c.addEventListener('pointerdown',e=>{const r=comm.c.getBoundingClientRect();nodes.push({x:e.clientX-r.left,y:e.clientY-r.top,r:3,p:rnd()*TAU,me:1});mine++;document.getElementById('ctip').textContent=mine===1?'Welcome. You\'re part of the constellation.':`${mine} lights added. Every one connects.`;if(still)comm.draw(comm,3)});
 
+
+}
+if(document.getElementById('cform')){
 /* ===== Contact ===== */
 const F={
  name:{l:'Your name',t:'text',ac:'name',req:1},email:{l:'Email',t:'email',ac:'email',req:1},
@@ -851,7 +729,7 @@ function setType(id){cType=id;const T=TYPES.find(x=>x.id===id);
   document.getElementById('out').style.display='none';document.getElementById('err').textContent='';plan0='';}
 tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)setType(b.dataset.t)});
 document.querySelectorAll('[data-type]').forEach(a=>a.addEventListener('click',()=>{if(a.dataset.plan)plan0=a.dataset.plan;setType(a.dataset.type)}));
-setType('artist');
+setType(document.body.dataset.ctype||'artist');
 const val=k=>{const f=F[k],id='f-'+k;if(f.t==='radio'){const c=document.querySelector(`input[name="${id}"]:checked`);return c?c.value:''}if(f.t==='check')return [...document.querySelectorAll(`input[name="${id}"]:checked`)].map(i=>i.value).join(', ');const el=document.getElementById(id);return el?el.value.trim():''};
 let body='';
 document.getElementById('cform').addEventListener('submit',e=>{
@@ -861,11 +739,20 @@ document.getElementById('cform').addEventListener('submit',e=>{
   body=`Inquiry: ${T.s}\n`+T.f.map(k=>`${(k==='msg'&&T.m)?T.m:F[k].l}: ${val(k)||'-'}`).join('\n');
   document.getElementById('txt').textContent=body;
   document.getElementById('mail').href='mailto:cosmotionevents@gmail.com?subject='+encodeURIComponent(`COSMOTION ${T.s}: `+(val('artist')||val('org')||val('name')))+'&body='+encodeURIComponent(body);
-  const out=document.getElementById('out');out.style.display='block';out.scrollIntoView({block:'nearest',behavior:still?'auto':'smooth'});
+  const out=document.getElementById('out');const ok=document.getElementById('sentok');
+  const data={_subject:`COSMOTION ${T.s}: `+(val('artist')||val('org')||val('name')),_replyto:val('email'),_template:'table'};T.f.forEach(k=>data[(k==='msg'&&T.m)?T.m:F[k].l]=val(k)||'-');
+  err.textContent='Sending…';
+  fetch(SEND,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)}).then(r=>{if(!r.ok)throw 0;err.textContent='';out.style.display='none';ok.style.display='block';e.target.querySelectorAll('input[type=text],input[type=email],textarea').forEach(i=>i.value='');ok.scrollIntoView({block:'nearest',behavior:still?'auto':'smooth'})}).catch(()=>{err.textContent='Couldn’t send directly. Use your email instead:';out.style.display='block';out.scrollIntoView({block:'nearest',behavior:still?'auto':'smooth'})});
 });
 document.getElementById('copy').addEventListener('click',async()=>{const m=document.getElementById('cmsg');try{await navigator.clipboard.writeText(body);m.textContent='Copied'}catch(_){m.textContent='Select the text above to copy it'}});
 
 
+
+}
+
+/* ===== Upcoming + list signup ===== */
+{const el=document.getElementById('evlist');if(el&&EVENTS.length){el.innerHTML=EVENTS.map(e=>`<div class="ev"><span class="d">${esc(e.date)}</span><span><b>${esc(e.name)}</b><br><span class="mute">${esc(e.place||'')}</span></span>${e.url?`<a class="btn" href="${esc(e.url)}">Tickets</a>`:''}</div>`).join('');const n=document.getElementById('upcnote');if(n)n.textContent='';const h=document.getElementById('nextev');if(h)h.textContent=EVENTS[0].date+' · '+EVENTS[0].name;}}
+{const f=document.getElementById('lform');if(f)f.addEventListener('submit',async e=>{e.preventDefault();const v=document.getElementById('l-email').value.trim(),m=document.getElementById('lmsg');if(!/^\S+@\S+\.\S+$/.test(v)){m.textContent='Add a valid email.';return}m.textContent='Sending…';try{const r=await fetch(SEND,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'COSMOTION list signup',email:v,_template:'table'})});if(!r.ok)throw 0;m.textContent='You’re on the list. Welcome to the orbit.';f.reset()}catch(_){m.textContent='Couldn’t send just now. Email cosmotionevents@gmail.com to join.'}})}
 /* ===== Sacred watermark and engraved dividers ===== */
 {const a=document.getElementById('aether');let h='';const u=46;
 [1.2,2.4,3.4,5,5.3,6.4].forEach(k=>h+=`<circle r="${(u*k).toFixed(1)}" fill="none" stroke="#c9a86a"/>`);
@@ -877,7 +764,7 @@ document.querySelectorAll('section.band').forEach((sec,i)=>{if(i===0)return;cons
 /* ===== Nav highlight ===== */
 const navLinks=[...document.querySelectorAll('nav a:not(.logo)')];
 const secIO=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}},{rootMargin:'-45% 0px -50% 0px'});
-['philosophy','universe','music','artists','creative','connect'].forEach(id=>{const el=document.getElementById(id);if(el)secIO.observe(el)});
+['experiences','music','philosophy','work','community','connect'].forEach(id=>{const el=document.getElementById(id);if(el)secIO.observe(el)});
 
 if(!still)requestAnimationFrame(loop);
 }
