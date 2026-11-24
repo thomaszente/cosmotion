@@ -306,6 +306,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .hlist{display:flex!important;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px;margin:0 auto 22px!important;background:none!important;border:0!important;padding:0!important;max-width:560px}
 .hlist span{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:19px;color:var(--dim)}
 .hlist input{flex:0 1 240px;min-height:44px!important;border-radius:999px!important;padding:8px 18px!important}
+@media(max-width:900px){#philosophy .two{row-gap:14px}#philosophy .ptext{display:contents}#philosophy .prin{order:1;min-height:0}#philosophy .star{order:2;max-width:400px;margin:4px auto 0}#philosophy .phones{order:3;margin-top:10px}}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -422,7 +423,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <section class="band phil" id="philosophy">
   <div class="wrap two">
     <div class="star"><svg id="star" viewBox="0 0 500 500" role="group" aria-label="Nine principles on a nine-point star"></svg></div>
-    <div>
+    <div class="ptext">
       <p class="kick">Philosophy</p>
       <h2>Music is more than entertainment</h2>
       <p class="mute" style="margin-top:16px">It's a universal language that connects people, sparks creativity and makes room for real change. Some of life's most meaningful moments happen when people are fully present, lose themselves in music and feel part of something larger. Nine principles guide everything we make.</p>
