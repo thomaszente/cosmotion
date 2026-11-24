@@ -227,6 +227,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .kick::before{content:"";display:inline-block;width:7px;height:7px;border:1px solid currentColor;transform:rotate(45deg);margin:0 12px 2px 2px}
 .phil,.creative,.story{background:rgba(10,9,8,.88)!important}
 @media(prefers-reduced-motion:reduce){.aether{animation:none}}
+.herorec{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(40vw,290px);aspect-ratio:1;border-radius:6px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.7),0 0 0 1px rgba(201,168,106,.35);transition:transform .4s}
+.herorec:hover{transform:translate(-50%,-52%)}
+.herorec svg{width:100%;height:100%;display:block}
+.nowout{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 14px;margin:0 auto 30px}
+.nowout .lbl{color:var(--gold);font-weight:700;font-size:14px}
+.player{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0a0a0a;min-height:420px}
+.player iframe{display:block}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -237,36 +244,72 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <div class="aether" aria-hidden="true"><svg viewBox="-300 -300 600 600" id="aether"></svg></div>
 <nav aria-label="Sections">
   <a class="logo" href="#top" aria-label="COSMOTION home"><img src="img/wordmark.svg" alt="COSMOTION"></a>
-  <a href="#philosophy">Philosophy</a>
-  <a href="#universe">Universe</a>
-  <a href="#music">Music</a>
+  <a href="#music">Releases</a>
+  <a href="#listen">Listen</a>
+  <a href="#ecosystem">About</a>
   <a href="#artists">Artists</a>
+  <a href="#experiences">Showcases</a>
   <a href="#creative">Creative</a>
-  <a href="#connect">Connect</a>
+  <a href="#connect">Demos</a>
 </nav>
 
 <header class="hero" id="top">
   <div class="sky">
     <canvas id="sky" aria-label="An engraved celestial wheel of rings and alchemical symbols, tilting gently with your cursor"></canvas>
-    <img src="img/wordmark.svg" alt="COSMOTION">
+    <a class="herorec" id="heroCover" href="https://www.beatport.com/release/boomin-now/5760495" aria-label="CM001, ZENTI, Boomin' Now, on Beatport"></a>
   </div>
-  <p class="place">Since 2015</p>
+  <p class="place">COSMOTION MUSIC · Since 2015</p>
   <h1>Mystical Music Movement</h1>
-  <p class="intro">A creative ecosystem at the intersection of music, art, culture and consciousness: immersive experiences, an independent electronic label, artist development and creative direction, held together by community.</p>
+  <p class="intro">An independent label and creative collective for deep, melodic and organic electronic music, with showcases, artist development and creative direction around it.</p>
+  <div class="nowout"><span class="lbl">Out now</span><span><b>ZENTI</b> · Boomin' Now · CM001</span><a class="btn solid" href="https://www.beatport.com/release/boomin-now/5760495">Beatport</a><a class="btn" href="https://soundcloud.com/cosmotion_music">SoundCloud</a></div>
   <div class="paths" aria-label="Find your way in">
-    <a class="path" href="#community" data-type="event"><b>Gather</b><span>Events and community</span></a>
-    <a class="path" href="#music" data-type="demo"><b>Listen</b><span>COSMOTION MUSIC</span></a>
-    <a class="path" href="#artists" data-type="artist"><b>Grow</b><span>Artist development</span></a>
-    <a class="path" href="#creative" data-type="partner"><b>Build</b><span>Venues and brands</span></a>
-    <a class="path" href="#connect" data-type="general"><b>Collaborate</b><span>Start a conversation</span></a>
+    <a class="path" href="#music"><b>Releases</b><span>The catalog, CM001 onward</span></a>
+    <a class="path" href="#listen"><b>Listen</b><span>Mixes and tracks</span></a>
+    <a class="path" href="#connect" data-type="demo"><b>Send a demo</b><span>Music for the label</span></a>
+    <a class="path" href="#experiences" data-type="event"><b>Showcases</b><span>Gatherings and nights</span></a>
+    <a class="path" href="#connect" data-type="partner"><b>Work with us</b><span>Artists, venues, brands</span></a>
   </div>
 </header>
+
+<section class="band label" id="music">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kick">COSMOTION MUSIC · Releases</p>
+        <h2>The catalog</h2>
+      </div>
+      <div>
+        <p>Our independent label discovers, supports and releases forward-thinking electronic music. It is the philosophy in sound form.</p>
+        <div class="sonic"><span>Deep house</span><span>Melodic house</span><span>Organic house</span><span>Indie dance</span><span>Tribal rhythms</span><span>Global electronic</span></div>
+      </div>
+    </div>
+    <div class="rels" id="rels"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px"><a class="btn" href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a class="btn" href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a class="btn" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a class="btn" href="https://linktr.ee/cosmotion.space">All links</a></div>
+    <p class="note" style="margin-top:12px">Dashed items are placeholders for details still to add.</p>
+    <div class="lblrow">
+      <div><h3>Featured artists</h3><p class="mute" style="margin-top:8px">The roster will be introduced alongside upcoming releases.</p></div>
+      <div><h3>Send a demo</h3><p class="mute" style="margin-top:8px">Making music in this world? We listen to everything that arrives with intention.</p><a class="btn" href="#connect" data-type="demo">Submit music</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="listen">
+  <div class="wrap two top">
+    <div>
+      <p class="kick">Listen</p>
+      <h2>Transmissions</h2>
+      <p class="mute" style="margin-top:14px">Releases, edits and mixes from the COSMOTION orbit. Follow along wherever you listen.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px"><a class="btn solid" href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a class="btn" href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a class="btn" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a class="btn" href="https://linktr.ee/cosmotion.space">All links</a></div>
+    </div>
+    <div class="player"><iframe title="COSMOTION on SoundCloud" width="100%" height="420" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/cosmotion_music&amp;color=%23c9a86a&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=false&amp;visual=true"></iframe></div>
+  </div>
+</section>
 
 <section class="band eco" id="ecosystem">
   <div class="wrap two">
     <div>
-      <p class="kick">What COSMOTION is</p>
-      <h2>Not an event company. Not only a label. A creative ecosystem.</h2>
+      <p class="kick">About</p>
+      <h2>The meaning in the name</h2>
       <p style="margin-top:18px">What began in 2015 as a passion for bringing people together through music has grown into a platform for immersive events, electronic music, artist development, creative direction, venue development and community building.</p>
       <div class="word"><span>Cosmos</span>+<span>Motion</span>=<em>Cosmotion</em></div>
       <p class="mute"><b style="color:var(--ink)">Kosmos</b> is Greek for order and harmony. <b style="color:var(--ink)">Motio</b> is Latin for movement. Order alone is a frozen star chart; motion alone scatters. Together they make an orbit: a center that holds, and everything around it free to move.</p>
@@ -294,80 +337,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   </div>
 </section>
 
-<section class="band" id="universe">
-  <div class="wrap two">
-    <div class="fig" style="min-height:520px"><canvas id="orr" aria-label="Five pillars orbiting COSMOTION in three dimensions: click one to read about it"></canvas></div>
-    <div>
-      <p class="kick">What we create</p>
-      <h2>Five pillars, one orbit</h2>
-      <p class="mute" style="margin-top:14px">Each part feeds the others. The events find the artists, the artists shape the label, the label fills the rooms, and the community holds it all together. Tap a pillar.</p>
-      <div class="svc" id="plist" role="group" aria-label="Choose a pillar"></div>
-      <div class="panel" aria-live="polite"><div class="k" id="uk"></div><h3 id="uh"></h3><p id="up" class="mute"></p><a class="btn" id="ua" href="#">Explore</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="experiences" style="border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="split">
-      <div>
-        <p class="kick">I · COSMOTION Experiences</p>
-        <h2>Beyond the party</h2>
-        <p style="margin-top:16px">Immersive events, intentional gatherings and nightlife built to be felt. We pair carefully curated electronic music with immersive environments, visual art, light, performance and the people who make a room come alive.</p>
-      </div>
-      <div class="formats">
-        <div><b>Underground events</b><span>Where it started, and still the heartbeat.</span></div>
-        <div><b>Festival experiences</b><span>Stages, camps and moments inside larger worlds.</span></div>
-        <div><b>After-hours</b><span>The deeper end of the night, for those who stay.</span></div>
-        <div><b>Unconventional spaces</b><span>Rooms that were never meant to be dance floors, until they were.</span></div>
-      </div>
-    </div>
-    <div class="nums">
-      <div><b>2015</b><span>first gathering</span></div>
-      <div><b>100+</b><span>events produced</span></div>
-      <div><b>~15k</b><span>on the community list</span></div>
-      <div><b>2</b><span>venue launches</span></div>
-    </div>
-    <div class="gal" id="gal" tabindex="0" aria-label="Photos from COSMOTION experiences">
-      <figure><img src="img/dj.jpg" alt="DJ facing a packed room under a lit wooden ceiling" loading="lazy"></figure>
-      <figure><img src="img/aerial.jpg" alt="Aerialist performing on a hoop above the crowd" loading="lazy"></figure>
-      <figure><img src="img/florals.jpg" alt="Hanging florals and a glowing geometric lamp in violet light" loading="lazy"></figure>
-      <figure><img src="img/crowd.jpg" alt="Crowd under green light facing a mirrored visual screen" loading="lazy"></figure>
-      <figure><img src="img/hoop.jpg" alt="Performer suspended in a blue-lit geometric frame" loading="lazy"></figure>
-      <figure><img src="img/lantern.jpg" alt="Moroccan lantern against blurred blue and orange lights" loading="lazy"></figure>
-      <figure><img src="img/fire.jpg" alt="Performer with glowing LED fans" loading="lazy"></figure>
-    </div>
-    <div class="galctl"><button id="gp" aria-label="Previous photo">Previous</button><button id="gn" aria-label="Next photo">Next</button></div>
-  </div>
-</section>
-
-<section class="band label" id="music">
-  <div class="wrap">
-    <div class="two top">
-      <div>
-        <p class="kick">II · COSMOTION MUSIC</p>
-        <h2>Music that moves body and spirit</h2>
-      </div>
-      <div>
-        <p>Our independent label discovers, supports and releases forward-thinking electronic music. It is the philosophy in sound form.</p>
-        <div class="sonic"><span>Deep house</span><span>Melodic house</span><span>Organic house</span><span>Indie dance</span><span>Tribal rhythms</span><span>Global electronic</span></div>
-      </div>
-    </div>
-    <div class="rels" id="rels"></div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px"><a class="btn" href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a class="btn" href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a class="btn" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a class="btn" href="https://linktr.ee/cosmotion.space">All links</a></div>
-    <p class="note" style="margin-top:12px">Dashed items are placeholders for details still to add.</p>
-    <div class="lblrow">
-      <div><h3>Featured artists</h3><p class="mute" style="margin-top:8px">The roster will be introduced alongside upcoming releases.</p></div>
-      <div><h3>Send a demo</h3><p class="mute" style="margin-top:8px">Making music in this world? We listen to everything that arrives with intention.</p><a class="btn" href="#connect" data-type="demo">Submit music</a></div>
-    </div>
-  </div>
-</section>
-
 <section class="band" id="artists">
   <div class="wrap">
     <div class="two top">
       <div>
-        <p class="kick">III · COSMOTION Artists</p>
+        <p class="kick">Artists</p>
         <h2>Guidance for visionary artists</h2>
       </div>
       <div>
@@ -415,11 +389,58 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   </div>
 </section>
 
+<section class="band" id="experiences" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="kick">Showcases</p>
+        <h2>Where the music meets the room</h2>
+        <p style="margin-top:16px">Immersive events, intentional gatherings and nightlife built to be felt. We pair carefully curated electronic music with immersive environments, visual art, light, performance and the people who make a room come alive.</p>
+      </div>
+      <div class="formats">
+        <div><b>Underground events</b><span>Where it started, and still the heartbeat.</span></div>
+        <div><b>Festival experiences</b><span>Stages, camps and moments inside larger worlds.</span></div>
+        <div><b>After-hours</b><span>The deeper end of the night, for those who stay.</span></div>
+        <div><b>Unconventional spaces</b><span>Rooms that were never meant to be dance floors, until they were.</span></div>
+      </div>
+    </div>
+    <div class="nums">
+      <div><b>2015</b><span>first gathering</span></div>
+      <div><b>100+</b><span>events produced</span></div>
+      <div><b>~15k</b><span>on the community list</span></div>
+      <div><b>2</b><span>venue launches</span></div>
+    </div>
+    <div class="gal" id="gal" tabindex="0" aria-label="Photos from COSMOTION experiences">
+      <figure><img src="img/dj.jpg" alt="DJ facing a packed room under a lit wooden ceiling" loading="lazy"></figure>
+      <figure><img src="img/aerial.jpg" alt="Aerialist performing on a hoop above the crowd" loading="lazy"></figure>
+      <figure><img src="img/florals.jpg" alt="Hanging florals and a glowing geometric lamp in violet light" loading="lazy"></figure>
+      <figure><img src="img/crowd.jpg" alt="Crowd under green light facing a mirrored visual screen" loading="lazy"></figure>
+      <figure><img src="img/hoop.jpg" alt="Performer suspended in a blue-lit geometric frame" loading="lazy"></figure>
+      <figure><img src="img/lantern.jpg" alt="Moroccan lantern against blurred blue and orange lights" loading="lazy"></figure>
+      <figure><img src="img/fire.jpg" alt="Performer with glowing LED fans" loading="lazy"></figure>
+    </div>
+    <div class="galctl"><button id="gp" aria-label="Previous photo">Previous</button><button id="gn" aria-label="Next photo">Next</button></div>
+  </div>
+</section>
+
+<section class="band comm" id="community">
+  <div class="wrap two">
+    <div>
+      <p class="kick">Community</p>
+      <h2>The center of everything</h2>
+      <p style="margin-top:16px">Over a decade, COSMOTION has grown into a network of artists, musicians, dancers, creators and cultural innovators. It reaches past the dance floor: people connected by curiosity, creativity, music and the wish for experiences that mean something.</p>
+      <div class="next"><b>Next gathering</b><p class="mute" style="margin:0">To be announced. The list always hears first.</p></div>
+      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a><a class="btn" href="https://instagram.com/cosmotion.space">@cosmotion.space</a></div>
+    </div>
+    <div class="fig commfig" id="cfwrap"><canvas id="comm" aria-label="A constellation of the community: tap to add your light"></canvas><span class="tip" id="ctip">Tap to add your light</span></div>
+  </div>
+</section>
+
 <section class="band creative" id="creative">
   <div class="wrap">
     <div class="two top">
       <div>
-        <p class="kick">IV · COSMOTION Creative</p>
+        <p class="kick">Creative</p>
         <h2>Ideas and unconventional spaces, turned into culture</h2>
       </div>
       <div>
@@ -450,19 +471,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
         <a class="btn solid" href="#connect" data-type="partner">Discuss a project</a>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="band comm" id="community">
-  <div class="wrap two">
-    <div>
-      <p class="kick">V · COSMOTION Community</p>
-      <h2>The center of everything</h2>
-      <p style="margin-top:16px">Over a decade, COSMOTION has grown into a network of artists, musicians, dancers, creators and cultural innovators. It reaches past the dance floor: people connected by curiosity, creativity, music and the wish for experiences that mean something.</p>
-      <div class="next"><b>Next gathering</b><p class="mute" style="margin:0">To be announced. The list always hears first.</p></div>
-      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a><a class="btn" href="https://instagram.com/cosmotion.space">@cosmotion.space</a></div>
-    </div>
-    <div class="fig commfig" id="cfwrap"><canvas id="comm" aria-label="A constellation of the community: tap to add your light"></canvas><span class="tip" id="ctip">Tap to add your light</span></div>
   </div>
 </section>
 
@@ -502,8 +510,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 <footer><div class="wrap">
   <div><img src="img/wordmark.svg" alt="COSMOTION"><p style="margin:0 0 6px;color:var(--gold)" class="serif">Mystical Music Movement</p><p style="margin:0">A creative ecosystem of music, art, culture and community.</p></div>
-  <div><b>Pillars</b><a href="#experiences">Experiences</a><a href="#music">Music</a><a href="#artists">Artists</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
-  <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
+  <div><b>Label</b><a href="#music">Releases</a><a href="#listen">Listen</a><a href="#connect" data-type="demo">Send a demo</a><a href="#artists">Artists</a></div>
+  <div><b>Collective</b><a href="#ecosystem">About</a><a href="#experiences">Showcases</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
   <div><b>Contact</b><span>cosmotionevents@gmail.com</span><a href="https://instagram.com/cosmotion.space">Instagram @cosmotion.space</a><a href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a href="https://linktr.ee/cosmotion.space">All links</a></div>
 </div></footer>
 
@@ -512,7 +520,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 /* ===== Content you can edit ===== */
 /* Add a release: copy a line, change the fields. Leave a link "" to show it as coming. */
 const RELEASES=[
-  {cat:'CM001',title:"Boomin' Now",artist:'ZENTI',date:'January 2026',status:'Out now',links:{Beatport:'https://www.beatport.com/release/boomin-now/5760495'}},
+  {cat:'CM001',title:"Boomin' Now",artist:'ZENTI',date:'January 2026',status:'Out now',art:'img/cm001.jpg',links:{Beatport:'https://www.beatport.com/release/boomin-now/5760495'}},
   {cat:'CM002',title:'',artist:'',date:'',status:'Coming soon',links:{}}
 ];
 
@@ -618,38 +626,6 @@ starSvg.addEventListener('keydown',e=>{const g=e.target.closest('.node');if(g&&(
 drawStar();
 if(!still)setInterval(()=>{if(pAuto&&document.visibilityState==='visible'){pSel=(pSel+1)%9;drawStar()}},4500);
 
-/* ===== Universe: 3D pillar orrery ===== */
-const PL=[
- {n:'Experiences',k:'I',h:'Immersive events and gatherings',p:'Curated electronic music inside immersive environments, with visual art, light, performance and community.',a:'#experiences'},
- {n:'Music',k:'II',h:'Independent electronic label',p:'COSMOTION MUSIC releases forward-thinking deep, melodic and organic electronic music. CM001 arrived in January 2026.',a:'#music',c:VIO},
- {n:'Artists',k:'III',h:'Boutique artist development',p:'Creative guidance, release strategy and management for a small number of visionary artists.',a:'#artists'},
- {n:'Creative',k:'IV',h:'Creative direction and venues',p:'Experiential production and venue development for venues, hospitality groups, brands and festivals.',a:'#creative'},
- {n:'Community',k:'V',h:'The center of gravity',p:'Artists, dancers, creators and listeners connected by music and curiosity, on and off the dance floor.',a:'#community'}];
-let uSel=0;const hits=[];const cmImg=new Image();cmImg.src='img/cm.svg';
-const plist=document.getElementById('plist');
-plist.innerHTML=PL.map((s,i)=>`<button data-i="${i}" aria-pressed="${i===0}">${s.n}</button>`).join('');
-function pickU(i){uSel=i;const s=PL[i];document.getElementById('uk').textContent=s.k+' · COSMOTION '+s.n;document.getElementById('uh').textContent=s.h;document.getElementById('up').textContent=s.p;const a=document.getElementById('ua');a.href=s.a;a.textContent='Explore '+s.n;plist.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));if(still)orr.draw(orr,3)}
-plist.addEventListener('click',e=>{const b=e.target.closest('button');if(b)pickU(+b.dataset.i)});
-const orr=stage('orr',(o,t)=>{
-  const {x,W,H}=o,cx=W/2,cy=H/2,R=Math.min(W*.47,H*.78),tilt=.52;
-  x.clearRect(0,0,W,H);hits.length=0;
-  const radius=i=>R*(.46+i*.135);
-  PL.forEach((s,i)=>{x.strokeStyle=i===uSel?`rgba(${GOLD},.85)`:`rgba(${GOLD},.22)`;x.lineWidth=i===uSel?1.5:1;x.beginPath();x.ellipse(cx,cy,radius(i),radius(i)*tilt,0,0,TAU);x.stroke()});
-  const items=PL.map((s,i)=>{const a=t*(.3-i*.04)+i*1.3,r=radius(i);return{i,X:cx+Math.cos(a)*r,Y:cy+Math.sin(a)*r*tilt,z:Math.sin(a)}});
-  const body=q=>{const on=q.i===uSel,sc=1+.3*q.z,r=(on?10:6.5)*sc,col=PL[q.i].c||(on?GOLD:BONE);
-    if(on){x.fillStyle=`rgba(${GOLD},.16)`;x.beginPath();x.arc(q.X,q.Y,r+14,0,TAU);x.fill()}
-    const g=x.createRadialGradient(q.X-r*.35,q.Y-r*.35,r*.1,q.X,q.Y,r);g.addColorStop(0,`rgb(${on?GOLD:col})`);g.addColorStop(1,'rgba(20,18,15,1)');x.fillStyle=g;x.beginPath();x.arc(q.X,q.Y,r,0,TAU);x.fill();
-    if(W>420){x.font='600 13px Manrope,sans-serif';x.fillStyle=`rgba(${BONE},${on?1:.6})`;x.textAlign='center';x.fillText(PL[q.i].n,q.X,q.Y-r-9)}
-    hits.push([q.X,q.Y,q.i])};
-  items.filter(q=>q.z<0).sort((a,b)=>a.z-b.z).forEach(body);
-  const cw=R*.36,ch=cw*(cmImg.naturalHeight/cmImg.naturalWidth||.52);
-  x.fillStyle='rgba(5,5,5,.85)';x.beginPath();x.ellipse(cx,cy,cw*.62,ch*.8,0,0,TAU);x.fill();
-  if(cmImg.complete&&cmImg.naturalWidth)x.drawImage(cmImg,cx-cw/2,cy-ch/2,cw,ch);
-  items.filter(q=>q.z>=0).sort((a,b)=>a.z-b.z).forEach(body);
-});
-orr.c.addEventListener('click',e=>{const r=orr.c.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;let b=null,bd=32;for(const [X,Y,i] of hits){const d=Math.hypot(mx-X,my-Y);if(d<bd){bd=d;b=i}}if(b!==null)pickU(b)});
-pickU(0);
-
 /* ===== Gallery ===== */
 const gal=document.getElementById('gal');
 const step=d=>{const f=[...gal.children],x=gal.scrollLeft;const tgt=d>0?f.find(c=>c.offsetLeft-gal.offsetLeft>x+5):[...f].reverse().find(c=>c.offsetLeft-gal.offsetLeft<x-5);if(tgt)gal.scrollTo({left:tgt.offsetLeft-gal.offsetLeft,behavior:still?'auto':'smooth'})};
@@ -666,11 +642,12 @@ function cover(cat,i){
   return `<svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="${bg}"/>${rings}<path d="${d}" fill="none" stroke="#f1ece2" stroke-opacity=".75"/><circle cx="150" cy="150" r="10" fill="#f1ece2"/><text x="20" y="282" font-family="Oswald,sans-serif" font-size="22" fill="#f1ece2">${esc(cat)}</text><text x="280" y="282" text-anchor="end" font-family="Manrope,sans-serif" font-size="11" fill="#c9a86a">COSMOTION MUSIC</text></svg>`;
 }
 const disc=`<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#0c0c0c"/>${[92,84,76,68,60,52].map(r=>`<circle cx="100" cy="100" r="${r}" fill="none" stroke="#222"/>`).join('')}<circle cx="100" cy="100" r="34" fill="#c9a86a"/><circle cx="100" cy="100" r="3" fill="#0c0c0c"/><path d="M100 70 A30 30 0 0 1 128 90" stroke="#f1ece2" stroke-opacity=".5" fill="none"/></svg>`;
-document.getElementById('rels').innerHTML=RELEASES.map((r,i)=>`<article class="rel"><div class="sleeve"><div class="disc">${disc}</div><div class="cover">${cover(r.cat,i)}</div></div>
+document.getElementById('rels').innerHTML=RELEASES.map((r,i)=>`<article class="rel"><div class="sleeve"><div class="disc">${disc}</div><div class="cover">${r.art?`<img src="${esc(r.art)}" alt="${esc(r.cat)} cover art" style="width:100%;height:100%;object-fit:cover">`:cover(r.cat,i)}</div></div>
   <div class="meta"><div class="cat">${esc(r.cat)} · ${esc(r.status)}${r.date?' · '+esc(r.date):''}</div><h3>${r.title?esc(r.title):'<span class="ph">Title to come</span>'}</h3>
   <div class="who">${r.artist?esc(r.artist):'<span class="ph">Artist credit to add</span>'}</div>
   <div class="links">${Object.entries(r.links).map(([k,u])=>u?`<a href="${esc(u)}">${esc(k)}</a>`:`<span>${esc(k)} link to add</span>`).join('')||'<span>Listening links on release</span>'}</div></div></article>`).join('');
 document.querySelectorAll('.rel').forEach(a=>a.tabIndex=0);
+document.getElementById('heroCover').innerHTML=RELEASES[0].art?`<img src="${esc(RELEASES[0].art)}" alt="CM001 Boomin' Now cover art by ZENTI" style="width:100%;height:100%;object-fit:cover;display:block">`:cover(RELEASES[0].cat,0);
 
 /* ===== Release cycle ===== */
 const S=[
@@ -772,7 +749,7 @@ document.querySelectorAll('section.band').forEach((sec,i)=>{if(i===0)return;cons
 /* ===== Nav highlight ===== */
 const navLinks=[...document.querySelectorAll('nav a:not(.logo)')];
 const secIO=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}},{rootMargin:'-45% 0px -50% 0px'});
-['philosophy','universe','music','artists','creative','connect'].forEach(id=>{const el=document.getElementById(id);if(el)secIO.observe(el)});
+['music','listen','ecosystem','artists','experiences','creative','connect'].forEach(id=>{const el=document.getElementById(id);if(el)secIO.observe(el)});
 
 if(!still)requestAnimationFrame(loop);
 }
