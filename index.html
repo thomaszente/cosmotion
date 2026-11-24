@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>COSMOTION · Mystical Music Movement</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <meta name="description" content="COSMOTION is a creative ecosystem based in ATX, NYC, MIA and International: immersive experiences, an independent electronic label, artist development, creative direction and community.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -51,7 +52,7 @@ nav a:not(.logo):hover,nav a.on{color:var(--ink)}
 .hero{position:relative;padding:0 max(5vw,16px) clamp(36px,5vw,64px);text-align:center}
 .sky{position:relative;height:min(74svh,740px);min-height:420px;margin:0 calc(-1*max(5vw,16px))}
 .sky canvas{position:absolute;inset:0;width:100%;height:100%}
-.sky img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(52vw,360px);opacity:.94;pointer-events:none;filter:drop-shadow(0 0 18px rgba(5,5,5,.95))}
+.sky img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(56vw,420px);opacity:.96;pointer-events:none;filter:drop-shadow(0 0 18px rgba(5,5,5,.95))}
 .hero .place{font:700 15px Manrope,sans-serif;color:var(--gold);margin:0 auto 8px}
 .hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(34px,5vw,58px);line-height:1.05;margin:0 0 14px}
 .hero .intro{margin:0 auto 28px;max-width:58ch;color:var(--dim);font-size:17px}
@@ -235,7 +236,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <body>
 <div class="aether" aria-hidden="true"><svg viewBox="-300 -300 600 600" id="aether"></svg></div>
 <nav aria-label="Sections">
-  <a class="logo" href="#top" aria-label="COSMOTION home"><img src="img/wordmark.png" alt="COSMOTION"></a>
+  <a class="logo" href="#top" aria-label="COSMOTION home"><img src="img/wordmark.svg" alt="COSMOTION"></a>
   <a href="#philosophy">Philosophy</a>
   <a href="#universe">Universe</a>
   <a href="#music">Music</a>
@@ -247,7 +248,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <header class="hero" id="top">
   <div class="sky">
     <canvas id="sky" aria-label="An engraved celestial wheel of rings and alchemical symbols, tilting gently with your cursor"></canvas>
-    <img src="img/wordmark.png" alt="COSMOTION">
+    <img src="img/wordmark.svg" alt="COSMOTION">
   </div>
   <p class="place">ATX · NYC · MIA · International · since 2015</p>
   <h1>Mystical Music Movement</h1>
@@ -494,13 +495,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 </section>
 
 <section class="band bloom">
-  <img src="img/cm.png" alt="CM monogram">
+  <img src="img/cm.svg" alt="CM monogram">
   <p class="serif big">Sound, movement, art and intention. Come find your orbit.</p>
   <a class="btn solid" href="#connect">Start a conversation</a>
 </section>
 
 <footer><div class="wrap">
-  <div><img src="img/wordmark.png" alt="COSMOTION"><p style="margin:0 0 6px;color:var(--gold)" class="serif">Mystical Music Movement</p><p style="margin:0">A creative ecosystem based in ATX, NYC, MIA and International.</p></div>
+  <div><img src="img/wordmark.svg" alt="COSMOTION"><p style="margin:0 0 6px;color:var(--gold)" class="serif">Mystical Music Movement</p><p style="margin:0">A creative ecosystem based in ATX, NYC, MIA and International.</p></div>
   <div><b>Pillars</b><a href="#experiences">Experiences</a><a href="#music">Music</a><a href="#artists">Artists</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
   <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
   <div><b>Contact</b><span>cosmotionevents@gmail.com</span><a href="https://instagram.com/cosmotion.space">Instagram @cosmotion.space</a><a href="https://linktr.ee/cosmotion.space">All links</a></div>
@@ -624,7 +625,7 @@ const PL=[
  {n:'Artists',k:'III',h:'Boutique artist development',p:'Creative guidance, release strategy and management for a small number of visionary artists.',a:'#artists'},
  {n:'Creative',k:'IV',h:'Creative direction and venues',p:'Experiential production and venue development for venues, hospitality groups, brands and festivals.',a:'#creative'},
  {n:'Community',k:'V',h:'The center of gravity',p:'Artists, dancers, creators and listeners connected by music and curiosity, on and off the dance floor.',a:'#community'}];
-let uSel=0;const hits=[];const cmImg=new Image();cmImg.src='img/cm.png';
+let uSel=0;const hits=[];const cmImg=new Image();cmImg.src='img/cm.svg';
 const plist=document.getElementById('plist');
 plist.innerHTML=PL.map((s,i)=>`<button data-i="${i}" aria-pressed="${i===0}">${s.n}</button>`).join('');
 function pickU(i){uSel=i;const s=PL[i];document.getElementById('uk').textContent=s.k+' · COSMOTION '+s.n;document.getElementById('uh').textContent=s.h;document.getElementById('up').textContent=s.p;const a=document.getElementById('ua');a.href=s.a;a.textContent='Explore '+s.n;plist.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));if(still)orr.draw(orr,3)}
