@@ -303,6 +303,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .sub-hero{padding:clamp(56px,8vw,110px) max(5vw,16px) 0}
 @media(max-width:700px){.work,.upc,.ev{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.marq{animation:none;flex-wrap:wrap;width:auto}}
+.hlist{display:flex!important;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px;margin:0 auto 22px!important;background:none!important;border:0!important;padding:0!important;max-width:560px}
+.hlist span{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:19px;color:var(--dim)}
+.hlist input{flex:0 1 240px;min-height:44px!important;border-radius:999px!important;padding:8px 18px!important}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -329,6 +332,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <h1>Mystical Music Movement</h1>
   <p class="intro">Immersive experiences, an independent electronic label, artist development and creative direction, held together by community.</p>
   <div class="cta"><a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat</a><a class="btn" href="#experiences">Explore COSMOTION</a></div>
+  <form class="hlist" id="hform" action="https://space.us4.list-manage.com/subscribe/post?u=c1d8930b725d701927d6ad594&amp;id=5ac7107c5c" method="post" target="_blank"><span>or join the email list</span><label for="h-email" style="position:absolute;left:-9999px">Your email</label><input type="email" name="EMAIL" id="h-email" placeholder="Your email" autocomplete="email" required><div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_c1d8930b725d701927d6ad594_5ac7107c5c" tabindex="-1" value=""></div><button class="btn" type="submit">Join</button></form>
+  <p class="lmsg" id="hmsg" role="status" style="text-align:center;margin:-10px 0 14px"></p>
   <div class="meta"><span>Next gathering: <b id="nextev">announced in the chat first</b></span><span>Out now: <b>ZENTI · Boomin' Now</b> <a href="#music">CM001</a></span></div>
 </header>
 <section class="band" id="experiences" style="border-top:1px solid var(--line)">
@@ -756,6 +761,7 @@ document.getElementById('copy').addEventListener('click',async()=>{const m=docum
 
 /* ===== Upcoming + list signup ===== */
 {const el=document.getElementById('evlist');if(el&&EVENTS.length){el.innerHTML=EVENTS.map(e=>`<div class="ev"><span class="d">${esc(e.date)}</span><span><b>${esc(e.name)}</b><br><span class="mute">${esc(e.place||'')}</span></span>${e.url?`<a class="btn" href="${esc(e.url)}">Tickets</a>`:''}</div>`).join('');const n=document.getElementById('upcnote');if(n)n.textContent='';const h=document.getElementById('nextev');if(h)h.textContent=EVENTS[0].date+' · '+EVENTS[0].name;}}
+{const f=document.getElementById('hform');if(f)f.addEventListener('submit',e=>{const v=document.getElementById('h-email').value.trim(),m=document.getElementById('hmsg');if(!/^\S+@\S+\.\S+$/.test(v)){e.preventDefault();m.textContent='Add a valid email.';return}m.textContent='Finish on the Mailchimp page that just opened. Welcome to the orbit.';setTimeout(()=>f.reset(),400)})}
 {const f=document.getElementById('lform');if(f)f.addEventListener('submit',e=>{const v=document.getElementById('l-email').value.trim(),m=document.getElementById('lmsg');if(!/^\S+@\S+\.\S+$/.test(v)){e.preventDefault();m.textContent='Add a valid email.';return}m.textContent='Finish on the Mailchimp page that just opened. Welcome to the orbit.';setTimeout(()=>f.reset(),400)})}
 /* ===== Sacred watermark and engraved dividers ===== */
 {const a=document.getElementById('aether');let h='';const u=46;
