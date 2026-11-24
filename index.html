@@ -246,6 +246,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 @media(max-width:600px){.mgrid{grid-template-columns:minmax(0,1fr)}}
 .names.small li{font-size:clamp(17px,1.7vw,22px);color:var(--dim)}
 .names.small li:not(:last-child)::after{width:5px;height:5px;margin:0 14px 4px}
+.chatin{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;max-width:900px}
+.chatmark{width:clamp(110px,14vw,160px);aspect-ratio:1;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);transition:background .3s,color .3s}
+.chatmark:hover{background:var(--gold);color:var(--bg)}
+.chatmark svg{width:52%;height:52%}
+.fwrap{display:flex!important;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.socs{display:flex;flex-wrap:wrap;gap:10px}
+.soc{width:44px;height:44px;border-radius:50%;border:1px solid rgba(201,168,106,.45);display:grid;place-items:center;color:var(--ink);transition:color .2s,border-color .2s}
+.soc:hover{color:var(--gold);border-color:var(--gold)}
+.soc svg{width:20px;height:20px}
+.fmail{margin:0;color:var(--dim);font-size:14px}
+@media(max-width:600px){.chatin{grid-template-columns:minmax(0,1fr);justify-items:start}}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -408,24 +419,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     </div>
   </div>
 </section>
-<section class="band merch" id="merch">
-  <div class="wrap">
-    <div class="two top">
-      <div>
-        <p class="kick">Merch</p>
-        <h2>Coming soon</h2>
-      </div>
-      <div>
-        <p class="mute">Two new objects from the COSMOTION orbit are on their way. The community hears first.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat</a><a class="btn" href="#connect" data-type="event">Join the list</a></div>
-      </div>
-    </div>
-    <div class="mgrid">
-      <article class="mcard"><div class="mart"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#c9a86a" stroke-width="1.2"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="80" stroke-opacity=".5"/><circle cx="100" cy="100" r="46"/><path d="M100 12V40M100 160V188M12 100H40M160 100H188" stroke-opacity=".6"/><path d="M100 54 L140 123 L60 123Z" stroke-opacity=".7"/><path d="M100 146 L60 77 L140 77Z" stroke-opacity=".7"/></g><circle cx="100" cy="100" r="7" fill="#f1ece2"/></svg></div><p class="msoon">Coming soon</p><h3>COSMONOS</h3></article>
-      <article class="mcard"><div class="mart"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#c9a86a" stroke-width="1.2"><path d="M86 30H114M90 30V70L58 128A26 26 0 0 0 81 168H119A26 26 0 0 0 142 128L110 70V30"/><path d="M70 124H130" stroke-opacity=".6"/><circle cx="100" cy="100" r="88" stroke-opacity=".35"/></g><g fill="#f1ece2"><circle cx="92" cy="146" r="3"/><circle cx="108" cy="138" r="2"/><circle cx="102" cy="154" r="2.4"/></g><circle cx="100" cy="18" r="3" fill="#c9a86a"/></svg></div><p class="msoon">Coming soon</p><h3>COSMOTION Potions</h3></article>
-    </div>
-  </div>
-</section>
 
 <section class="band" id="artists">
   <div class="wrap">
@@ -524,7 +517,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       <h2>The center of everything</h2>
       <p style="margin-top:16px">Over a decade, COSMOTION has grown into a network of artists, musicians, dancers, creators and cultural innovators. It reaches past the dance floor: people connected by curiosity, creativity, music and the wish for experiences that mean something.</p>
       <div class="next"><b>Next gathering</b><p class="mute" style="margin:0">To be announced. The list always hears first.</p></div>
-      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat</a><a class="btn" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a><a class="btn" href="https://instagram.com/cosmotion.space">@cosmotion.space</a></div>
+      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><a class="btn solid" href="#connect" data-type="event">Join the list</a><a class="btn" href="#connect" data-type="event">Get involved</a><a class="btn" href="https://instagram.com/cosmotion.space">@cosmotion.space</a></div>
     </div>
     <div class="fig commfig" id="cfwrap"><canvas id="comm" aria-label="A constellation of the community: tap to add your light"></canvas><span class="tip" id="ctip">Tap to add your light</span></div>
   </div>
@@ -558,6 +551,24 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   </div>
 </section>
 
+<section class="band merch" id="merch">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kick">Coming soon</p>
+        <h2>Merch + Products</h2>
+      </div>
+      <div>
+        <p class="mute">Two new objects from the COSMOTION orbit are on their way. The community hears first.</p>
+        <a class="btn" href="#connect" data-type="event">Join the list</a>
+      </div>
+    </div>
+    <div class="mgrid">
+      <article class="mcard"><div class="mart"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#c9a86a" stroke-width="1.2"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="80" stroke-opacity=".5"/><circle cx="100" cy="100" r="46"/><path d="M100 12V40M100 160V188M12 100H40M160 100H188" stroke-opacity=".6"/><path d="M100 54 L140 123 L60 123Z" stroke-opacity=".7"/><path d="M100 146 L60 77 L140 77Z" stroke-opacity=".7"/></g><circle cx="100" cy="100" r="7" fill="#f1ece2"/></svg></div><p class="msoon">Coming soon</p><h3>COSMONOS</h3></article>
+      <article class="mcard"><div class="mart"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#c9a86a" stroke-width="1.2"><path d="M86 30H114M90 30V70L58 128A26 26 0 0 0 81 168H119A26 26 0 0 0 142 128L110 70V30"/><path d="M70 124H130" stroke-opacity=".6"/><circle cx="100" cy="100" r="88" stroke-opacity=".35"/></g><g fill="#f1ece2"><circle cx="92" cy="146" r="3"/><circle cx="108" cy="138" r="2"/><circle cx="102" cy="154" r="2.4"/></g><circle cx="100" cy="18" r="3" fill="#c9a86a"/></svg></div><p class="msoon">Coming soon</p><h3>COSMOTION Potions</h3></article>
+    </div>
+  </div>
+</section>
 <section class="band give" id="give">
   <div class="wrap two">
     <div>
@@ -570,17 +581,27 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     </div>
   </div>
 </section>
+<section class="band chat" id="chat">
+  <div class="wrap chatin">
+    <a class="chatmark" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp" aria-label="Join the COSMOTION chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9.2 8.6c.3 2.6 2.6 4.9 5.2 5.2l1.2-1.2 1.9.9-.4 1.6c-3.7.3-8.3-4.3-8-8l1.6-.4.9 1.9Z"/></svg></a>
+    <div>
+      <p class="kick">Community</p>
+      <h2>Join The Chat</h2>
+      <p class="mute">Gatherings, releases and the people behind them, first. Our community chat lives on WhatsApp.</p>
+      <a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join on WhatsApp</a>
+    </div>
+  </div>
+</section>
 <section class="band bloom">
   <img src="img/cm.svg" alt="CM monogram">
   <p class="serif big">Sound, movement, art and intention. Come find your orbit.</p>
   <a class="btn solid" href="#connect">Start a conversation</a>
 </section>
 
-<footer><div class="wrap">
-  <div><img src="img/wordmark.svg" alt="COSMOTION"><p style="margin:0 0 6px;color:var(--gold)" class="serif">Mystical Music Movement</p><p style="margin:0">A creative ecosystem of music, art, culture and community.</p></div>
-  <div><b>Pillars</b><a href="#experiences">Experiences</a><a href="#music">Music</a><a href="#artists">Artists</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
-  <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#legacy">A decade</a><a href="#merch">Merch</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
-  <div><b>Contact</b><span>cosmotionevents@gmail.com</span><a href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat (WhatsApp)</a><a href="https://account.venmo.com/u/cosmotionevents">Give back (Venmo)</a><a href="https://instagram.com/cosmotion.space">Instagram @cosmotion.space</a><a href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a href="https://linktr.ee/cosmotion.space">All links</a></div>
+<footer><div class="wrap fwrap">
+  <div><img src="img/wordmark.svg" alt="COSMOTION"><p class="serif" style="margin:0;color:var(--gold)">Mystical Music Movement</p></div>
+  <div class="socs" aria-label="COSMOTION elsewhere"><a class="soc" href="https://instagram.com/cosmotion.space" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a><a class="soc" href="https://soundcloud.com/cosmotion_music" aria-label="SoundCloud" title="SoundCloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v2M6 12v5M9 10v7M12 8v9"/><path d="M14.5 17H19a2.5 2.5 0 0 0 0-5 4.5 4.5 0 0 0-4.5-4.5V17Z"/></svg></a><a class="soc" href="https://www.beatport.com/label/cosmotion/127693" aria-label="Beatport" title="Beatport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r=".6" fill="currentColor"/><path d="M12 3.5v3"/></svg></a><a class="soc" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="4"/><path d="M10.5 9.5v5l4-2.5Z"/></svg></a><a class="soc" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp" aria-label="WhatsApp chat" title="WhatsApp chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9.2 8.6c.3 2.6 2.6 4.9 5.2 5.2l1.2-1.2 1.9.9-.4 1.6c-3.7.3-8.3-4.3-8-8l1.6-.4.9 1.9Z"/></svg></a><a class="soc" href="https://linktr.ee/cosmotion.space" aria-label="Linktree" title="Linktree"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9M12 9l-5-5M12 9l5-5M5.5 11h13M8 15h8"/></svg></a><a class="soc" href="https://account.venmo.com/u/cosmotionevents" aria-label="Venmo" title="Venmo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.6 12 20 12 20Z"/></svg></a><a class="soc" href="mailto:cosmotionevents@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg></a></div>
+  <p class="fmail">cosmotionevents@gmail.com</p>
 </div></footer>
 
 <script>
