@@ -307,6 +307,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .hlist span{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:19px;color:var(--dim)}
 .hlist input{flex:0 1 240px;min-height:44px!important;border-radius:999px!important;padding:8px 18px!important}
 @media(max-width:900px){#philosophy .two{row-gap:14px}#philosophy .ptext{display:contents}#philosophy .prin{order:1;min-height:0}#philosophy .star{order:2;max-width:400px;margin:4px auto 0}#philosophy .phones{order:3;margin-top:10px}}
+@media(max-width:600px){.names{justify-content:center;text-align:center;gap:6px 18px}.names.small{gap:4px 14px}
+.names li{font-size:17px;line-height:1.5}
+.names li:not(:last-child)::after{display:none}
+.names.small li{font-size:13.5px}
+
+.names.collab li{font-size:18px}
+.roster h3{text-align:center;font-size:15px}}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
