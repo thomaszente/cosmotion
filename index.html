@@ -228,6 +228,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .phil,.creative,.story{background:rgba(10,9,8,.88)!important}
 @media(prefers-reduced-motion:reduce){.aether{animation:none}}
 .focus{font-family:"Cormorant Garamond",Georgia,serif;font-variant:small-caps;font-size:clamp(24px,2.4vw,30px);line-height:1.3;letter-spacing:.02em;color:var(--ink);margin:18px 0 14px;max-width:34ch}
+.legacy{background:rgba(10,9,8,.88)}
+.roster{margin-top:clamp(36px,5vw,64px);border-top:1px solid rgba(201,168,106,.35);padding-top:22px}
+.roster h3{font-size:18px;color:var(--gold);font-weight:300;letter-spacing:.08em;margin-bottom:18px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 0}
+.names li{font:300 clamp(22px,2.6vw,34px)/1.35 Oswald,sans-serif;text-transform:uppercase;letter-spacing:.01em;color:var(--ink);transition:color .25s}
+.names li:not(:last-child)::after{content:"";display:inline-block;width:6px;height:6px;border:1px solid var(--gold);transform:rotate(45deg);margin:0 18px 6px}
+.names li:hover{color:var(--gold)}
+.names.collab li{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;text-transform:none;font-size:clamp(22px,2.4vw,32px);color:var(--silver)}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -340,6 +348,28 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       <figure><img src="img/fire.jpg" alt="Performer with glowing LED fans" loading="lazy"></figure>
     </div>
     <div class="galctl"><button id="gp" aria-label="Previous photo">Previous</button><button id="gn" aria-label="Next photo">Next</button></div>
+  </div>
+</section>
+<section class="band legacy" id="legacy">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kick">A decade</p>
+        <h2>A Decade of Music, Magic &amp; Connection</h2>
+      </div>
+      <div>
+        <p>Over the years, COSMOTION has brought together visionary artists, cultural innovators, and creative communities through immersive musical experiences.</p>
+        <p class="mute">From intimate underground gatherings to large-scale productions, we’ve hosted an international roster of artists while collaborating with some of the most inspiring collectives, festivals, and creative spaces in electronic music.</p>
+      </div>
+    </div>
+    <div class="roster">
+      <h3>Artists we’ve hosted</h3>
+      <ul class="names"><li>Sarkis Mikael</li><li>Magician On Duty</li><li>Oceanvs Orientalis</li><li>Nico Stojan</li><li>KMLN</li><li>Fabian Krooss</li><li>Cioz</li><li>Sam Shure</li><li>Noema</li><li>Just Emma</li><li>Lemurian</li><li>Anstascia</li><li>Allen Hulsey</li><li>The Soul Brothers</li><li>Caleesi &amp; Sara Kreis</li><li>Orijins</li><li>Eli Light</li><li>Patrik Katch</li></ul>
+    </div>
+    <div class="roster">
+      <h3>Creative collaborations</h3>
+      <ul class="names collab"><li>Art With Me</li><li>Opulent Temple</li><li>JunXion</li><li>Sonic Jungle</li><li>Stil Vor Talent</li><li>Aesthesis</li><li>Altar</li><li>The Concourse Project</li><li>Kingdom</li><li>FairyTales</li><li>Something Else</li></ul>
+    </div>
   </div>
 </section>
 
@@ -505,7 +535,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <footer><div class="wrap">
   <div><img src="img/wordmark.svg" alt="COSMOTION"><p style="margin:0 0 6px;color:var(--gold)" class="serif">Mystical Music Movement</p><p style="margin:0">A creative ecosystem of music, art, culture and community.</p></div>
   <div><b>Pillars</b><a href="#experiences">Experiences</a><a href="#music">Music</a><a href="#artists">Artists</a><a href="#creative">Creative</a><a href="#community">Community</a></div>
-  <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
+  <div><b>Explore</b><a href="#philosophy">Philosophy</a><a href="#legacy">A decade</a><a href="#rollout">Release rollout</a><a href="#packages">Packages</a></div>
   <div><b>Contact</b><span>cosmotionevents@gmail.com</span><a href="https://instagram.com/cosmotion.space">Instagram @cosmotion.space</a><a href="https://soundcloud.com/cosmotion_music">SoundCloud</a><a href="https://www.beatport.com/label/cosmotion/127693">Beatport</a><a href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q">YouTube</a><a href="https://linktr.ee/cosmotion.space">All links</a></div>
 </div></footer>
 
