@@ -264,7 +264,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .soc svg{width:20px;height:20px}
 .fmail{margin:0;color:var(--dim);font-size:14px}
 @media(max-width:600px){.chatin{grid-template-columns:minmax(0,1fr);justify-items:start}}
-#merch,#give,#chat{padding-block:clamp(36px,5vw,64px)}
+#merch,#give,#chat,#list{padding-block:clamp(36px,5vw,64px)}
 #merch h2,#give h2,#chat h2{font-size:clamp(28px,3.4vw,40px)}
 #merch .mgrid{margin-top:22px;max-width:820px}
 #merch .mcard{padding:20px}
@@ -444,8 +444,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       <h2>The center of everything</h2>
       <p style="margin-top:16px">Over a decade, COSMOTION has grown into a network of artists, musicians, dancers, creators and cultural innovators. It reaches past the dance floor: people connected by curiosity, creativity, music and the wish for experiences that mean something.</p>
       <div class="joinrow"><a class="btn solid" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp">Join the chat on WhatsApp</a></div>
-      <form class="lform" id="lform" novalidate><label for="l-email" style="position:absolute;left:-9999px">Email for the list</label><input type="email" id="l-email" placeholder="Your email for the list" autocomplete="email"><button class="btn" type="submit">Join the list</button></form>
-      <p class="lmsg" id="lmsg" role="status"></p>
+      <a class="btn" href="#list" style="margin-top:10px">Join the email list</a>
     </div>
     <div class="fig commfig" id="cfwrap"><canvas id="comm" aria-label="A constellation of the community: tap to add your light"></canvas><span class="tip" id="ctip">Tap to add your light</span></div>
   </div>
@@ -478,6 +477,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       <p>COSMOTION is independent. If our gatherings and music have meant something to you, you can give back and help keep the movement going.</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px"><a class="btn solid" href="https://account.venmo.com/u/cosmotionevents">Give on Venmo</a><span class="mute" style="font-size:15px">@cosmotionevents</span></div>
     </div>
+  </div>
+</section>
+<section class="band" id="list">
+  <div class="wrap" style="max-width:720px;text-align:center">
+    <p class="kick">Email list</p>
+    <h2 style="font-size:clamp(28px,3.4vw,40px)">Join the email list</h2>
+    <p class="mute" style="margin:12px auto 0">Gatherings, releases and news, a few times a year.</p>
+    <form class="lform" id="lform" novalidate style="margin:22px auto 0;justify-content:center"><label for="l-email" style="position:absolute;left:-9999px">Your email</label><input type="email" id="l-email" placeholder="Your email" autocomplete="email"><button class="btn solid" type="submit">Join</button></form>
+    <p class="lmsg" id="lmsg" role="status"></p>
   </div>
 </section>
 <section class="band" id="connect">
