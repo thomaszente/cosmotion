@@ -708,7 +708,7 @@ if(document.getElementById('cform')){
 /* ===== Contact ===== */
 const F={
  name:{l:'Your name',t:'text',ac:'name',req:1},email:{l:'Email',t:'email',ac:'email',req:1},
- artist:{l:'Project name',t:'text'},links:{l:'Music links',t:'text',ph:'Spotify, SoundCloud, Instagram'},
+ artist:{l:'Project name',t:'text'},aname:{l:'Artist name',t:'text'},links:{l:'Music links',t:'text',ph:'Spotify, SoundCloud, Instagram'},
  stage:{l:'Where you are now',t:'select',o:['Just starting out','Releasing music','Touring and booking','Established, ready to expand']},
  plan:{l:'Plan you\'re curious about',t:'radio',o:['Starter','Artist Growth Plan','Full Representation','Not sure yet']},
  needs:{l:'What you need',t:'check',o:['Artist development','Music programming','Production support','Creative direction','EPK and digital presence','Promotion','Creative consulting']},
@@ -724,7 +724,7 @@ const TYPES=[
  {id:'event',n:'Events and community',s:'Community',f:['name','email','city','interest','msg']},
  {id:'partner',n:'Venue or brand',s:'Partnership',f:['name','email','org','kind','city','csvc','timeline','msg'],m:'Tell us about the space or idea'},
  {id:'consult',n:'Creative consulting',s:'Consulting',f:['name','email','org','timeline','msg'],m:'What would you like help with?'},
- {id:'demo',n:'Demo submission',s:'Demo',f:['name','artist','email','track','genre','msg'],m:'A few words about the music'},
+ {id:'demo',n:'Demo submission',s:'Demo',f:['name','aname','email','track','genre','msg'],m:'A few words about the music'},
  {id:'general',n:'Something else',s:'General',f:['name','email','msg']}];
 let cType='artist',plan0='';
 const tabs=document.getElementById('tabs'),fields=document.getElementById('fields');
@@ -753,9 +753,9 @@ document.getElementById('cform').addEventListener('submit',e=>{
   err.textContent='';
   body=`Inquiry: ${T.s}\n`+T.f.map(k=>`${(k==='msg'&&T.m)?T.m:F[k].l}: ${val(k)||'-'}`).join('\n');
   document.getElementById('txt').textContent=body;
-  document.getElementById('mail').href='mailto:cosmotionevents@gmail.com?subject='+encodeURIComponent(`COSMOTION ${T.s}: `+(val('artist')||val('org')||val('name')))+'&body='+encodeURIComponent(body);
+  document.getElementById('mail').href='mailto:cosmotionevents@gmail.com?subject='+encodeURIComponent(`COSMOTION ${T.s}: `+(val('artist')||val('aname')||val('org')||val('name')))+'&body='+encodeURIComponent(body);
   const out=document.getElementById('out');const ok=document.getElementById('sentok');
-  const data={_subject:`COSMOTION ${T.s}: `+(val('artist')||val('org')||val('name')),_replyto:val('email'),_template:'table'};T.f.forEach(k=>data[(k==='msg'&&T.m)?T.m:F[k].l]=val(k)||'-');
+  const data={_subject:`COSMOTION ${T.s}: `+(val('artist')||val('aname')||val('org')||val('name')),_replyto:val('email'),_template:'table'};T.f.forEach(k=>data[(k==='msg'&&T.m)?T.m:F[k].l]=val(k)||'-');
   err.textContent='Sending…';
   fetch(SEND,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)}).then(r=>{if(!r.ok)throw 0;err.textContent='';out.style.display='none';ok.style.display='block';e.target.querySelectorAll('input[type=text],input[type=email],textarea').forEach(i=>i.value='');ok.scrollIntoView({block:'nearest',behavior:still?'auto':'smooth'})}).catch(()=>{err.textContent='Couldn’t send directly. Use your email instead:';out.style.display='block';out.scrollIntoView({block:'nearest',behavior:still?'auto':'smooth'})});
 });
