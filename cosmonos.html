@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>COSMONOS · Wear Your Frequency</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Oswald:wght@300;400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE an elevated, quiet fashion house deck: mysterious, intentional, collectible
+   IDEA a private atelier dossier: each slide is a page of a silk sample book
+   PICTURE live silk kimono renders with original engraved prints, switchable by collection, colorway and side
+   COLOUR ink #0b0a09 ground, silk ivory #efe7d6 text, antique gold #c9a86a linework, collection hues (indigo, saffron, aegean) only on the garments
+   TYPE Cormorant Garamond display + Oswald light tracked labels + Manrope text
+   LAYOUT full-height slides; text beside the garment on desktop, stacked on phones; present mode snaps slide to slide */
+:root{color-scheme:dark;--bg:#0b0a09;--ink:#efe7d6;--dim:#a49b8c;--gold:#c9a86a;--line:rgba(239,231,214,.13);--panel:#13110f}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html.present{scroll-snap-type:y mandatory}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Manrope,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;margin:0;line-height:1.04;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(38px,5.6vw,72px)}
+h3{font-size:clamp(24px,2.4vw,32px)}
+p{margin:0 0 14px;max-width:60ch}
+.lab{font:300 13px Oswald,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.mute{color:var(--dim)}
+.it{font-family:"Cormorant Garamond",serif;font-style:italic}
+.slide{min-height:100svh;padding:clamp(72px,9vw,120px) max(6vw,18px);display:flex;flex-direction:column;justify-content:center;position:relative;scroll-snap-align:start;border-top:1px solid var(--line)}
+.wrap{max-width:1240px;width:100%;margin:0 auto}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font:400 12px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1px solid}
+.tag.prop{color:#d9b77a;border-color:rgba(217,183,122,.55)}
+.tag.est{color:#9ec5a8;border-color:rgba(158,197,168,.5)}
+button,.btn{font:700 14px Manrope,sans-serif;color:var(--ink);background:none;border:1px solid rgba(239,231,214,.3);border-radius:999px;min-height:44px;padding:0 20px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+button:hover,.btn:hover{border-color:var(--ink)}
+.btn.solid,button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:16px;padding:12px max(6vw,18px);background:linear-gradient(rgba(11,10,9,.9),rgba(11,10,9,0))}
+.bar .mark{font:300 15px Oswald,sans-serif;letter-spacing:.42em;margin-right:auto;text-decoration:none}
+.bar .mark small{letter-spacing:.2em;color:var(--dim);margin-left:10px;font-size:11px}
+.count{position:fixed;right:max(6vw,18px);bottom:18px;z-index:20;font:300 13px Oswald,sans-serif;letter-spacing:.2em;color:var(--dim);display:none}
+html.present .count{display:block}
+.nav-dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:10px}
+.nav-dots a{width:7px;height:7px;border-radius:50%;border:1px solid var(--gold);display:block}
+.nav-dots a.on{background:var(--gold)}
+
+/* cover */
+.cover{text-align:center;align-items:center;overflow:hidden}
+.cover .word{font:300 clamp(48px,11vw,150px)/1 Oswald,sans-serif;letter-spacing:.32em;margin:0 0 0 .32em}
+.cover .tagline{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(26px,3.4vw,42px);color:var(--gold);margin:18px 0 10px}
+.cover .sub{color:var(--dim);margin:0 auto 28px;max-width:46ch}
+.cover svg.halo{position:absolute;left:50%;top:50%;width:min(130vw,1100px);transform:translate(-50%,-50%);opacity:.5;pointer-events:none}
+.cover .inner{position:relative}
+
+/* status */
+.status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:34px}
+.status>div{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--panel)}
+.status ul{margin:14px 0 0;padding-left:18px}.status li{margin-bottom:8px}
+
+/* philosophy */
+.phil{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.phil div{background:var(--bg);padding:clamp(22px,3vw,36px);min-height:180px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.phil h3{font-size:clamp(24px,2.3vw,32px)}
+.phil p{font-size:15px;color:var(--dim);margin:0}
+.phil .g{width:34px;height:34px;color:var(--gold)}
+
+/* viewer */
+.viewer{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,80px);align-items:center}
+.stage{position:relative;aspect-ratio:1/1.05;border-radius:24px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#1b1814,#0b0a09 70%);border:1px solid var(--line)}
+.stage svg{position:absolute;inset:6% 6% 4%;width:88%;height:90%}
+.stage .cap{position:absolute;left:18px;bottom:14px;font:300 12px Oswald,sans-serif;letter-spacing:.22em;color:var(--dim);text-transform:uppercase}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.sw{display:flex;gap:10px;margin:6px 0 18px}
+.sw button{width:40px;height:40px;min-height:40px;padding:0;border-radius:50%;border:2px solid transparent;outline:1px solid rgba(239,231,214,.3)}
+.sw button[aria-pressed=true]{border-color:var(--bg);outline:2px solid var(--gold)}
+.colname{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,4vw,52px);line-height:1;margin:6px 0 10px}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 26px;margin-top:22px}
+.specs div{border-top:1px solid var(--line);padding-top:10px}
+.specs b{display:block;font:300 12px Oswald,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.specs span{font-size:15px}
+
+/* collections row */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px}
+.col{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:pointer;text-align:left;padding:0;color:var(--ink);display:block;font:inherit;transition:border-color .3s,transform .3s}
+.col:hover{border-color:var(--gold);transform:translateY(-3px)}
+.col .art{aspect-ratio:1;position:relative}
+.col .art svg{position:absolute;inset:8%;width:84%;height:84%}
+.col .t{padding:18px 20px 22px}
+.col .t b{display:block;font:300 13px Oswald,sans-serif;letter-spacing:.28em;color:var(--gold)}
+.col .t h3{margin:6px 0 6px}
+.col .t p{font-size:15px;color:var(--dim);margin:0}
+
+/* lookbook */
+.look{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;margin-top:36px}
+.scene{position:relative;border-radius:18px;overflow:hidden;min-height:420px}
+.scene svg.k{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);height:78%;width:auto}
+.scene .c{position:absolute;left:18px;right:18px;bottom:16px;display:flex;justify-content:space-between;gap:10px;font:300 12px Oswald,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.s1{grid-column:span 7}.s2{grid-column:span 5}.s3{grid-column:span 5}.s4{grid-column:span 7}
+.refs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:24px}
+.refs img{aspect-ratio:3/4;object-fit:cover;border-radius:10px;filter:saturate(.75)}
+
+/* lists */
+.rows{margin-top:30px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:220px minmax(0,1fr) auto;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{font-size:26px}
+.row p{margin:0;color:var(--dim)}
+.road{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:22px;border-top:1px dashed rgba(201,168,106,.5)}
+.road div{position:relative}
+.road i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:var(--bg);font:300 16px Oswald,sans-serif;font-style:normal;color:var(--gold)}
+.road h3{margin:16px 0 8px;font-size:26px}
+.road p{font-size:15px;color:var(--dim)}
+.asks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}
+.ask{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--panel)}
+.ask h3{font-size:28px;margin-bottom:8px}
+.ask p{font-size:15px;color:var(--dim);margin:0}
+.ph{border:1px dashed rgba(217,183,122,.6);border-radius:14px;padding:16px 18px;color:#d9b77a;margin-top:24px;font-size:15px}
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:30px 0}
+.proof b{display:block;font:300 clamp(40px,5vw,64px)/1 Oswald,sans-serif}
+.proof span{color:var(--dim);font-size:15px}
+
+/* gate */
+.gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+.gate .box{max-width:420px;width:100%}
+.gate .word{font:300 clamp(36px,8vw,64px) Oswald,sans-serif;letter-spacing:.3em;margin-left:.3em}
+.gate form{display:flex;gap:8px;margin:26px 0 10px}
+.gate input{flex:1;font:16px Manrope,sans-serif;color:var(--ink);background:#13110f;border:1px solid rgba(239,231,214,.3);border-radius:999px;padding:0 18px;min-height:48px;text-transform:uppercase;letter-spacing:.2em;text-align:center}
+.gate .msg{min-height:1.4em;color:#e39b8b;font-size:14px}
+body.locked main,body.locked .bar,body.locked .nav-dots{display:none}
+body:not(.locked) .gate{display:none}
+
+@media(max-width:900px){.two,.viewer{grid-template-columns:minmax(0,1fr)}.cols,.asks{grid-template-columns:minmax(0,1fr)}.phil{grid-template-columns:repeat(2,minmax(0,1fr))}.road{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}.road::before{display:none}.look>*{grid-column:1/-1!important}.refs{grid-template-columns:repeat(3,minmax(0,1fr))}.proof{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-dots{display:none}}
+@media(max-width:600px){.status,.phil,.specs{grid-template-columns:minmax(0,1fr)}.row{grid-template-columns:minmax(0,1fr);gap:6px}.scene{min-height:360px}.slide{min-height:auto;padding-block:84px 64px}.bar .mark small{display:none}.road{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.col{transition:none}}
+</style>
+</head>
+<body class="locked">
+
+<div class="gate" role="dialog" aria-labelledby="gt">
+  <div class="box">
+    <p class="lab">COSMOTION · private preview</p>
+    <div class="word" id="gt">COSMONOS</div>
+    <p class="it" style="font-size:24px;color:var(--gold);margin:12px 0 0">Wear Your Frequency.</p>
+    <form id="gform" autocomplete="off"><label for="gcode" style="position:absolute;left:-9999px">Access code</label><input id="gcode" placeholder="Access code" aria-describedby="gmsg"><button class="btn solid" type="submit">Enter</button></form>
+    <p class="msg" id="gmsg" role="alert"></p>
+    <a class="mute" href="index.html" style="font-size:14px">Back to COSMOTION</a>
+  </div>
+</div>
+
+<header class="bar">
+  <a class="mark" href="#cover">COSMONOS<small>by COSMOTION</small></a>
+  <button id="present" type="button" aria-pressed="false">Present</button>
+</header>
+<nav class="nav-dots" id="dots" aria-label="Slides"></nav>
+<div class="count" id="count" aria-live="polite"></div>
+
+<main>
+<section class="slide cover" id="cover" data-t="Cover">
+  <svg class="halo" viewBox="0 0 1000 1000" aria-hidden="true" id="halo"></svg>
+  <div class="inner">
+    <p class="lab">A proposed house of silk kimonos · Concept 2026</p>
+    <h1 class="word">COSMONOS</h1>
+    <p class="tagline">Wear Your Frequency.</p>
+    <p class="sub">Collectible silk kimonos with original designs, born from a decade of COSMOTION gatherings, music and ceremony.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center"><a class="btn solid" href="#collections">See the collections</a><a class="btn" href="#join">Collaborate</a></div>
+  </div>
+</section>
+
+<section class="slide" id="clarity" data-t="Where we are">
+  <div class="wrap">
+    <p class="lab">Where we are</p>
+    <h2>A real community. A new idea.</h2>
+    <p class="mute" style="margin-top:16px">COSMONOS is at concept stage. This deck separates what COSMOTION has already built from what we're proposing.</p>
+    <div class="status">
+      <div><span class="tag est">Established</span>
+        <ul><li>COSMOTION: immersive events and gatherings since 2015</li><li>100+ events produced and two venue launches in Austin</li><li>About 15,000 people on the community list</li><li>COSMOTION MUSIC, an independent label (CM001, January 2026)</li><li>A decade of headliner bookings and creative collaborations</li></ul></div>
+      <div><span class="tag prop">Proposed</span>
+        <ul><li>COSMONOS: a line of silk kimonos with custom-designed prints</li><li>Three founding collections and numbered artist editions</li><li>Manufacturing, design and artist partners: not yet secured</li><li>Retail, pop-ups and drops: planned, not yet launched</li><li>No sales or financials yet; this is the starting point</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="story" data-t="The story">
+  <div class="wrap two">
+    <div>
+      <p class="lab">The story</p>
+      <h2>A garment for the moments that matter.</h2>
+    </div>
+    <div>
+      <p style="font-size:19px">For centuries the kimono has been worn for ceremony, celebration and passage. COSMONOS brings that idea into the gatherings of now: desert nights, island sunsets, after-hours rooms and the long morning after the music.</p>
+      <p class="mute">It's the energy of Burning Man, Tulum and Mykonos, of underground electronic music and of ancient civilizations, distilled into something quiet and enduring. Not festival merch. Not a costume. A piece you keep, pass on and return to.</p>
+      <p class="it" style="font-size:26px;color:var(--gold);margin-top:22px">We are all made of cosmos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="philosophy" data-t="Philosophy">
+  <div class="wrap">
+    <p class="lab">Brand philosophy</p>
+    <h2>Six principles.</h2>
+    <div class="phil" id="phil"></div>
+  </div>
+</section>
+
+<section class="slide" id="collections" data-t="Collections">
+  <div class="wrap">
+    <p class="lab">Proposed founding collections</p>
+    <h2>Three chapters.</h2>
+    <p class="mute" style="margin-top:14px">Each collection is a small, numbered run with one original print story. Choose one to open it in the atelier viewer.</p>
+    <div class="cols" id="cols"></div>
+  </div>
+</section>
+
+<section class="slide" id="atelier" data-t="Atelier viewer">
+  <div class="wrap viewer">
+    <div class="stage"><svg id="kv" viewBox="0 0 400 440" role="img" aria-label="Silk kimono render"></svg><span class="cap" id="kcap">Conceptual render</span></div>
+    <div>
+      <p class="lab">Atelier viewer</p>
+      <div class="ctl" id="kcols" role="group" aria-label="Collection"></div>
+      <div class="colname" id="kname"></div>
+      <p class="mute" id="kdesc"></p>
+      <p style="font-size:14px;color:var(--dim);margin:14px 0 4px">Colorway · <span id="kcw" style="color:var(--ink)"></span></p>
+      <div class="sw" id="ksw" role="group" aria-label="Colorway"></div>
+      <div class="ctl" role="group" aria-label="View"><button type="button" data-v="front" aria-pressed="true">Front</button><button type="button" data-v="back" aria-pressed="false">Back</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="product" data-t="The piece">
+  <div class="wrap two">
+    <div>
+      <p class="lab">The piece</p>
+      <h2>Made to be kept.</h2>
+      <p class="mute" style="margin-top:16px">Proposed specification, to be developed and confirmed with manufacturing partners.</p>
+      <span class="tag prop">Proposed</span>
+    </div>
+    <div class="specs">
+      <div><b>Material</b><span>Silk, in charmeuse and lighter habotai weights</span></div>
+      <div><b>Print</b><span>Original artwork, digitally printed on silk</span></div>
+      <div><b>Cut</b><span>Relaxed, one-size kimono with wide sleeves and a soft belt</span></div>
+      <div><b>Finish</b><span>Hand-rolled hems and a woven COSMONOS label</span></div>
+      <div><b>Edition</b><span>Small numbered runs; each piece carries its number</span></div>
+      <div><b>Keepsake</b><span>Print story card and a wrapping cloth for gifting</span></div>
+      <div><b>Care</b><span>Made for wearing again and again, not once</span></div>
+      <div><b>Values</b><span>Considered production and partners we can stand behind</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="lookbook" data-t="Lookbook">
+  <div class="wrap">
+    <p class="lab">Conceptual lookbook</p>
+    <h2>Four places to wear it.</h2>
+    <div class="look" id="look"></div>
+    <p class="mute" style="margin:34px 0 0;font-size:15px"><b style="color:var(--ink)">Early concept references.</b> AI-generated mood images from the first exploration of the idea. They show the feeling, not the final designs, which will be original artwork.</p>
+    <div class="refs">
+      <img src="img/cosmonos/concept-model.jpg" alt="Early concept: model in a cosmic-print kimono before flowers" loading="lazy">
+      <img src="img/cosmonos/concept-gate.jpg" alt="Early concept: figure in a long cosmic robe before a glowing gate" loading="lazy">
+      <img src="img/cosmonos/concept-seated.jpg" alt="Early concept: seated figure in a patterned robe holding a sphere" loading="lazy">
+      <img src="img/cosmonos/concept-hood.jpg" alt="Early concept: hooded figure in an indigo kimono with planets" loading="lazy">
+      <img src="img/cosmonos/concept-portal.jpg" alt="Early concept: meditating figures under a floral cosmic arch" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="editions" data-t="Artist editions">
+  <div class="wrap two">
+    <div>
+      <p class="lab">Artist editions</p>
+      <h2>Every print, a collaboration.</h2>
+    </div>
+    <div>
+      <p style="font-size:19px">Alongside the founding collections, each season would invite one visual artist to create a print for a strictly limited, numbered edition, credited by name and shared with the artist.</p>
+      <p class="mute">COSMOTION already works with visual artists, performers and producers across its events. Artist editions extend that circle into something wearable and collectible.</p>
+      <span class="tag prop">Proposed</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="channels" data-t="Where it lives">
+  <div class="wrap">
+    <p class="lab">Where it lives</p>
+    <h2>Close to the community first.</h2>
+    <div class="rows">
+      <div class="row"><h3>COSMOTION gatherings</h3><p>First access for the community at our events and showcases.</p><span class="tag prop">Proposed</span></div>
+      <div class="row"><h3>Limited online drops</h3><p>Numbered releases announced to the email list and community chat first.</p><span class="tag prop">Proposed</span></div>
+      <div class="row"><h3>Festival and destination pop-ups</h3><p>Atelier-style pop-ups at the gatherings and places that inspire the line.</p><span class="tag prop">Proposed</span></div>
+      <div class="row"><h3>Select boutiques</h3><p>A small number of stockists who share the spirit, in places like Austin, Tulum and Mykonos.</p><span class="tag prop">Targets, not partners</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="why" data-t="Why COSMOTION">
+  <div class="wrap">
+    <p class="lab">Why COSMOTION</p>
+    <h2>The community already exists.</h2>
+    <div class="proof">
+      <div><b>2015</b><span>first gathering</span></div>
+      <div><b>100+</b><span>events produced</span></div>
+      <div><b>~15k</b><span>community list</span></div>
+      <div><b>2</b><span>venue launches</span></div>
+    </div>
+    <p class="mute">A decade of booking international headliners, collaborating with creative collectives, and building rooms people come back to. COSMONOS starts with an audience that already shares its values.</p>
+    <span class="tag est">Established</span>
+  </div>
+</section>
+
+<section class="slide" id="roadmap" data-t="Roadmap">
+  <div class="wrap">
+    <p class="lab">Roadmap</p>
+    <h2>From concept to collection.</h2>
+    <div class="road">
+      <div><i>I</i><h3>Design</h3><p>Finalize the three print stories, pattern and fit with a designer.</p></div>
+      <div><i>II</i><h3>Sampling</h3><p>Source silk and printing partners; produce and test samples.</p></div>
+      <div><i>III</i><h3>First drop</h3><p>A small numbered capsule, launched to the community.</p></div>
+      <div><i>IV</i><h3>Expand</h3><p>Artist editions, pop-ups and select boutiques.</p></div>
+    </div>
+    <p class="mute" style="margin-top:30px;font-size:15px">Phases are proposed; timing depends on partners and funding.</p>
+  </div>
+</section>
+
+<section class="slide" id="join" data-t="Collaborate">
+  <div class="wrap">
+    <p class="lab">Who we're looking for</p>
+    <h2>Build it with us.</h2>
+    <div class="asks">
+      <div class="ask"><h3>Investors</h3><p>Early support to fund design, sampling and the first numbered run.</p></div>
+      <div class="ask"><h3>Manufacturers</h3><p>Silk mills and printers experienced in small, high-quality runs.</p></div>
+      <div class="ask"><h3>Designers</h3><p>Pattern makers and fashion designers to refine cut, fit and finish.</p></div>
+      <div class="ask"><h3>Artists</h3><p>Visual artists for prints and future numbered artist editions.</p></div>
+      <div class="ask"><h3>Retailers</h3><p>Boutiques and concept stores that share the spirit of the line.</p></div>
+      <div class="ask"><h3>Collaborators</h3><p>Festivals, destinations and brands for pop-ups and shared moments.</p></div>
+    </div>
+    <p class="ph">To add: funding ask, use of funds and target timeline.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center"><a class="btn solid" href="mailto:cosmotionevents@gmail.com?subject=COSMONOS%20collaboration">Start a conversation</a><span class="mute">cosmotionevents@gmail.com</span><a class="btn" href="index.html#connect" data-type="partner">Contact form</a></div>
+    <p class="it" style="font-size:24px;color:var(--gold);margin-top:40px">Individual expression. Collective connection.</p>
+  </div>
+</section>
+</main>
+
+<script>
+{
+const TAU=Math.PI*2;
+/* ===== Access gate (keeps casual visitors out; not real security) ===== */
+const unlock=()=>{document.body.classList.remove('locked');try{sessionStorage.setItem('cmx','1')}catch(_){}};
+try{if(sessionStorage.getItem('cmx')==='1')unlock()}catch(_){}
+document.getElementById('gform').addEventListener('submit',e=>{e.preventDefault();const v=document.getElementById('gcode').value.trim().toUpperCase();if(v==='COSMO'){unlock();window.scrollTo(0,0)}else{document.getElementById('gmsg').textContent='That code isn’t right.'}});
+
+/* ===== Data ===== */
+const PH=[
+ ['Wear Your Frequency.','Each piece carries a print story. What you wear says what you’re tuned to.','sun'],
+ ['Individual expression. Collective connection.','Worn by one person, recognised by a whole community.','rings'],
+ ['Ancient symbolism meets future culture.','Old marks of sun, moon and element, drawn with a modern hand.','tri'],
+ ['Beyond the dance floor.','Made for the gathering, the journey home and every ordinary day after.','wave'],
+ ['Timeless over trendy.','No seasons to chase. Pieces meant to be kept and passed on.','dia'],
+ ['We are all made of cosmos.','The idea at the center of COSMOTION, now something you can wear.','star']];
+const COL=[
+ {id:'origin',n:'I',name:'Origin',d:'Ancient symbolism in fine gold linework: a ring of sun, moon and element marks across midnight silk.',cw:[['Midnight','#141a33','#0b0f22','#c9a86a'],['Obsidian','#121110','#070706','#c9a86a'],['Oxblood','#3a1414','#200a0a','#d7b37a']]},
+ {id:'solstice',n:'II',name:'Solstice',d:'The desert sun at golden hour: a rising disc and fine rays, dyed from ember to saffron.',cw:[['Ember','#7a2e1a','#d0832e','#f2d9a6'],['Dune','#6b4a2b','#c9a46a','#f3e6c8'],['Dusk','#3b1f3a','#c0623a','#f0cfa0']]},
+ {id:'aegean',n:'III',name:'Aegean',d:'Whitewashed walls and deep water: seigaiha waves and a single indigo moon on ivory silk.',cw:[['Ivory','#eee6d4','#e2d6bd','#203a6b'],['Sea glass','#cfe0dc','#b5ccc6','#1e3d4f'],['Night sea','#18294a','#0f1b33','#e9e0cc']]}];
+let sel={c:0,w:0,v:'front'};
+
+/* ===== Seeded random ===== */
+let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+
+/* ===== Kimono render ===== */
+const SH={front:'M120 40 L40 40 Q20 40 20 60 L20 190 Q20 212 42 212 L120 212 L116 424 L284 424 L280 212 L358 212 Q380 212 380 190 L380 60 Q380 40 360 40 L280 40 L226 40 Q200 70 174 40 Z',
+back:'M120 40 L40 40 Q20 40 20 60 L20 190 Q20 212 42 212 L120 212 L116 424 L284 424 L280 212 L358 212 Q380 212 380 190 L380 60 Q380 40 360 40 L280 40 L232 40 Q200 50 168 40 Z'};
+function glyph(k,X,Y,s){switch(k%6){case 0:return `<circle cx="${X}" cy="${Y}" r="${s}"/><circle cx="${X}" cy="${Y}" r="${s*.25}" fill="currentColor"/>`;case 1:return `<path d="M${X+s*.5} ${Y-s*.87} A${s} ${s} 0 1 0 ${X+s*.5} ${Y+s*.87} A${s*.8} ${s*.8} 0 1 1 ${X+s*.5} ${Y-s*.87}Z"/>`;case 2:return `<path d="M${X} ${Y-s} L${X+s} ${Y+s*.8} L${X-s} ${Y+s*.8}Z"/>`;case 3:return `<path d="M${X} ${Y+s} L${X+s} ${Y-s*.8} L${X-s} ${Y-s*.8}Z M${X-s*.6} ${Y-s*.1} H${X+s*.6}"/>`;case 4:return `<circle cx="${X}" cy="${Y-s*.3}" r="${s*.6}"/><path d="M${X} ${Y+s*.3} V${Y+s*1.2} M${X-s*.5} ${Y+s*.75} H${X+s*.5}"/>`;default:return `<path d="M${X} ${Y-s} L${X+s} ${Y} L${X} ${Y+s} L${X-s} ${Y}Z M${X-s} ${Y} H${X+s}"/>`}}
+function ring(cx,cy,r,col,n=12){let g='';for(let i=0;i<n;i++){const a=i/n*TAU-Math.PI/2;g+=glyph(i,+(cx+Math.cos(a)*r).toFixed(1),+(cy+Math.sin(a)*r).toFixed(1),7)}return `<g fill="none" stroke="${col}" stroke-width="1.1" style="color:${col}">${g}</g>`}
+function seigaiha(col,y0,op){let s='';const R=22;for(let row=0;row<10;row++){const y=y0+row*12;for(let x=-20;x<420;x+=R*2){const ox=row%2?R:0;for(let k=4;k>0;k--)s+=`<path d="M${x+ox-k*5.2} ${y} A${k*5.2} ${k*5.2} 0 0 1 ${x+ox+k*5.2} ${y}" fill="none" stroke="${col}" stroke-width=".9"/>`}}return `<g opacity="${op}">${s}</g>`}
+function kimono(ci,wi,view,uid){
+  const c=COL[ci],[nm,g1,g2,ln]=c.cw[wi],id='k'+uid;seed=11+ci*31+wi*7;
+  let art='';
+  if(c.id==='origin'){
+    for(let i=0;i<90;i++)art+=`<circle cx="${(rnd()*400).toFixed(1)}" cy="${(40+rnd()*390).toFixed(1)}" r="${(rnd()*1.2+.3).toFixed(2)}" fill="${ln}" opacity="${(.3+rnd()*.6).toFixed(2)}"/>`;
+    const cy=view==='back'?210:300,cx=view==='back'?200:250;
+    art+=`<g fill="none" stroke="${ln}">${[46,70,96,124].map((r,i)=>`<circle cx="${cx}" cy="${cy}" r="${r}" stroke-opacity="${.55-i*.1}" stroke-width="${i?0.8:1.2}"/>`).join('')}</g>`+ring(cx,cy,83,ln);
+    art+=`<path d="M${cx} ${cy-46} L${cx+40} ${cy+23} L${cx-40} ${cy+23}Z M${cx} ${cy+46} L${cx-40} ${cy-23} L${cx+40} ${cy-23}Z" fill="none" stroke="${ln}" stroke-opacity=".5"/><circle cx="${cx}" cy="${cy}" r="5" fill="${ln}"/>`;
+    art+=`<g stroke="${ln}" stroke-opacity=".7">${Array.from({length:60},(_,i)=>`<line x1="${110+i*3}" y1="404" x2="${110+i*3}" y2="${i%5?410:414}"/>`).join('')}</g><line x1="110" y1="400" x2="290" y2="400" stroke="${ln}" stroke-opacity=".6"/>`;
+    art+=`<g stroke="${ln}" stroke-opacity=".55" fill="none"><path d="M22 160 H118 M282 160 H378"/><path d="M22 168 H118 M282 168 H378" stroke-opacity=".3"/></g>`;
+  }else if(c.id==='solstice'){
+    const cy=view==='back'?250:430,R=view==='back'?96:150;
+    art+=`<circle cx="200" cy="${cy}" r="${R}" fill="url(#${id}sun)"/>`;
+    art+=`<g stroke="${ln}" stroke-opacity=".5">${Array.from({length:48},(_,i)=>{const a=i/48*TAU;return `<line x1="${(200+Math.cos(a)*(R+10)).toFixed(1)}" y1="${(cy+Math.sin(a)*(R+10)).toFixed(1)}" x2="${(200+Math.cos(a)*(R+(i%2?36:70))).toFixed(1)}" y2="${(cy+Math.sin(a)*(R+(i%2?36:70))).toFixed(1)}" stroke-width="${i%2?.6:1}"/>`}).join('')}</g>`;
+    art+=`<g fill="none" stroke="${ln}" stroke-opacity=".35">${[0,1,2,3].map(k=>`<path d="M20 ${110+k*14} H120 M280 ${110+k*14} H380"/>`).join('')}</g>`;
+  }else{
+    art+=seigaiha(ln,view==='back'?250:300,.42);
+    const cy=view==='back'?150:120,cx=view==='back'?200:255;
+    art+=`<circle cx="${cx}" cy="${cy}" r="${view==='back'?54:30}" fill="${ln}" opacity=".9"/><circle cx="${cx}" cy="${cy}" r="${view==='back'?66:38}" fill="none" stroke="${ln}" stroke-opacity=".5"/>`;
+    art+=`<g fill="none" stroke="${ln}" stroke-opacity=".7"><path d="M22 186 H118 M282 186 H378"/><path d="M22 194 H118 M282 194 H378" stroke-opacity=".4"/></g>`;
+  }
+  const collar=view==='front'?`<path d="M176 38 L200 172 L224 38" fill="none" stroke="${ln}" stroke-width="16" stroke-linejoin="round" stroke-opacity=".92"/><path d="M176 38 L200 172 L224 38" fill="none" stroke="#000" stroke-opacity=".18" stroke-width="1"/><line x1="200" y1="172" x2="194" y2="424" stroke="#000" stroke-opacity=".28" stroke-width="1.2"/><path d="M150 238 Q200 250 250 238" fill="none" stroke="${ln}" stroke-opacity=".65" stroke-width="5"/>`
+    :`<path d="M168 40 Q200 54 232 40" fill="none" stroke="${ln}" stroke-width="14" stroke-opacity=".9"/><line x1="200" y1="52" x2="200" y2="424" stroke="#000" stroke-opacity=".14"/>`;
+  return `<defs><linearGradient id="${id}g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${g1}"/><stop offset="1" stop-color="${g2}"/></linearGradient>
+  <radialGradient id="${id}sun"><stop offset="0" stop-color="${ln}" stop-opacity=".95"/><stop offset=".7" stop-color="${ln}" stop-opacity=".55"/><stop offset="1" stop-color="${ln}" stop-opacity="0"/></radialGradient>
+  <linearGradient id="${id}sh" x1="0" y1="0" x2="1" y2="1"><stop offset=".15" stop-color="#fff" stop-opacity="0"/><stop offset=".35" stop-color="#fff" stop-opacity=".16"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset=".68" stop-color="#fff" stop-opacity=".09"/><stop offset=".85" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <clipPath id="${id}c"><path d="${SH[view]}"/></clipPath></defs>
+  <ellipse cx="200" cy="430" rx="150" ry="8" fill="#000" opacity=".45"/>
+  <g clip-path="url(#${id}c)"><rect width="400" height="440" fill="url(#${id}g)"/>${art}
+  <g stroke="#000" stroke-opacity=".22" fill="none"><path d="M120 40 V212 M280 40 V212"/><path d="M60 60 Q66 140 58 206 M340 60 Q334 140 342 206 M150 250 Q146 340 152 424 M250 250 Q254 340 248 424"/></g>
+  <rect width="400" height="440" fill="url(#${id}sh)"/></g>
+  <path d="${SH[view]}" fill="none" stroke="#000" stroke-opacity=".35"/>${collar}`;
+}
+
+/* ===== Cover halo ===== */
+{let h='';for(let i=0;i<180;i++){const a=i/180*TAU,l=i%15===0?18:i%5===0?10:5;h+=`<line x1="${(500+Math.cos(a)*470).toFixed(1)}" y1="${(500+Math.sin(a)*470).toFixed(1)}" x2="${(500+Math.cos(a)*(470-l)).toFixed(1)}" y2="${(500+Math.sin(a)*(470-l)).toFixed(1)}" stroke="#c9a86a" stroke-opacity=".5"/>`}
+document.getElementById('halo').innerHTML=`<g fill="none" stroke="#c9a86a"><circle cx="500" cy="500" r="470" stroke-opacity=".35"/><circle cx="500" cy="500" r="420" stroke-opacity=".18"/><circle cx="500" cy="500" r="300" stroke-opacity=".12"/></g>${h}`+ring(500,500,445,'#c9a86a').replace('stroke-width="1.1"','stroke-width="1.1" opacity=".55"');}
+
+/* ===== Philosophy ===== */
+const PG={sun:'<circle cx="17" cy="17" r="8"/><circle cx="17" cy="17" r="2" fill="currentColor"/><path d="M17 2v5M17 27v5M2 17h5M27 17h5"/>',rings:'<circle cx="13" cy="17" r="9"/><circle cx="21" cy="17" r="9"/>',tri:'<path d="M17 4l13 24H4z"/><path d="M10 19h14"/>',wave:'<path d="M3 22a7 7 0 0 1 14 0a7 7 0 0 1 14 0M3 14a7 7 0 0 1 14 0a7 7 0 0 1 14 0"/>',dia:'<path d="M17 3l14 14-14 14L3 17z"/><path d="M3 17h28"/>',star:'<path d="M17 3v28M3 17h28M7 7l20 20M27 7L7 27"/><circle cx="17" cy="17" r="4"/>'};
+document.getElementById('phil').innerHTML=PH.map(p=>`<div><svg class="g" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">${PG[p[2]]}</svg><div><h3>${p[0]}</h3><p style="margin-top:10px">${p[1]}</p></div></div>`).join('');
+
+/* ===== Collections cards ===== */
+document.getElementById('cols').innerHTML=COL.map((c,i)=>`<button class="col" type="button" data-c="${i}"><div class="art" style="background:radial-gradient(ellipse at 50% 40%,#1d1a16,#0e0d0b 70%)"><svg viewBox="0 0 400 440" aria-hidden="true">${kimono(i,0,'front','c'+i)}</svg></div><div class="t"><b>${c.n}</b><h3>${c.name}</h3><p>${c.d}</p></div></button>`).join('');
+document.getElementById('cols').addEventListener('click',e=>{const b=e.target.closest('.col');if(!b)return;sel={c:+b.dataset.c,w:0,v:'front'};draw();document.getElementById('atelier').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+
+/* ===== Viewer ===== */
+const kc=document.getElementById('kcols');kc.innerHTML=COL.map((c,i)=>`<button type="button" data-c="${i}">${c.name}</button>`).join('');
+kc.addEventListener('click',e=>{const b=e.target.closest('button');if(b){sel.c=+b.dataset.c;sel.w=0;draw()}});
+document.getElementById('ksw').addEventListener('click',e=>{const b=e.target.closest('button');if(b){sel.w=+b.dataset.w;draw()}});
+document.querySelectorAll('[data-v]').forEach(b=>b.addEventListener('click',()=>{sel.v=b.dataset.v;draw()}));
+function draw(){const c=COL[sel.c];
+  document.getElementById('kv').innerHTML=kimono(sel.c,sel.w,sel.v,'v');
+  document.getElementById('kname').textContent=c.n+' · '+c.name;document.getElementById('kdesc').textContent=c.d;document.getElementById('kcw').textContent=c.cw[sel.w][0];
+  document.getElementById('kcap').textContent='Conceptual render · '+c.name+' · '+c.cw[sel.w][0]+' · '+sel.v;
+  document.getElementById('ksw').innerHTML=c.cw.map((w,i)=>`<button type="button" data-w="${i}" aria-pressed="${i===sel.w}" aria-label="${w[0]}" style="background:linear-gradient(135deg,${w[1]} 50%,${w[3]} 50%)"></button>`).join('');
+  kc.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',i===sel.c));
+  document.querySelectorAll('[data-v]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===sel.v));}
+draw();
+
+/* ===== Lookbook scenes ===== */
+const SC=[
+ {cls:'s1',c:1,w:0,v:'back',t:'Desert, golden hour',sub:'Solstice · Ember',bg:'linear-gradient(#e7b77a 0%,#c7774a 46%,#5a2f22 47%,#3a1e16 100%)',extra:'<circle cx="80%" cy="36%" r="38" fill="#f6dfb0" opacity=".85"/>'},
+ {cls:'s2',c:2,w:0,v:'front',t:'Island courtyard',sub:'Aegean · Ivory',bg:'linear-gradient(#f3efe6,#dcd4c4)',extra:'<path d="M0 100% V30% Q25% 8% 50% 30% V100%Z" fill="#e9e3d6"/><rect x="0" y="86%" width="100%" height="14%" fill="#2a4a7a" opacity=".9"/>',dark:1},
+ {cls:'s3',c:0,w:0,v:'front',t:'Night ceremony',sub:'Origin · Midnight',bg:'radial-gradient(ellipse at 50% 30%,#1d2340,#07080f 70%)',extra:'<g fill="#f3d9a0">'+Array.from({length:40},(_,i)=>`<circle cx="${(i*37%100)}%" cy="${(i*53%60)}%" r="${i%3?1:1.6}" opacity=".7"/>`).join('')+'</g>'},
+ {cls:'s4',c:0,w:2,v:'back',t:'After-hours, slow morning',sub:'Origin · Oxblood',bg:'linear-gradient(110deg,#1a1210,#3a201a 55%,#7a4a2e)',extra:'<rect x="70%" y="0" width="14%" height="100%" fill="#f2c98a" opacity=".12"/>'}];
+document.getElementById('look').innerHTML=SC.map((s,i)=>`<figure class="scene ${s.cls}" style="margin:0;background:${s.bg}"><svg width="100%" height="100%" style="position:absolute;inset:0" aria-hidden="true">${s.extra}</svg><svg class="k" viewBox="0 0 400 440" role="img" aria-label="${s.sub} kimono, ${s.t}">${kimono(s.c,s.w,s.v,'l'+i)}</svg><figcaption class="c" style="color:${s.dark?'#2a2520':'#efe7d6'}"><span>${s.t}</span><span>${s.sub}</span></figcaption></figure>`).join('');
+
+/* ===== Slides: dots, counter, present mode ===== */
+const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('dots'),count=document.getElementById('count');
+dots.innerHTML=slides.map(s=>`<a href="#${s.id}" aria-label="${s.dataset.t}" title="${s.dataset.t}"></a>`).join('');
+let cur=0;
+const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){cur=slides.indexOf(e.target);dots.querySelectorAll('a').forEach((a,i)=>a.classList.toggle('on',i===cur));count.textContent=String(cur+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')}},{threshold:.55});
+slides.forEach(s=>io.observe(s));
+const go=i=>{i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:'smooth'})};
+const pb=document.getElementById('present');
+pb.addEventListener('click',()=>{const on=document.documentElement.classList.toggle('present');pb.setAttribute('aria-pressed',on);pb.textContent=on?'Exit present':'Present';if(on)go(cur)});
+document.addEventListener('keydown',e=>{if(!document.documentElement.classList.contains('present')||document.body.classList.contains('locked'))return;if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(cur+1)}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}if(e.key==='Escape')pb.click()});
+}
+</script>
+</body>
+</html>
