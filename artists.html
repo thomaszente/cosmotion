@@ -304,6 +304,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 @media(max-width:700px){.work,.upc,.ev{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.marq{animation:none;flex-wrap:wrap;width:auto}}
 @media(max-width:600px){#cform .chips{justify-content:center}#cform .chips label{min-height:38px;padding:0 11px;font-size:13px;gap:6px}#cform .chips input{width:14px;height:14px}#cform legend{text-align:center;width:100%}#cform .tabs{justify-content:center}#cform .tabs button{min-height:38px;padding:0 13px;font-size:13px}}
+.snd{position:fixed!important;left:16px;bottom:16px;z-index:40!important;font-family:Manrope,sans-serif}
+.snd-btn{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:999px;border:1px solid var(--gold);background:rgba(5,5,5,.85);backdrop-filter:blur(8px);color:var(--gold);font:700 14px Manrope,sans-serif;cursor:pointer}
+.snd-btn svg{width:22px;height:22px}
+.snd.on .snd-btn{background:var(--gold);color:var(--bg)}
+.snd-panel{display:none;position:absolute;left:0;bottom:54px;width:260px;padding:16px;border-radius:18px;border:1px solid var(--line);background:rgba(10,9,8,.96);backdrop-filter:blur(10px);box-shadow:0 20px 40px rgba(0,0,0,.6)}
+.snd.open .snd-panel{display:block}
+.snd-panel p{margin:0 0 10px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18px;color:var(--gold)}
+.snd-panel button{display:flex;justify-content:space-between;width:100%;min-height:44px;margin:0 0 6px;padding:0 14px;border-radius:12px;font-size:14px}
+.snd-panel button small{font-weight:500;opacity:.7}
+.snd-panel label{display:block;font-size:13px;color:var(--dim);margin-top:8px}
+.snd-panel input[type=range]{width:100%;height:32px;accent-color:var(--gold)}
 @media(max-width:1000px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}.route ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.route ol::before{display:none}.cserv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.two,.moonwrap,.split,.proof{grid-template-columns:minmax(0,1fr)}.pk,.lblrow{grid-template-columns:minmax(0,1fr)}.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.chap{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){nav{gap:2px 14px}nav a:not(.logo){font-size:14px}.paths{grid-template-columns:minmax(0,1fr)}.path{min-height:0}.frow,.formats,.svcs,.cserv{grid-template-columns:minmax(0,1fr)}.route ol{grid-template-columns:repeat(2,minmax(0,1fr))}.phases button{font-size:0}.phases button::after{content:attr(data-s);font-size:13px}.sky{height:60svh}}
@@ -401,6 +412,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     </form>
   </div>
 </section>
+<div class="snd" id="snd">
+  <div class="snd-panel" id="sndPanel" role="dialog" aria-label="Cosmic sound">
+    <p>Cosmic sound</p>
+    <button type="button" data-f="space" aria-pressed="false">Deep Space <small>111 Hz</small></button>
+    <button type="button" data-f="earth" aria-pressed="false">Earth Drift <small>432 Hz</small></button>
+    <button type="button" data-f="celestial" aria-pressed="false">Celestial <small>528 Hz</small></button>
+    <label for="sndVol">Volume</label><input type="range" id="sndVol" min="0" max="1" step="0.01" value="0.5">
+    <button type="button" id="sndStop">Stop sound</button>
+  </div>
+  <button class="snd-btn" id="sndBtn" type="button" aria-expanded="false" aria-controls="sndPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 12h2M7 8v8M11 5v14M15 8v8M19 10v4M21 12h0"/></svg><span id="sndLbl">Sound</span></button>
+</div>
 <footer><div class="wrap fwrap">
   <div><img src="img/wordmark.svg" alt="COSMOTION"><p class="serif" style="margin:0;color:var(--gold)">Mystical Music Movement</p></div>
   <div class="socs" aria-label="COSMOTION elsewhere"><a class="soc" href="https://instagram.com/cosmotion.space" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a><a class="soc" href="https://soundcloud.com/cosmotion_music" aria-label="SoundCloud" title="SoundCloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v2M6 12v5M9 10v7M12 8v9"/><path d="M14.5 17H19a2.5 2.5 0 0 0 0-5 4.5 4.5 0 0 0-4.5-4.5V17Z"/></svg></a><a class="soc" href="https://www.beatport.com/label/cosmotion/127693" aria-label="Beatport" title="Beatport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r=".6" fill="currentColor"/><path d="M12 3.5v3"/></svg></a><a class="soc" href="https://www.youtube.com/channel/UCheuhVPLuebvx6LRCs5uW6Q" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="4"/><path d="M10.5 9.5v5l4-2.5Z"/></svg></a><a class="soc" href="https://chat.whatsapp.com/HwpOcgHgd6XAB28QJB5ysp" aria-label="WhatsApp chat" title="WhatsApp chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9.2 8.6c.3 2.6 2.6 4.9 5.2 5.2l1.2-1.2 1.9.9-.4 1.6c-3.7.3-8.3-4.3-8-8l1.6-.4.9 1.9Z"/></svg></a><a class="soc" href="mailto:cosmotionevents@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg></a></div>
@@ -650,6 +672,32 @@ for(let i=0;i<12;i++){const q=i/12*TAU;h+=`<line x1="${(Math.cos(q)*u*3.4).toFix
 a.innerHTML=h;
 const sig=['<circle cx="22" cy="22" r="9" fill="none" stroke="#c9a86a"/><circle cx="22" cy="22" r="2" fill="#c9a86a"/>','<path d="M22 12 L31 28 L13 28Z" fill="none" stroke="#c9a86a"/><circle cx="22" cy="23" r="3" fill="none" stroke="#c9a86a"/>','<path d="M22 13 L31 22 L22 31 L13 22Z" fill="none" stroke="#c9a86a"/><path d="M13 22H31" stroke="#c9a86a"/>','<circle cx="22" cy="22" r="9" fill="none" stroke="#c9a86a"/><path d="M26 15a8 8 0 1 0 0 14a10 10 0 0 1 0-14z" fill="#c9a86a" fill-opacity=".6"/>'];
 document.querySelectorAll('section.band').forEach((sec,i)=>{if(i===0)return;const d=document.createElement('div');d.className='sigil';d.setAttribute('aria-hidden','true');d.innerHTML=`<svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="21" fill="#050505" stroke="rgba(201,168,106,.4)"/>${sig[i%4]}</svg>`;sec.before(d)});}
+
+/* ===== Cosmic sound (generated live, nothing to download) ===== */
+{const root=document.getElementById('snd');if(root){
+let ctx=null,master=null,verb=null,cur=null,vol=.5;
+const FX={space:{base:111,parts:[[.5,.5],[1,.35],[2,.12],[3,.05]],noise:260,lfo:.04,bells:0},earth:{base:432,parts:[[.5,.4],[1,.22],[1.5,.12],[2,.06]],noise:700,lfo:.09,bells:0},celestial:{base:528,parts:[[.5,.25],[1,.16],[1.5,.1],[2,.07],[3,.03]],noise:1800,lfo:.13,bells:1}};
+function init(){ctx=new (window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=0;master.connect(ctx.destination);
+  verb=ctx.createConvolver();const L=ctx.sampleRate*5,b=ctx.createBuffer(2,L,ctx.sampleRate);for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<L;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/L,3)}verb.buffer=b;const wet=ctx.createGain();wet.gain.value=.55;verb.connect(wet);wet.connect(master)}
+function build(k){const f=FX[k],out=ctx.createGain();out.gain.value=0;out.connect(master);out.connect(verb);const nodes=[];
+  f.parts.forEach(([m,a],i)=>{for(const det of[-4,4]){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=f.base*m;o.detune.value=det+i;g.gain.value=a*.18;o.connect(g);g.connect(out);o.start();nodes.push(o)}});
+  const L=ctx.sampleRate*3,nb=ctx.createBuffer(1,L,ctx.sampleRate),nd=nb.getChannelData(0);let p=0;for(let i=0;i<L;i++){p=.98*p+.02*(Math.random()*2-1);nd[i]=p*3}
+  const n=ctx.createBufferSource();n.buffer=nb;n.loop=true;const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=f.noise;const ng=ctx.createGain();ng.gain.value=.05;n.connect(lp);lp.connect(ng);ng.connect(out);n.start();nodes.push(n);
+  const lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=f.lfo;lg.gain.value=.25;lfo.connect(lg);lg.connect(out.gain);lfo.start();nodes.push(lfo);
+  let timer=null;if(f.bells){const ping=()=>{const t=ctx.currentTime,o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=f.base*[2,3,4,6][Math.floor(Math.random()*4)];g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.05,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+4);o.connect(g);g.connect(out);o.start(t);o.stop(t+4.2);timer=setTimeout(ping,2500+Math.random()*4000)};timer=setTimeout(ping,1500)}
+  out.gain.linearRampToValueAtTime(.75,ctx.currentTime+3);
+  return{stop(){out.gain.cancelScheduledValues(ctx.currentTime);out.gain.setValueAtTime(out.gain.value,ctx.currentTime);out.gain.linearRampToValueAtTime(0,ctx.currentTime+2);clearTimeout(timer);setTimeout(()=>{nodes.forEach(x=>{try{x.stop()}catch(_){}});out.disconnect()},2300)}}}
+const btns=[...root.querySelectorAll('[data-f]')],lbl=document.getElementById('sndLbl'),panel=root,btn=document.getElementById('sndBtn');
+function mark(k){btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===k));root.classList.toggle('on',!!k);lbl.textContent=k?btns.find(b=>b.dataset.f===k).firstChild.textContent.trim():'Sound'}
+async function play(k){try{if(!ctx)init();if(ctx.state==='suspended')await ctx.resume();if(cur)cur.stop();cur=build(k);master.gain.cancelScheduledValues(ctx.currentTime);master.gain.linearRampToValueAtTime(vol,ctx.currentTime+1.5);mark(k)}catch(_){lbl.textContent='Sound unavailable'}}
+function stop(){if(cur){cur.stop();cur=null}mark(null)}
+btn.addEventListener('click',()=>{const o=root.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+btns.forEach(b=>b.addEventListener('click',()=>play(b.dataset.f)));
+document.getElementById('sndStop').addEventListener('click',stop);
+document.getElementById('sndVol').addEventListener('input',e=>{vol=+e.target.value;if(master)master.gain.setTargetAtTime(vol,ctx.currentTime,.1)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&root.classList.contains('open')){root.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
+document.addEventListener('click',e=>{if(!root.contains(e.target)&&root.classList.contains('open')){root.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
+}}
 /* ===== Nav highlight ===== */
 const navLinks=[...document.querySelectorAll('nav a:not(.logo)')];
 const secIO=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}},{rootMargin:'-45% 0px -50% 0px'});
