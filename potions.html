@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>COSMOTION Potions · Elevate the Ritual</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Oswald:wght@300;400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE a quiet modern apothecary: ritual, presence, honest ingredients; never medical promises
+   IDEA a private apothecary ledger: each slide is a page of the recipe book
+   PICTURE original glass bottle, vial, jar and flacon renders, switchable by line and by blend
+   COLOUR violet-black #0b0912 ground, bone #f1ece2 text, antique gold #c9a86a linework, violet #9d8fe0 accent; blend hues (cacao, rose, citrus) only in the liquids
+   TYPE Cormorant Garamond display + Oswald light tracked labels + Manrope text
+   LAYOUT full-height slides; text beside the bottle on desktop, stacked on phones; present mode snaps slide to slide */
+:root{color-scheme:dark;--bg:#0b0912;--ink:#f1ece2;--dim:#a39cae;--gold:#c9a86a;--vio:#9d8fe0;--line:rgba(241,236,226,.13);--panel:#14111d}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html.present{scroll-snap-type:y mandatory}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Manrope,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;margin:0;line-height:1.04;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(38px,5.6vw,72px)}
+h3{font-size:clamp(24px,2.4vw,32px)}
+p{margin:0 0 14px;max-width:60ch}
+.lab{font:300 13px Oswald,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.mute{color:var(--dim)}
+.it{font-family:"Cormorant Garamond",serif;font-style:italic}
+.slide{min-height:100svh;padding:clamp(72px,9vw,120px) max(6vw,18px);display:flex;flex-direction:column;justify-content:center;position:relative;scroll-snap-align:start;border-top:1px solid var(--line)}
+.wrap{max-width:1240px;width:100%;margin:0 auto}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font:400 12px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1px solid}
+.tag.prop{color:#d9b77a;border-color:rgba(217,183,122,.55)}
+.tag.est{color:#9ec5a8;border-color:rgba(158,197,168,.5)}
+button,.btn{font:700 14px Manrope,sans-serif;color:var(--ink);background:none;border:1px solid rgba(241,236,226,.3);border-radius:999px;min-height:44px;padding:0 20px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+button:hover,.btn:hover{border-color:var(--ink)}
+.btn.solid,button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:16px;padding:12px max(6vw,18px);background:linear-gradient(rgba(11,9,18,.9),rgba(11,9,18,0))}
+.bar .mark{font:300 15px Oswald,sans-serif;letter-spacing:.42em;margin-right:auto;text-decoration:none}
+.bar .mark small{letter-spacing:.2em;color:var(--dim);margin-left:10px;font-size:11px}
+.count{position:fixed;right:max(6vw,18px);bottom:18px;z-index:20;font:300 13px Oswald,sans-serif;letter-spacing:.2em;color:var(--dim);display:none}
+html.present .count{display:block}
+.nav-dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:10px}
+.nav-dots a{width:7px;height:7px;border-radius:50%;border:1px solid var(--gold);display:block}
+.nav-dots a.on{background:var(--gold)}
+
+/* cover */
+.cover{text-align:center;align-items:center;overflow:hidden}
+.cover .word{font:300 clamp(40px,8.4vw,116px)/1 Oswald,sans-serif;letter-spacing:.3em;margin:0 0 0 .3em}
+.cover .word span{display:block;font:italic 400 clamp(34px,5vw,64px)/1.1 "Cormorant Garamond",serif;letter-spacing:.06em;color:var(--gold);margin:8px 0 0 -.3em}
+.cover .tagline{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(24px,3vw,36px);margin:20px 0 10px}
+.cover .sub{color:var(--dim);margin:0 auto 26px;max-width:48ch}
+.cover svg.halo{position:absolute;left:50%;top:50%;width:min(130vw,1100px);transform:translate(-50%,-50%);opacity:.5;pointer-events:none}
+.cover .inner{position:relative}
+.cover .trio{width:min(420px,80vw);height:auto;margin:0 auto 18px;display:block}
+
+/* status */
+.status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:34px}
+.status>div{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--panel)}
+.status ul{margin:14px 0 0;padding-left:18px}.status li{margin-bottom:8px}
+
+/* philosophy */
+.phil{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.phil div{background:var(--bg);padding:clamp(22px,3vw,36px);min-height:180px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.phil h3{font-size:clamp(24px,2.3vw,32px)}
+.phil p{font-size:15px;color:var(--dim);margin:0}
+.phil .g{width:34px;height:34px;color:var(--gold)}
+
+/* lines */
+.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px}
+.col{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:pointer;text-align:left;padding:0;color:var(--ink);display:block;font:inherit;transition:border-color .3s,transform .3s}
+.col:hover{border-color:var(--gold);transform:translateY(-3px)}
+.col .art{aspect-ratio:1/1.1;position:relative;background:radial-gradient(ellipse at 50% 45%,#1f1a2c,#0d0b14 70%)}
+.col .art svg{position:absolute;inset:6% 10% 4%;width:80%;height:90%}
+.col .t{padding:16px 18px 20px}
+.col .t b{display:block;font:300 12px Oswald,sans-serif;letter-spacing:.26em;color:var(--gold);text-transform:uppercase}
+.col .t h3{margin:6px 0 6px}
+.col .t p{font-size:15px;color:var(--dim);margin:0}
+
+/* viewer */
+.viewer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.stage{position:relative;aspect-ratio:1/1.08;border-radius:24px;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#221c30,#0b0912 70%);border:1px solid var(--line)}
+.stage svg{position:absolute;inset:6% 12% 6%;width:76%;height:88%}
+.stage .cap{position:absolute;left:18px;bottom:14px;font:300 12px Oswald,sans-serif;letter-spacing:.22em;color:var(--dim);text-transform:uppercase}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.bl{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px}
+.bl button{padding:0 16px 0 8px}
+.bl i{width:26px;height:26px;border-radius:50%;display:inline-block;border:1px solid rgba(255,255,255,.3)}
+.colname{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,4vw,52px);line-height:1;margin:6px 0 10px}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 26px;margin-top:22px}
+.specs div{border-top:1px solid var(--line);padding-top:10px}
+.specs b{display:block;font:300 12px Oswald,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.specs span{font-size:15px}
+
+/* ritual */
+.rit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
+.rit div{border-top:1px solid var(--gold);padding-top:20px}
+.rit b{font:300 13px Oswald,sans-serif;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+.rit h3{margin:10px 0 10px}
+.rit p{font-size:15px;color:var(--dim)}
+
+/* lookbook */
+.look{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;margin-top:36px}
+.scene{position:relative;border-radius:18px;overflow:hidden;min-height:400px;margin:0}
+.scene svg.k{position:absolute;left:0;right:0;bottom:12%;width:100%;height:74%}
+.scene .c{position:absolute;left:18px;right:18px;bottom:16px;display:flex;justify-content:space-between;gap:10px;font:300 12px Oswald,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.s1{grid-column:span 7}.s2{grid-column:span 5}.s3{grid-column:span 5}.s4{grid-column:span 7}
+
+/* lists */
+.rows{margin-top:30px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:240px minmax(0,1fr) auto;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{font-size:26px}
+.row p{margin:0;color:var(--dim)}
+.road{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:22px;border-top:1px dashed rgba(201,168,106,.5)}
+.road div{position:relative}
+.road i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:var(--bg);font:300 16px Oswald,sans-serif;font-style:normal;color:var(--gold)}
+.road h3{margin:16px 0 8px;font-size:26px}
+.road p{font-size:15px;color:var(--dim)}
+.asks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}
+.ask{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--panel)}
+.ask h3{font-size:28px;margin-bottom:8px}
+.ask p{font-size:15px;color:var(--dim);margin:0}
+.ph{border:1px dashed rgba(217,183,122,.6);border-radius:14px;padding:16px 18px;color:#d9b77a;margin-top:24px;font-size:15px}
+.note{border-left:2px solid var(--vio);padding:4px 0 4px 16px;color:var(--dim);font-size:14px;margin-top:28px;max-width:70ch}
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:30px 0}
+.proof b{display:block;font:300 clamp(40px,5vw,64px)/1 Oswald,sans-serif}
+.proof span{color:var(--dim);font-size:15px}
+
+/* gate */
+.gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+.gate .box{max-width:440px;width:100%}
+.gate .word{font:300 clamp(30px,7vw,54px) Oswald,sans-serif;letter-spacing:.3em;margin-left:.3em}
+.gate form{display:flex;gap:8px;margin:26px 0 10px}
+.gate input{flex:1;font:16px Manrope,sans-serif;color:var(--ink);background:#14111d;border:1px solid rgba(241,236,226,.3);border-radius:999px;padding:0 18px;min-height:48px;text-transform:uppercase;letter-spacing:.2em;text-align:center}
+.gate .msg{min-height:1.4em;color:#e39b8b;font-size:14px}
+body.locked main,body.locked .bar,body.locked .nav-dots{display:none}
+body:not(.locked) .gate{display:none}
+
+@media(max-width:1000px){.cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.two,.viewer{grid-template-columns:minmax(0,1fr)}.asks,.rit{grid-template-columns:minmax(0,1fr)}.phil{grid-template-columns:repeat(2,minmax(0,1fr))}.road{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}.road::before{display:none}.look>*{grid-column:1/-1!important}.proof{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-dots{display:none}}
+@media(max-width:600px){.status,.phil,.specs{grid-template-columns:minmax(0,1fr)}.row{grid-template-columns:minmax(0,1fr);gap:6px}.scene{min-height:340px}.slide{min-height:auto;padding-block:84px 64px}.bar .mark small{display:none}.road{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.col{transition:none}}
+</style>
+</head>
+<body class="locked">
+
+<div class="gate" role="dialog" aria-labelledby="gt">
+  <div class="box">
+    <p class="lab">COSMOTION · private preview</p>
+    <div class="word" id="gt">POTIONS</div>
+    <p class="it" style="font-size:24px;color:var(--gold);margin:12px 0 0">Elevate the ritual.</p>
+    <form id="gform" autocomplete="off"><label for="gcode" style="position:absolute;left:-9999px">Access code</label><input id="gcode" placeholder="Access code" aria-describedby="gmsg"><button class="btn solid" type="submit">Enter</button></form>
+    <p class="msg" id="gmsg" role="alert"></p>
+    <a class="mute" href="index.html" style="font-size:14px">Back to COSMOTION</a>
+  </div>
+</div>
+
+<header class="bar">
+  <a class="mark" href="#cover">POTIONS<small>by COSMOTION</small></a>
+  <button id="present" type="button" aria-pressed="false">Present</button>
+</header>
+<nav class="nav-dots" id="dots" aria-label="Slides"></nav>
+<div class="count" id="count" aria-live="polite"></div>
+
+<main>
+<section class="slide cover" id="cover" data-t="Cover">
+  <svg class="halo" viewBox="0 0 1000 1000" aria-hidden="true" id="halo"></svg>
+  <div class="inner">
+    <p class="lab">A proposed line of drinks, tonics and scents · Concept 2026</p>
+    <svg class="trio" id="trio" viewBox="0 0 800 440" role="img" aria-label="Three proposed elixir bottles: Ground, Flow and Glow"></svg>
+    <h1 class="word">COSMOTION<span>Potions</span></h1>
+    <p class="tagline">Elevate the ritual.</p>
+    <p class="sub">Botanical elixirs, tonics, ceremonial blends and scents, made for the gathering, the journey home and the slow morning after.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center"><a class="btn solid" href="#lines">See the lines</a><a class="btn" href="#join">Collaborate</a></div>
+  </div>
+</section>
+
+<section class="slide" id="clarity" data-t="Where we are">
+  <div class="wrap">
+    <p class="lab">Where we are</p>
+    <h2>A real community. A new idea.</h2>
+    <p class="mute" style="margin-top:16px">COSMOTION Potions is at concept stage. This deck separates what COSMOTION has already built from what we're proposing.</p>
+    <div class="status">
+      <div><span class="tag est">Established</span>
+        <ul><li>COSMOTION: immersive events and gatherings since 2015</li><li>100+ events produced and two venue launches in Austin</li><li>About 15,000 people on the community list</li><li>COSMOTION MUSIC, an independent label (CM001, January 2026)</li><li>A decade of headliner bookings and creative collaborations</li></ul></div>
+      <div><span class="tag prop">Proposed</span>
+        <ul><li>COSMOTION Potions: four lines of drinks, tonics, ceremonial blends and scents</li><li>Three signature blends shared across the lines</li><li>Formulators, manufacturers and co-packers: not yet secured</li><li>Bars, pop-ups and retail: planned, not yet launched</li><li>No sales or financials yet; this is the starting point</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="story" data-t="The story">
+  <div class="wrap two">
+    <div>
+      <p class="lab">The story</p>
+      <h2>Every gathering has a ritual.</h2>
+    </div>
+    <div>
+      <p style="font-size:19px">Long before nightlife, people gathered around a shared cup: cacao in the Americas, tea across Asia, resin and rose in the ancient markets. The drink and the scent were part of the ceremony.</p>
+      <p class="mute">COSMOTION Potions brings that back to the gatherings of now. Something beautiful to hold that keeps you present, a cup to open the circle, a scent the room remembers. Made with real botanicals and honest words, without hype or miracle promises.</p>
+      <p class="it" style="font-size:26px;color:var(--gold);margin-top:22px">We are all made of cosmos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="philosophy" data-t="Philosophy">
+  <div class="wrap">
+    <p class="lab">Brand philosophy</p>
+    <h2>Six principles.</h2>
+    <div class="phil" id="phil"></div>
+  </div>
+</section>
+
+<section class="slide" id="lines" data-t="The lines">
+  <div class="wrap">
+    <p class="lab">Proposed product lines</p>
+    <h2>Four ways to carry it.</h2>
+    <p class="mute" style="margin-top:14px">Each line is made in small batches. Choose one to open it in the apothecary viewer.</p>
+    <div class="cols" id="cols"></div>
+  </div>
+</section>
+
+<section class="slide" id="apothecary" data-t="Apothecary viewer">
+  <div class="wrap viewer">
+    <div class="stage"><svg id="pv" viewBox="0 0 300 420" role="img" aria-label="Bottle render"></svg><span class="cap" id="pcap">Conceptual render</span></div>
+    <div>
+      <p class="lab">Apothecary viewer</p>
+      <div class="ctl" id="plines" role="group" aria-label="Line"></div>
+      <div class="colname" id="pname"></div>
+      <p class="mute" id="pdesc"></p>
+      <p style="font-size:14px;color:var(--dim);margin:14px 0 4px">Blend</p>
+      <div class="bl" id="pbl" role="group" aria-label="Blend"></div>
+      <div class="specs" style="margin-top:6px">
+        <div><b>Proposed notes</b><span id="pnotes"></span></div>
+        <div><b>Character</b><span id="pmood"></span></div>
+      </div>
+      <div class="ctl" style="margin-top:22px"><button type="button" id="hear" aria-pressed="false">Hear its tone</button></div>
+      <p class="mute" style="font-size:14px">Each blend is named after one of the three COSMOTION tones you can play on our site.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="blends" data-t="Three blends">
+  <div class="wrap">
+    <p class="lab">Signature blends</p>
+    <h2>Three tones, one family.</h2>
+    <p class="mute" style="margin-top:14px">The same three blends run through every line, so a drink, a tea and a scent can belong together.</p>
+    <div class="rit" id="blendrows"></div>
+  </div>
+</section>
+
+<section class="slide" id="ritual" data-t="The ritual">
+  <div class="wrap">
+    <p class="lab">The ritual</p>
+    <h2>Before, during, after.</h2>
+    <div class="rit">
+      <div><b>Before</b><h3>Open the circle</h3><p>A ceremonial cup or a scent to set the intention for the night, at home or at the door.</p></div>
+      <div><b>During</b><h3>Stay present</h3><p>Alcohol-free elixirs at the bar: something special to hold that keeps you clear and connected.</p></div>
+      <div><b>After</b><h3>The slow morning</h3><p>A small tonic and a quiet room, for the journey home and the day after the music.</p></div>
+    </div>
+    <span class="tag prop" style="margin-top:30px;align-self:flex-start">Proposed</span>
+  </div>
+</section>
+
+<section class="slide" id="lookbook" data-t="Lookbook">
+  <div class="wrap">
+    <p class="lab">Conceptual lookbook</p>
+    <h2>Four moments.</h2>
+    <div class="look" id="look"></div>
+    <p class="mute" style="margin:24px 0 0;font-size:15px">Conceptual renders. Packaging, labels and colors will be developed with a designer.</p>
+  </div>
+</section>
+
+<section class="slide" id="standards" data-t="Our standards">
+  <div class="wrap two">
+    <div>
+      <p class="lab">Our standards</p>
+      <h2>Honest in every bottle.</h2>
+      <p class="mute" style="margin-top:16px">Proposed commitments, to be confirmed with formulators and manufacturing partners.</p>
+      <span class="tag prop">Proposed</span>
+    </div>
+    <div>
+      <div class="specs">
+        <div><b>Ingredients</b><span>Real botanicals, every one listed on the label</span></div>
+        <div><b>Formulation</b><span>Developed with qualified food scientists, herbalists and perfumers</span></div>
+        <div><b>Production</b><span>Made by licensed manufacturers and co-packers</span></div>
+        <div><b>Alcohol-free</b><span>The elixir line launches alcohol-free</span></div>
+        <div><b>Sourcing</b><span>No endangered plants such as wild white sage or palo santo</span></div>
+        <div><b>Packaging</b><span>Glass and refillable formats where possible</span></div>
+      </div>
+      <p class="note">We'll describe these products by taste, scent and ritual, not by health benefits. All wording will be reviewed against food and cosmetic regulations before launch.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="channels" data-t="Where it lives">
+  <div class="wrap">
+    <p class="lab">Where it lives</p>
+    <h2>Close to the community first.</h2>
+    <div class="rows">
+      <div class="row"><h3>The COSMOTION elixir bar</h3><p>An alcohol-free bar at our own gatherings: the first place to taste the line.</p><span class="tag prop">Proposed</span></div>
+      <div class="row"><h3>Limited online drops</h3><p>Small batches announced to the email list and community chat first.</p><span class="tag prop">Proposed</span></div>
+      <div class="row"><h3>Festival and retreat pop-ups</h3><p>An apothecary pop-up at the gatherings and places that inspire the line.</p><span class="tag prop">Proposed</span></div>
+      <div class="row"><h3>Venues, cafés and boutiques</h3><p>A small number of bars, wellness spaces and concept stores that share the spirit.</p><span class="tag prop">Targets, not partners</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="why" data-t="Why COSMOTION">
+  <div class="wrap">
+    <p class="lab">Why COSMOTION</p>
+    <h2>The community already exists.</h2>
+    <div class="proof">
+      <div><b>2015</b><span>first gathering</span></div>
+      <div><b>100+</b><span>events produced</span></div>
+      <div><b>~15k</b><span>community list</span></div>
+      <div><b>2</b><span>venue launches</span></div>
+    </div>
+    <p class="mute">A decade of producing rooms people come back to, from the music to the bar to the atmosphere. Potions starts with an audience that already gathers with us, and sits beside <a href="cosmonos.html">COSMONOS</a>, our proposed line of silk kimonos.</p>
+    <span class="tag est">Established</span>
+  </div>
+</section>
+
+<section class="slide" id="roadmap" data-t="Roadmap">
+  <div class="wrap">
+    <p class="lab">Roadmap</p>
+    <h2>From recipe to ritual.</h2>
+    <div class="road">
+      <div><i>I</i><h3>Formulate</h3><p>Develop the three blends with a formulator and perfumer.</p></div>
+      <div><i>II</i><h3>Test</h3><p>Small tastings with the community; refine recipes, labels and compliance.</p></div>
+      <div><i>III</i><h3>First pour</h3><p>An elixir bar pilot at COSMOTION gatherings, with a first online drop.</p></div>
+      <div><i>IV</i><h3>Expand</h3><p>Tonics, ceremonial blends and scents; pop-ups and select stockists.</p></div>
+    </div>
+    <p class="mute" style="margin-top:30px;font-size:15px">Phases are proposed; timing depends on partners and funding.</p>
+  </div>
+</section>
+
+<section class="slide" id="join" data-t="Collaborate">
+  <div class="wrap">
+    <p class="lab">Who we're looking for</p>
+    <h2>Build it with us.</h2>
+    <div class="asks">
+      <div class="ask"><h3>Investors</h3><p>Early support to fund formulation, testing and the first small batch.</p></div>
+      <div class="ask"><h3>Formulators</h3><p>Beverage developers, herbalists and perfumers to build the blends.</p></div>
+      <div class="ask"><h3>Manufacturers</h3><p>Co-packers and makers experienced in small, high-quality runs.</p></div>
+      <div class="ask"><h3>Designers</h3><p>Packaging and label designers, glassmakers and artists.</p></div>
+      <div class="ask"><h3>Venues and retailers</h3><p>Bars, cafés, wellness spaces and boutiques that share the spirit.</p></div>
+      <div class="ask"><h3>Collaborators</h3><p>Festivals, retreats and brands for pop-ups and shared moments.</p></div>
+    </div>
+    <p class="ph">To add: funding ask, use of funds and target timeline.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center"><a class="btn solid" href="mailto:cosmotionevents@gmail.com?subject=COSMOTION%20Potions%20collaboration">Start a conversation</a><span class="mute">cosmotionevents@gmail.com</span><a class="btn" href="index.html#connect">Contact form</a></div>
+    <p class="it" style="font-size:24px;color:var(--gold);margin-top:40px">Individual expression. Collective connection.</p>
+  </div>
+</section>
+</main>
+
+<script>
+{
+const TAU=Math.PI*2;
+/* ===== Access gate (keeps casual visitors out; not real security) ===== */
+const unlock=()=>{document.body.classList.remove('locked');try{sessionStorage.setItem('cmx','1')}catch(_){}};
+try{if(sessionStorage.getItem('cmx')==='1')unlock()}catch(_){}
+document.getElementById('gform').addEventListener('submit',e=>{e.preventDefault();const v=document.getElementById('gcode').value.trim().toUpperCase();if(v==='COSMO'){unlock();window.scrollTo(0,0)}else{document.getElementById('gmsg').textContent='That code isn’t right.'}});
+
+/* ===== Data ===== */
+const PH=[
+ ['Elevate the ritual.','Every pour, cup and spray is a small ceremony: a moment to slow down and tune in.','sun'],
+ ['Ancient botanicals, modern craft.','Cacao, rose, resin and citrus: ingredients people have gathered around for thousands of years.','tri'],
+ ['Presence over excess.','Alcohol-free first. Made to keep you clear, connected and in the moment.','rings'],
+ ['Beyond the dance floor.','For the gathering, the journey home and the slow morning after.','wave'],
+ ['Timeless over trendy.','No fads and no miracle promises. Real ingredients, honestly described.','dia'],
+ ['We are all made of cosmos.','The idea at the heart of COSMOTION, now something you can taste and carry.','star']];
+const BL=[
+ {f:'111',n:'Ground',mood:'Warm, earthy, steady',sw:'#6b3a22',liq:['#8a4c2a','#2e160b'],acc:'#e0a868',g:'tri'},
+ {f:'432',n:'Flow',mood:'Floral, bright, open',sw:'#b44a62',liq:['#d0607a','#5e1a2e'],acc:'#f2bcc6',g:'wave'},
+ {f:'528',n:'Glow',mood:'Citrus, radiant, awake',sw:'#d9a640',liq:['#f0c75a','#a5601a'],acc:'#f8e6a8',g:'sun'}];
+const LINES=[
+ {id:'elixir',name:'Elixirs',one:'Elixir',kind:'Sparkling botanical drinks',d:'Alcohol-free sparkling drinks for the gathering: something beautiful to hold that keeps you present.',notes:['Cacao husk, cinnamon, smoked vanilla','Hibiscus, rose, pink peppercorn','Yuzu, ginger, golden citrus']},
+ {id:'tonic',name:'Tonics',one:'Tonic',kind:'Small-batch ritual shots',d:'A small glass vial for the slow start: a concentrated, flavorful morning ritual after a long night.',notes:['Turmeric, black pepper, cacao','Beet, rose hip, tart cherry','Ginger, lemon, sea buckthorn']},
+ {id:'ceremonial',name:'Ceremonial',one:'Ceremonial',kind:'Cacao and tea blends',d:'Blends to prepare by hand: ceremonial-style cacao and loose tea for opening a circle or a quiet evening.',notes:['Cacao, chili, cinnamon','Rose, tulsi, hibiscus tea','Lemongrass, chamomile, orange peel tea']},
+ {id:'scent',name:'Scents',one:'Scent',kind:'Oils, mists and incense',d:'Aromatic blends for the body and the room, so a gathering leaves a memory you can return to.',notes:['Cedar, vetiver, amber','Rose, oud, pink pepper','Neroli, bergamot, frankincense']}];
+let sel={l:0,b:1};
+
+/* ===== Seeded random ===== */
+let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+
+/* ===== Bottle render ===== */
+const SH={
+ elixir:{p:'M136 40 H164 V118 Q164 148 194 170 Q208 182 208 202 V384 Q208 398 194 398 H106 Q92 398 92 384 V202 Q92 182 106 170 Q136 148 136 118 Z',cap:'<rect x="131" y="22" width="38" height="24" rx="3"/>',lvl:150,lab:[104,232,92,120]},
+ tonic:{p:'M132 168 H168 V182 Q196 188 196 212 V384 Q196 398 182 398 H118 Q104 398 104 384 V212 Q104 188 132 182 Z',cap:'<rect x="128" y="130" width="44" height="42" rx="6"/>',lvl:204,lab:[114,244,72,114],cork:1},
+ ceremonial:{p:'M88 196 H212 Q232 196 232 218 V378 Q232 398 212 398 H88 Q68 398 68 378 V218 Q68 196 88 196 Z',cap:'<rect x="74" y="160" width="152" height="40" rx="8"/><rect x="74" y="188" width="152" height="4" fill="#000" opacity=".25"/>',lvl:196,lab:[92,242,116,112],opaque:1},
+ scent:{p:'M140 178 H160 V198 H198 Q236 198 236 240 V358 Q236 398 196 398 H104 Q64 398 64 358 V240 Q64 198 102 198 H140 Z',cap:'<rect x="126" y="112" width="48" height="70" rx="6"/><rect x="132" y="112" width="6" height="70" fill="#fff" opacity=".25"/>',lvl:232,lab:[94,252,112,108]}};
+const GL={tri:(x,y)=>`<path d="M${x} ${y-7} L${x+7} ${y+5} L${x-7} ${y+5}Z"/>`,wave:(x,y)=>`<path d="M${x-8} ${y+2} q4 -6 8 0 t8 0"/><path d="M${x-8} ${y-3} q4 -6 8 0 t8 0" opacity=".6"/>`,sun:(x,y)=>`<circle cx="${x}" cy="${y}" r="4"/>${[0,1,2,3,4,5,6,7].map(i=>{const a=i/8*TAU;return `<line x1="${(x+Math.cos(a)*6).toFixed(1)}" y1="${(y+Math.sin(a)*6).toFixed(1)}" x2="${(x+Math.cos(a)*9).toFixed(1)}" y2="${(y+Math.sin(a)*9).toFixed(1)}"/>`}).join('')}`};
+function bottle(li,bi,uid){
+  const L=LINES[li],B=BL[bi],S=SH[L.id],id='p'+uid,[lx,ly,lw,lh]=S.lab,cx=lx+lw/2,fs=Math.min(22,lw/4.4).toFixed(1);seed=5+li*13+bi*7;
+  let bub='';
+  if(L.id==='elixir')for(let i=0;i<28;i++)bub+=`<circle cx="${(98+rnd()*104).toFixed(1)}" cy="${(160+rnd()*230).toFixed(1)}" r="${(rnd()*1.8+.6).toFixed(2)}" fill="none" stroke="#fff" stroke-opacity="${(.2+rnd()*.35).toFixed(2)}"/>`;
+  const capFill=S.cork?`url(#${id}k)`:`url(#${id}au)`;
+  const contents=S.opaque
+    ?`<rect width="300" height="420" fill="url(#${id}l)"/><g stroke="${B.acc}" stroke-opacity=".5" fill="none"><path d="M68 222 H232"/><path d="M68 372 H232"/></g>`
+    :`<rect width="300" height="420" fill="#fff" opacity=".04"/><rect y="${S.lvl}" width="300" height="${420-S.lvl}" fill="url(#${id}l)" opacity="${L.id==='scent'?.78:.94}"/><path d="M0 ${S.lvl} H300" stroke="${B.acc}" stroke-opacity=".7"/>${bub}`;
+  return `<defs><linearGradient id="${id}l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${B.liq[0]}"/><stop offset="1" stop-color="${B.liq[1]}"/></linearGradient>
+  <linearGradient id="${id}au" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f7442"/><stop offset=".45" stop-color="#e6cc93"/><stop offset="1" stop-color="#7d6438"/></linearGradient>
+  <linearGradient id="${id}k" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7a5a3a"/><stop offset=".5" stop-color="#c49a6a"/><stop offset="1" stop-color="#6a4c30"/></linearGradient>
+  <linearGradient id="${id}sh" x1="0" y1="0" x2="1" y2="0"><stop offset=".08" stop-color="#fff" stop-opacity="0"/><stop offset=".3" stop-color="#fff" stop-opacity=".28"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset=".74" stop-color="#fff" stop-opacity=".1"/><stop offset=".82" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <clipPath id="${id}c"><path d="${S.p}"/></clipPath></defs>
+  <ellipse cx="150" cy="402" rx="${L.id==='tonic'?62:96}" ry="7" fill="#000" opacity=".5"/>
+  <g clip-path="url(#${id}c)">${contents}<rect width="300" height="420" fill="url(#${id}sh)"/></g>
+  <path d="${S.p}" fill="none" stroke="#fff" stroke-opacity="${S.opaque?.18:.4}"/>
+  <g fill="${capFill}">${S.cap}</g>
+  <g><rect x="${lx}" y="${ly}" width="${lw}" height="${lh}" fill="#0d0b14"/><rect x="${lx+4}" y="${ly+4}" width="${lw-8}" height="${lh-8}" fill="none" stroke="#c9a86a" stroke-opacity=".7" stroke-width=".8"/>
+  <g fill="none" stroke="#c9a86a" stroke-width="1">${GL[B.g](cx,ly+22)}</g>
+  <text x="${cx}" y="${ly+44}" text-anchor="middle" font-family="Oswald,sans-serif" font-size="6.5" letter-spacing="2.2" fill="#c9a86a">COSMOTION</text>
+  <text x="${cx}" y="${ly+70}" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="${fs}" fill="#f1ece2">${B.n}</text>
+  <text x="${cx}" y="${ly+88}" text-anchor="middle" font-family="Oswald,sans-serif" font-size="8" letter-spacing="2" fill="#c9a86a">N° ${B.f}</text>
+  <text x="${cx}" y="${ly+lh-12}" text-anchor="middle" font-family="Oswald,sans-serif" font-size="5.5" letter-spacing="2" fill="#a39cae">${L.one.toUpperCase()}</text></g>`;
+}
+const place=(li,bi,cx,s,uid,base=436)=>`<g transform="translate(${(cx-150*s).toFixed(1)} ${(base-402*s).toFixed(1)}) scale(${s})">${bottle(li,bi,uid)}</g>`;
+
+/* ===== Cover ===== */
+{let h='';for(let i=0;i<180;i++){const a=i/180*TAU,l=i%15===0?18:i%5===0?10:5;h+=`<line x1="${(500+Math.cos(a)*470).toFixed(1)}" y1="${(500+Math.sin(a)*470).toFixed(1)}" x2="${(500+Math.cos(a)*(470-l)).toFixed(1)}" y2="${(500+Math.sin(a)*(470-l)).toFixed(1)}" stroke="#c9a86a" stroke-opacity=".5"/>`}
+document.getElementById('halo').innerHTML=`<g fill="none"><circle cx="500" cy="500" r="470" stroke="#c9a86a" stroke-opacity=".35"/><circle cx="500" cy="500" r="420" stroke="#9d8fe0" stroke-opacity=".25"/><circle cx="500" cy="500" r="300" stroke="#9d8fe0" stroke-opacity=".14"/></g>${h}`;
+document.getElementById('trio').innerHTML=place(0,0,250,.92,'t0')+place(0,1,400,1.02,'t1')+place(0,2,550,.92,'t2');}
+
+/* ===== Philosophy ===== */
+const PG={sun:'<circle cx="17" cy="17" r="8"/><circle cx="17" cy="17" r="2" fill="currentColor"/><path d="M17 2v5M17 27v5M2 17h5M27 17h5"/>',rings:'<circle cx="13" cy="17" r="9"/><circle cx="21" cy="17" r="9"/>',tri:'<path d="M17 4l13 24H4z"/><path d="M10 19h14"/>',wave:'<path d="M3 22a7 7 0 0 1 14 0a7 7 0 0 1 14 0M3 14a7 7 0 0 1 14 0a7 7 0 0 1 14 0"/>',dia:'<path d="M17 3l14 14-14 14L3 17z"/><path d="M3 17h28"/>',star:'<path d="M17 3v28M3 17h28M7 7l20 20M27 7L7 27"/><circle cx="17" cy="17" r="4"/>'};
+document.getElementById('phil').innerHTML=PH.map(p=>`<div><svg class="g" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">${PG[p[2]]}</svg><div><h3>${p[0]}</h3><p style="margin-top:10px">${p[1]}</p></div></div>`).join('');
+
+/* ===== Line cards ===== */
+document.getElementById('cols').innerHTML=LINES.map((L,i)=>`<button class="col" type="button" data-l="${i}"><div class="art"><svg viewBox="0 0 300 420" aria-hidden="true">${bottle(i,[1,0,0,2][i],'c'+i)}</svg></div><div class="t"><b>${L.kind}</b><h3>${L.name}</h3><p>${L.d}</p></div></button>`).join('');
+document.getElementById('cols').addEventListener('click',e=>{const b=e.target.closest('.col');if(!b)return;sel.l=+b.dataset.l;draw();document.getElementById('apothecary').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+
+/* ===== Blends ===== */
+document.getElementById('blendrows').innerHTML=BL.map((B,i)=>`<div style="border-top:2px solid ${B.sw}"><b>N° ${B.f}</b><h3>${B.n}</h3><p>${B.mood}.</p><p style="font-size:14px">${LINES.map(L=>`<span style="color:var(--ink)">${L.one}</span> · ${L.notes[i]}`).join('<br>')}</p></div>`).join('');
+
+/* ===== Viewer ===== */
+const pl=document.getElementById('plines');pl.innerHTML=LINES.map((L,i)=>`<button type="button" data-l="${i}">${L.name}</button>`).join('');
+pl.addEventListener('click',e=>{const b=e.target.closest('button');if(b){sel.l=+b.dataset.l;draw()}});
+const pb2=document.getElementById('pbl');pb2.innerHTML=BL.map((B,i)=>`<button type="button" data-b="${i}"><i style="background:${B.sw}"></i>${B.f} · ${B.n}</button>`).join('');
+pb2.addEventListener('click',e=>{const b=e.target.closest('button');if(b){sel.b=+b.dataset.b;draw();if(hear.getAttribute('aria-pressed')==='true')tone(true)}});
+function draw(){const L=LINES[sel.l],B=BL[sel.b];
+  document.getElementById('pv').innerHTML=bottle(sel.l,sel.b,'v');
+  document.getElementById('pname').textContent=B.f+' · '+B.n;
+  document.getElementById('pdesc').textContent=L.name+': '+L.d;
+  document.getElementById('pnotes').textContent=L.notes[sel.b];
+  document.getElementById('pmood').textContent=B.mood;
+  document.getElementById('pcap').textContent='Conceptual render · '+L.one+' · '+B.n;
+  pl.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',i===sel.l));
+  pb2.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',i===sel.b));
+  hear.textContent=(hear.getAttribute('aria-pressed')==='true'?'Stop ':'Hear ')+B.f+' tone';}
+
+/* ===== Tone (gentle generated drone at the blend's frequency) ===== */
+const hear=document.getElementById('hear');let ac,nodes=null;
+function stopTone(){if(!nodes)return;const t=ac.currentTime;nodes.g.gain.cancelScheduledValues(t);nodes.g.gain.setTargetAtTime(0,t,.3);const n=nodes;setTimeout(()=>{n.o.forEach(o=>o.stop())},1500);nodes=null}
+function tone(restart){if(nodes)stopTone();if(!restart&&hear.getAttribute('aria-pressed')!=='true')return;
+  ac=ac||new (window.AudioContext||window.webkitAudioContext)();ac.resume();const f=+BL[sel.b].f,g=ac.createGain();g.gain.value=0;g.connect(ac.destination);
+  const o=[f,f*1.5,f/2].map((fr,i)=>{const x=ac.createOscillator(),v=ac.createGain();x.type='sine';x.frequency.value=fr;v.gain.value=[.5,.12,.3][i];x.connect(v);v.connect(g);x.start();return x});
+  g.gain.setTargetAtTime(.08,ac.currentTime,.8);nodes={o,g}}
+hear.addEventListener('click',()=>{const on=hear.getAttribute('aria-pressed')!=='true';hear.setAttribute('aria-pressed',on);if(on)tone(true);else stopTone();draw()});
+draw();
+
+/* ===== Lookbook scenes ===== */
+const SC=[
+ {cls:'s1',t:'The elixir bar, sunset',sub:'Elixirs · all three',bg:'linear-gradient(#e2a670 0%,#a85a48 44%,#3a1c22 45%,#1a0e14 100%)',b:[[0,0,250,.9],[0,1,400,1],[0,2,550,.9]],extra:'<circle cx="18%" cy="30%" r="34" fill="#f6dfb0" opacity=".85"/>'},
+ {cls:'s2',t:'Opening the circle',sub:'Ceremonial · Scent · Ground',bg:'radial-gradient(ellipse at 50% 70%,#4a2a1a,#140c0a 70%)',b:[[2,0,330,.95],[3,0,530,.8]],extra:'<rect x="78%" y="38%" width="10" height="26%" fill="#efe2c4"/><ellipse cx="78.6%" cy="34%" rx="5" ry="10" fill="#f6c46a"/><circle cx="78.6%" cy="34%" r="60" fill="#f6c46a" opacity=".12"/>'},
+ {cls:'s3',t:'The slow morning',sub:'Tonics · all three',bg:'linear-gradient(160deg,#f4eee4,#d9cfbf)',b:[[1,2,300,.95],[1,1,400,.95],[1,0,500,.95]],extra:'<rect x="62%" y="0" width="20%" height="100%" fill="#fff" opacity=".35"/><rect x="0" y="80%" width="100%" height="20%" fill="#cbbfae"/>',dark:1},
+ {cls:'s4',t:'The room remembers',sub:'Scents · Flow · Glow',bg:'linear-gradient(110deg,#120d22,#2a1d4a 60%,#4a3470)',b:[[3,1,320,.95],[3,2,500,.85]],extra:'<path d="M66% 66% C 60% 50%, 72% 40%, 64% 22% S 70% 6%, 66% 0" fill="none" stroke="#d8d0f0" stroke-opacity=".35" stroke-width="2"/>'}];
+document.getElementById('look').innerHTML=SC.map((s,i)=>`<figure class="scene ${s.cls}" style="background:${s.bg}"><svg width="100%" height="100%" style="position:absolute;inset:0" aria-hidden="true">${s.extra}</svg><svg class="k" viewBox="0 0 800 440" preserveAspectRatio="xMidYMax meet" role="img" aria-label="${s.sub}, ${s.t}">${s.b.map((b,j)=>place(b[0],b[1],b[2],b[3],'l'+i+j)).join('')}</svg><figcaption class="c" style="color:${s.dark?'#2a2520':'#f1ece2'}"><span>${s.t}</span><span>${s.sub}</span></figcaption></figure>`).join('');
+
+/* ===== Slides: dots, counter, present mode ===== */
+const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('dots'),count=document.getElementById('count');
+dots.innerHTML=slides.map(s=>`<a href="#${s.id}" aria-label="${s.dataset.t}" title="${s.dataset.t}"></a>`).join('');
+let cur=0;
+const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){cur=slides.indexOf(e.target);dots.querySelectorAll('a').forEach((a,i)=>a.classList.toggle('on',i===cur));count.textContent=String(cur+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')}},{threshold:.55});
+slides.forEach(s=>io.observe(s));
+const go=i=>{i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:'smooth'})};
+const pb=document.getElementById('present');
+pb.addEventListener('click',()=>{const on=document.documentElement.classList.toggle('present');pb.setAttribute('aria-pressed',on);pb.textContent=on?'Exit present':'Present';if(on)go(cur)});
+document.addEventListener('keydown',e=>{if(!document.documentElement.classList.contains('present')||document.body.classList.contains('locked'))return;if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(cur+1)}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}if(e.key==='Escape')pb.click()});
+}
+</script>
+</body>
+</html>
